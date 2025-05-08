@@ -7,6 +7,7 @@ import type {
   ShippingFee,
   ShippingOptionValue,
 } from "./types";
+import type { MaskOptions } from "@react-input/mask";
 
 export function currencyFormatter(value: number): string {
   const formatter = Intl.NumberFormat("hu", {
@@ -43,32 +44,7 @@ export function formatShippingFee(shippingFee: ShippingFee) {
   return `+${shippingFee}`;
 }
 
-export function formatPhoneNumber(phoneNumber: string) {
-  if (!phoneNumber) {
-    return "";
-  }
-
-  const cleaned = phoneNumber.replace(/[^\d+]/g, "");
-
-  let formatted = cleaned;
-
-  if (cleaned.startsWith("+36")) {
-    // Start formatting from +36
-    if (cleaned.length > 3) {
-      formatted = `${cleaned.slice(0, 3)} ${cleaned.slice(3)}`;
-    }
-    if (cleaned.length > 5) {
-      formatted = `${cleaned.slice(0, 3)} ${cleaned.slice(3, 5)} ${cleaned.slice(5)}`;
-    }
-    if (cleaned.length > 8) {
-      formatted = `${cleaned.slice(0, 3)} ${cleaned.slice(3, 5)} ${cleaned.slice(5, 8)} ${cleaned.slice(8)}`;
-    }
-  }
-
-  return formatted;
-}
-
-export const parsePhoneNumber = (phoneNumber: string) => {
+export const unformatPhoneNumber = (phoneNumber: string) => {
   return phoneNumber.replaceAll(" ", "");
 };
 
@@ -95,4 +71,9 @@ export const paymentModePrismaMap: Record<
   "Átvételkor készpénzel": "Cash",
   Előreutalással: "Transfer",
   "Átvételkor bankártyával": "Card",
+};
+
+export const maskOptions: MaskOptions = {
+  mask: "*__ __ ___ ____",
+  replacement: { _: /\d/, "*": /[+]/ },
 };

@@ -1,7 +1,7 @@
 import { z } from "zod";
-
-import { formatPhoneNumber } from "./formatters";
 import type { WithImageAsset } from "./types";
+
+import { unformatPhoneNumber } from "./formatters";
 
 export const cartItemValidationSchema = z.object({
   _id: z.string().min(1, "Hiányzó termék azonosító."),
@@ -31,12 +31,16 @@ export const orderFormSchema = [
       lastName: z.string().min(1, "Kötelező mező"),
       phoneNumber: z
         .string()
-        .min(1, "Kötelező mező")
-        .regex(
-          /^(\+36)(20|30|31|70|50|51)\d{7}$/,
-          `Érvényes magyar telefonszámnak kell lennie +36 formátumban pl.: ${formatPhoneNumber("+36201234567")}`,
+        .transform((val) => unformatPhoneNumber(val))
+        .pipe(
+          z
+            .string()
+            .min(1, "Kötelező mező")
+            .regex(
+              /^(\+36)(20|30|31|70|50|51)\d{7}$/,
+              "Érvényes magyar telefonszámnak kell lennie +36 formátumban pl.: +36 20 123 4567",
+            ),
         ),
-
       shippingOption: z.enum(
         ["Személyes átvétel", "Postai szállítás", "Foxpost automatába"],
         { message: "Kérlek válassz egy szállítási módot!" },

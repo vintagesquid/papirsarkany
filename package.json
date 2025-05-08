@@ -23,6 +23,7 @@
   "dependencies": {
     "@hookform/resolvers": "~4.0.0",
     "@prisma/client": "^6.5.0",
+    "@react-input/mask": "^2.0.4",
     "@sanity/client": "^7.0.0",
     "@sanity/image-url": "^1.1.0",
     "@sanity/locale-hu-hu": "^1.1.18",

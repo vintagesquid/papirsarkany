@@ -9,7 +9,6 @@ import {
   FOXPOST_SHIPPING_FEE,
   LOCAL_PICKUP_ADDRESS,
 } from "~/lib/constants";
-import { parsePhoneNumber } from "~/lib/formatters";
 import { getTotalPackageInfo, isFitInMaxLimit } from "~/lib/foxpost";
 import type { OrderForm } from "~/lib/validation-schemas";
 import { useCartStore } from "~/store/use-cart-store";
@@ -131,9 +130,7 @@ const CheckoutShippingForm: FC = () => {
             </label>
             <FormattedPhoneNumberInput
               id="phoneNumber"
-              {...register("phoneNumber", {
-                setValueAs: (value: string) => parsePhoneNumber(value),
-              })}
+              {...register("phoneNumber")}
             />
             <label className="d-label" htmlFor="phoneNumber">
               <span className="d-label-text-alt text-error">
