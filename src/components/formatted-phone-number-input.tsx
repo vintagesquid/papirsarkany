@@ -1,8 +1,8 @@
 "use client";
 
-import type { FC } from "react";
-import { useFormContext, type UseFormRegisterReturn } from "react-hook-form";
 import { InputMask } from "@react-input/mask";
+import type { FC } from "react";
+import { type UseFormRegisterReturn, useFormContext } from "react-hook-form";
 import { maskOptions } from "~/lib/formatters";
 
 type PhoneNumberInputProps = UseFormRegisterReturn & {
