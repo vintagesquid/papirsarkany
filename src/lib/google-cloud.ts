@@ -24,7 +24,7 @@ export async function getGoogleMapsRating(): Promise<GooglePlacesResponse> {
         "X-Goog-FieldMask": fieldMask.join(","),
       },
       next: {
-        revalidate: 86400,
+        revalidate: 3600, // 1 hour
       },
     },
   );
