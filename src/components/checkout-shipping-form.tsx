@@ -17,6 +17,10 @@ import FoxpostMap from "./foxpost-map";
 import LazyLoadFramerMotion from "./lazy-load-framer-motion";
 import ShippingOptionRadioInput from "./shipping-option-radio-input";
 
+import FoxpostLogo from "../../public/foxpost_logo.webp";
+import LocalPickUpIcon from "../../public/local-pick-up.svg?url";
+import ShippingWithPost from "../../public/shipping-with-post-logo.svg?url";
+
 const CheckoutShippingForm: FC = () => {
   const {
     register,
@@ -143,6 +147,7 @@ const CheckoutShippingForm: FC = () => {
             label={"Személyes átvétel"}
             onClick={onPersonalPickupOptionClick}
             value="Személyes átvétel"
+            icon={LocalPickUpIcon}
           />
           <ShippingOptionRadioInput
             label={
@@ -160,6 +165,7 @@ const CheckoutShippingForm: FC = () => {
             shippingFee={FOXPOST_SHIPPING_FEE}
             onClick={onFoxpostOptionClick}
             value="Foxpost automatába"
+            icon={FoxpostLogo}
             isDisabled={!isFitInFoxpostLimit}
           />
         </div>
@@ -181,6 +187,11 @@ const CheckoutShippingForm: FC = () => {
                     transitionTimingFunction: "ease-in",
                   }}
                 >
+                  {errors.foxpostOperator && (
+                    <div className="text-error">
+                      {errors.foxpostOperator?.message}
+                    </div>
+                  )}
                   <FoxpostMap hideMap={() => setIsShowFoxpostMap(false)} />
                 </m.div>
               )}
@@ -192,6 +203,7 @@ const CheckoutShippingForm: FC = () => {
             value="Postai szállítás"
             onClick={onPostOptionClick}
             shippingFee={"szállítási költség"}
+            icon={ShippingWithPost}
           />
           <span className="text-error">{errors.shippingOption?.message}</span>
           {watch("shippingOption") === "Postai szállítás" && (

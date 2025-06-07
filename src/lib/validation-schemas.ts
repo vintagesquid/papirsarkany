@@ -46,10 +46,12 @@ export const orderFormSchema = [
         { message: "Kérlek válassz egy szállítási módot!" },
       ),
 
-      shippingPostcode: z.string().optional(),
+      shippingPostcode: z.string().optional(), // validation handled in superRefine
       shippingCity: z.string().optional(),
       shippingAddress: z.string().optional(),
       shippingSubaddress: z.string().optional(),
+
+      foxpostOperator: z.string().optional(),
     })
     .superRefine((val, ctx) => {
       if (
@@ -57,34 +59,46 @@ export const orderFormSchema = [
         (!val.shippingPostcode || !val.shippingCity || !val.shippingAddress)
       ) {
         ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          path: ["shippingOption"],
+          code: z.ZodIssueCode.too_small,
+          path: ["foxpostOperator"],
+          minimum: 1,
           message: "Kérlek válassz egy automatát",
+          inclusive: false,
+          type: "string",
         });
       }
 
       if (val.shippingOption === "Postai szállítás") {
         if (!val.shippingPostcode) {
           ctx.addIssue({
-            code: z.ZodIssueCode.custom,
+            code: z.ZodIssueCode.too_small,
             path: ["shippingPostcode"],
+            minimum: 1,
             message: "Kötelező mező",
+            inclusive: false,
+            type: "string",
           });
         }
 
         if (!val.shippingCity) {
           ctx.addIssue({
-            code: z.ZodIssueCode.custom,
+            code: z.ZodIssueCode.too_small,
             path: ["shippingCity"],
+            minimum: 1,
             message: "Kötelező mező",
+            inclusive: false,
+            type: "string",
           });
         }
 
         if (!val.shippingAddress) {
           ctx.addIssue({
-            code: z.ZodIssueCode.custom,
+            code: z.ZodIssueCode.too_small,
             path: ["shippingAddress"],
+            minimum: 1,
             message: "Kötelező mező",
+            inclusive: false,
+            type: "string",
           });
         }
 

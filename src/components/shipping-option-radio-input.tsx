@@ -1,5 +1,6 @@
 "use client";
 
+import Image, { type ImageProps } from "next/image";
 import type { MouseEventHandler, ReactNode } from "react";
 import { useFormContext } from "react-hook-form";
 
@@ -14,6 +15,7 @@ type ShippingOptionRadioInputProps = {
   value: ShippingOptionValue;
   isDisabled?: boolean;
   missingShippingInfoErrorMessage?: string;
+  icon: ImageProps["src"];
   onClick?: MouseEventHandler<HTMLInputElement>;
 };
 
@@ -23,6 +25,7 @@ export default function ShippingOptionRadioInput({
   shippingFee,
   label,
   value,
+  icon,
   missingShippingInfoErrorMessage = "Hiányzó szállítási cím információk.",
 }: ShippingOptionRadioInputProps) {
   const {
@@ -62,7 +65,11 @@ export default function ShippingOptionRadioInput({
           disabled={isDisabled}
           onClick={onInputClick}
         />
-        <span className="font-bold text-lg">{label}</span>
+        <div className="flex items-center gap-2">
+          <Image src={icon} alt={`${label} logo`} width={24} height={24} />
+
+          <span className="font-bold text-lg">{label}</span>
+        </div>
         {shippingFee && (
           <span className="flex-1 text-right font-bold text-lg">
             {formatShippingFee(shippingFee)}
