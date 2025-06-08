@@ -188,7 +188,7 @@ const CheckoutShippingForm: FC = () => {
                   }}
                 >
                   {errors.shippingCity && (
-                    <div className="text-error">
+                    <div className="text-error" ref={register('shippingCity').ref}>
                       {errors.shippingCity?.message}
                     </div>
                   )}
