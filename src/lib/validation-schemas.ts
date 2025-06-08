@@ -50,8 +50,6 @@ export const orderFormSchema = [
       shippingCity: z.string().optional(),
       shippingAddress: z.string().optional(),
       shippingSubaddress: z.string().optional(),
-
-      foxpostOperator: z.string().optional(),
     })
     .superRefine((val, ctx) => {
       if (
@@ -60,7 +58,7 @@ export const orderFormSchema = [
       ) {
         ctx.addIssue({
           code: z.ZodIssueCode.too_small,
-          path: ["foxpostOperator"],
+          path: ["shippingCity"],
           minimum: 1,
           message: "Kérlek válassz egy automatát",
           inclusive: false,

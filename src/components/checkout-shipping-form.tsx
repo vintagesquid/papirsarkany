@@ -187,9 +187,9 @@ const CheckoutShippingForm: FC = () => {
                     transitionTimingFunction: "ease-in",
                   }}
                 >
-                  {errors.foxpostOperator && (
+                  {errors.shippingCity && (
                     <div className="text-error">
-                      {errors.foxpostOperator?.message}
+                      {errors.shippingCity?.message}
                     </div>
                   )}
                   <FoxpostMap hideMap={() => setIsShowFoxpostMap(false)} />

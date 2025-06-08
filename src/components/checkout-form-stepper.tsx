@@ -3,7 +3,12 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { redirect, useRouter } from "next/navigation";
 import { Children, type FC, type ReactNode } from "react";
-import { FormProvider, useForm } from "react-hook-form";
+import {
+  FormProvider,
+  useForm,
+  type SubmitErrorHandler,
+  type SubmitHandler,
+} from "react-hook-form";
 
 import { useOrder } from "~/hooks/use-order";
 import { type OrderForm, orderFormSchema } from "~/lib/validation-schemas";
@@ -45,7 +50,7 @@ const CheckoutFormStepper: FC<CheckoutStepperProps> = ({ children }) => {
     reset,
   } = formMethods;
 
-  const onSubmit = async (data: OrderForm) => {
+  const onSubmit: SubmitHandler<OrderForm> = async (data) => {
     if (isSubmitting) {
       return;
     }
@@ -74,6 +79,28 @@ const CheckoutFormStepper: FC<CheckoutStepperProps> = ({ children }) => {
     }
   };
 
+  const onInvalid: SubmitErrorHandler<OrderForm> = (errors) => {
+    for (const key in errors) {
+      if (Object.prototype.hasOwnProperty.call(errors, key)) {
+        const element = errors[key as keyof typeof errors];
+
+        if (!element) {
+          return;
+        }
+
+        // implement scroll to errors with non <input /> fields (e.g.: FoxpostMap)
+        if (element.ref instanceof HTMLElement) {
+          if (element.ref.tagName !== "INPUT") {
+            element.ref.scrollIntoView?.({
+              behavior: "instant",
+              block: "center",
+            });
+          }
+        }
+      }
+    }
+  };
+
   const resetFormStores = (): Promise<void> => {
     return new Promise((resolve) => {
       resetCart();
@@ -97,7 +124,10 @@ const CheckoutFormStepper: FC<CheckoutStepperProps> = ({ children }) => {
     >
       <FormProvider {...formMethods}>
         <form
-          onSubmit={handleSubmit(async (data) => await onSubmit(data))}
+          onSubmit={handleSubmit(
+            async (data) => await onSubmit(data),
+            onInvalid,
+          )}
           className="space-y-4 [&>h2]:py-2"
         >
           <div className="mx-auto max-w-(--breakpoint-md)">
