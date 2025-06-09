@@ -6,10 +6,31 @@ import { getAllKites, getKiteBySlug } from "~/lib/cms";
 import { MISSING_IMG_URL, NO_NAME } from "~/lib/constants";
 import { currencyFormatter } from "~/lib/formatters";
 import { getPositionFromHotspot } from "~/lib/sanity-image";
+import type { Metadata } from "next";
 
 type Params = {
   slug: string;
 };
+
+export async function generateMetadata({
+  params,
+}: { params: Promise<Params> }): Promise<Metadata | null> {
+  const { slug } = await params;
+
+  const kite = await getKiteBySlug(slug);
+
+  if (!kite) {
+    return null;
+  }
+
+  return {
+    title: `${kite.name}`,
+    description: kite.description || `${kite.name} egyzsinóros sárkány`,
+    openGraph: {
+      images: kite.image?.asset?.url || undefined,
+    },
+  };
+}
 
 export async function generateStaticParams(): Promise<Partial<Params>[]> {
   const kites = await getAllKites();

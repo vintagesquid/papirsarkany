@@ -2,6 +2,11 @@ import KiteCard from "~/components/kite-card";
 import ProductContainer from "~/components/product-container";
 import { getAllKites } from "~/lib/cms";
 
+export const metadata = {
+  title: "Sárkányok",
+  description: "Magyarországon, kézzel készült minőségi papírsárkányok 1984-óta."
+}
+
 export default async function Kites() {
   const kites = await getAllKites();
 

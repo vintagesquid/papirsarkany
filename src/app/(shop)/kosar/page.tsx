@@ -1,6 +1,11 @@
 import CheckoutLink from "~/components/checkout-link";
 import OrderSummaryCard from "~/components/order-summary-card";
 
+export const metadata = {
+  title: "Kosár",
+  description: "Kosár"
+}
+
 export default function Cart() {
   return (
     <div className="container flex flex-col gap-4 p-8">
