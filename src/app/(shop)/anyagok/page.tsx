@@ -8,8 +8,9 @@ import { sanityProductCategoryTitleMap } from "~/lib/formatters";
 
 export const metadata = {
   title: "Anyagok",
-  description: "Sárkány készítéshez és eresztéshez szükséges anyagok, 1984-óta."
-}
+  description:
+    "Sárkány készítéshez és eresztéshez szükséges anyagok, 1984-óta.",
+};
 
 export default async function Materials() {
   const reels = await getAllReels();

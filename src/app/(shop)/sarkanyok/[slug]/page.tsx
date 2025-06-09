@@ -1,12 +1,12 @@
 import AddToCartButton from "~/components/add-to-cart-button";
 
+import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getAllKites, getKiteBySlug } from "~/lib/cms";
 import { MISSING_IMG_URL, NO_NAME } from "~/lib/constants";
 import { currencyFormatter } from "~/lib/formatters";
 import { getPositionFromHotspot } from "~/lib/sanity-image";
-import type { Metadata } from "next";
 
 type Params = {
   slug: string;

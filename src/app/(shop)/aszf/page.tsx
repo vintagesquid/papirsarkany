@@ -3,7 +3,7 @@ import Card from "~/components/card";
 
 export const metadata = {
   title: "Adatvédelmi Nyilatkozat és Felhasználási Feltételek",
-}
+};
 
 const TermsAndConditionsPage: FC = () => {
   return (

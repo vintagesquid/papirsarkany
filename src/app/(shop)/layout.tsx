@@ -16,7 +16,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: {
     template: "%s | papirsarkany.hu",
-    default: 'papirsarkany.hu | Papírsárkány, sárkány, anyagok',
+    default: "papirsarkany.hu | Papírsárkány, sárkány, anyagok",
   },
   description: "Papírsárkány árusítás 1984-óta.",
 };

@@ -3,8 +3,8 @@ import OrderSummaryCard from "~/components/order-summary-card";
 
 export const metadata = {
   title: "Kosár",
-  description: "Kosár"
-}
+  description: "Kosár",
+};
 
 export default function Cart() {
   return (

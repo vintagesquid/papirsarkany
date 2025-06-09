@@ -5,7 +5,7 @@ import CheckoutSummaryForm from "~/components/checkout-summary-form";
 
 export const metadata = {
   title: "Pénztár",
-  description: "Pénztár."
+  description: "Pénztár.",
 };
 
 export default function Checkout() {
