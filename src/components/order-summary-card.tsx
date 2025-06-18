@@ -53,7 +53,7 @@ const OrderSummaryCard: FC<OrderSummaryCardProps> = ({ layout = "full" }) => {
                       width={128}
                       height={128}
                       placeholder="blur"
-                      blurDataURL={item.image.asset?.metadata?.blurHash}
+                      blurDataURL={item.image.asset?.metadata?.lqip}
                       className="h-auto max-h-32 min-h-24 w-32 rounded-lg object-contain"
                     />
                   )}
@@ -123,7 +123,7 @@ const OrderSummaryCard: FC<OrderSummaryCardProps> = ({ layout = "full" }) => {
                   width={128}
                   height={128}
                   placeholder="blur"
-                  blurDataURL={item.image.asset?.metadata?.blurHash}
+                  blurDataURL={item.image.asset?.metadata?.lqip}
                   className="h-auto max-h-32 min-h-24 w-32 rounded-lg object-contain"
                 />
               )}
