@@ -7,7 +7,6 @@ import { getAllKites, getKiteBySlug } from "~/lib/cms";
 import { MISSING_IMG_URL, NO_NAME } from "~/lib/constants";
 import { currencyFormatter } from "~/lib/formatters";
 import { getPositionFromHotspot } from "~/lib/sanity-image";
-import Head from 'next/head';
 
 type Params = {
   slug: string;
@@ -48,14 +47,8 @@ export default async function Kite(props: { params: Promise<Params> }) {
   if (!kite) {
     notFound();
   }
-  
 
-  console.log({kite})
   return (
-    <>
-      <Head>
-        <link rel="preload" href={kite.image?.asset?.url || MISSING_IMG_URL} />
-      </Head>
     <div className="h-full space-y-8 p-8 md:flex md:gap-4 md:space-y-0">
       <div className="md:flex-3">
         {kite.image && (
@@ -113,6 +106,5 @@ export default async function Kite(props: { params: Promise<Params> }) {
         </div>
       </div>
     </div>
-    </>
   );
 }
