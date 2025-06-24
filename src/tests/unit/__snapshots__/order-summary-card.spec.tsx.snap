@@ -15,14 +15,14 @@ exports[`should render "definitive" layout when provided 1`] = `
           class="hidden shrink-0 min-[390px]:block"
         >
           <img
-            alt="Ördögfióka"
+            alt="Forgó szélzsák"
             class="h-auto max-h-32 min-h-24 w-32 rounded-lg object-contain"
             data-nimg="1"
             decoding="async"
             height="128"
             loading="lazy"
-            src="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs2hk1b39%2Fdevelop%2Fa659f9fef018cf839676e3c961eaea12d57205b4-800x600.webp&w=256&q=75"
-            srcset="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs2hk1b39%2Fdevelop%2Fa659f9fef018cf839676e3c961eaea12d57205b4-800x600.webp&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs2hk1b39%2Fdevelop%2Fa659f9fef018cf839676e3c961eaea12d57205b4-800x600.webp&w=256&q=75 2x"
+            src="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs2hk1b39%2Fdevelop%2F4b50a973dfec0f88256fc60bc60c8a546e33dea5-800x604.webp&w=256&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs2hk1b39%2Fdevelop%2F4b50a973dfec0f88256fc60bc60c8a546e33dea5-800x604.webp&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs2hk1b39%2Fdevelop%2F4b50a973dfec0f88256fc60bc60c8a546e33dea5-800x604.webp&w=256&q=75 2x"
             style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
             width="128"
           />
@@ -31,7 +31,7 @@ exports[`should render "definitive" layout when provided 1`] = `
           <h3
             class="font-bold"
           >
-            Ördögfióka
+            Forgó szélzsák
           </h3>
           <span
             class="font-normal text-gray-400 text-sm"
@@ -47,7 +47,7 @@ exports[`should render "definitive" layout when provided 1`] = `
         <h3
           class="font-bold"
         >
-          3 000 Ft
+          24 000 Ft
         </h3>
       </div>
     </div>
@@ -70,7 +70,7 @@ exports[`should render "definitive" layout when provided 1`] = `
         </span>
       </h3>
       <h3>
-        3 000 Ft
+        24 000 Ft
       </h3>
     </div>
   </div>
@@ -89,14 +89,14 @@ exports[`should render "full" layout by default 1`] = `
         class="flex gap-2"
       >
         <img
-          alt="Ördögfióka"
+          alt="Forgó szélzsák"
           class="h-auto max-h-32 min-h-24 w-32 rounded-lg object-contain"
           data-nimg="1"
           decoding="async"
           height="128"
           loading="lazy"
-          src="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs2hk1b39%2Fdevelop%2Fa659f9fef018cf839676e3c961eaea12d57205b4-800x600.webp&w=256&q=75"
-          srcset="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs2hk1b39%2Fdevelop%2Fa659f9fef018cf839676e3c961eaea12d57205b4-800x600.webp&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs2hk1b39%2Fdevelop%2Fa659f9fef018cf839676e3c961eaea12d57205b4-800x600.webp&w=256&q=75 2x"
+          src="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs2hk1b39%2Fdevelop%2F4b50a973dfec0f88256fc60bc60c8a546e33dea5-800x604.webp&w=256&q=75"
+          srcset="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs2hk1b39%2Fdevelop%2F4b50a973dfec0f88256fc60bc60c8a546e33dea5-800x604.webp&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs2hk1b39%2Fdevelop%2F4b50a973dfec0f88256fc60bc60c8a546e33dea5-800x604.webp&w=256&q=75 2x"
           style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
           width="128"
         />
@@ -104,12 +104,12 @@ exports[`should render "full" layout by default 1`] = `
           <h3
             class="font-bold"
           >
-            Ördögfióka
+            Forgó szélzsák
           </h3>
           <h4
             class="block font-bold md:hidden"
           >
-            3 000 Ft
+            24 000 Ft
           </h4>
         </div>
       </div>
@@ -119,7 +119,7 @@ exports[`should render "full" layout by default 1`] = `
         <h4
           class="font-bold"
         >
-          3 000 Ft
+          24 000 Ft
         </h4>
         <div>
           <div
@@ -287,7 +287,7 @@ exports[`should render "full" layout by default 1`] = `
         </span>
       </h3>
       <h3>
-        3 000 Ft
+        24 000 Ft
       </h3>
     </div>
   </div>
