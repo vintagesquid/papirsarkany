@@ -1,4 +1,6 @@
 name: Deploy Prisma migrations
+permissions:
+  contents: read
 on:
   push:
     paths:
