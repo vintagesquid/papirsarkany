@@ -23,9 +23,8 @@ export default defineConfig({
     exclude: ["e2e"],
     env: loadEnv("", process.cwd(), ""),
     coverage: {
-      include: ["src"],
+      include: ["src/{components,hooks,lib,store}"],
       reporter: "text",
-      exclude: ["src/tests", "src/mocks"],
     },
   },
   resolve: {
