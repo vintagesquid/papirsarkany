@@ -27,7 +27,7 @@
     "@sanity/client": "^7.6.0",
     "@sanity/image-url": "^1.1.0",
     "@sanity/locale-hu-hu": "^1.1.22",
-    "@sanity/vision": "^3.93.0",
+    "@sanity/vision": "^3.94.2",
     "@sendgrid/mail": "^8.1.5",
     "@svgr/webpack": "^8.1.0",
     "@t3-oss/env-nextjs": "^0.11.1",
