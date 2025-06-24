@@ -1,5 +1,6 @@
 import AddToCartButton from "~/components/add-to-cart-button";
 
+import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getAllKites, getKiteBySlug } from "~/lib/cms";
@@ -10,6 +11,26 @@ import { getPositionFromHotspot } from "~/lib/sanity-image";
 type Params = {
   slug: string;
 };
+
+export async function generateMetadata({
+  params,
+}: { params: Promise<Params> }): Promise<Metadata | null> {
+  const { slug } = await params;
+
+  const kite = await getKiteBySlug(slug);
+
+  if (!kite) {
+    return null;
+  }
+
+  return {
+    title: `${kite.name}`,
+    description: kite.description || `${kite.name} egyzsinóros sárkány`,
+    openGraph: {
+      images: kite.image?.asset?.url || undefined,
+    },
+  };
+}
 
 export async function generateStaticParams(): Promise<Partial<Params>[]> {
   const kites = await getAllKites();
@@ -41,7 +62,7 @@ export default async function Kite(props: { params: Promise<Params> }) {
             height={kite.image.asset?.metadata?.dimensions?.height}
             alt={kite.name || NO_NAME}
             placeholder="blur"
-            blurDataURL={kite.image.asset?.metadata?.blurHash}
+            blurDataURL={kite.image.asset?.metadata?.lqip}
           />
         )}
       </div>

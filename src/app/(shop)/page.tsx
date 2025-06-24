@@ -8,8 +8,8 @@ import ScrollTriggeredAnimatedCard from "~/components/scroll-triggered-animated-
 import Splash from "~/components/splash";
 import { env } from "~/lib/env";
 
-// revalidate page every week
-export const revalidate = 604800;
+// revalidate page every day
+export const revalidate = 86400;
 
 export default function Home() {
   return (

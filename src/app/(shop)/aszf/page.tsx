@@ -1,6 +1,10 @@
 import type { FC } from "react";
 import Card from "~/components/card";
 
+export const metadata = {
+  title: "Adatvédelmi Nyilatkozat és Felhasználási Feltételek",
+};
+
 const TermsAndConditionsPage: FC = () => {
   return (
     <div className="container py-8 md:py-16">

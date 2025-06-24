@@ -18,6 +18,7 @@ const KiteCard: FC<KiteCardProps> = ({ kite }) => {
     <Link
       href={`sarkanyok/${kite.slug?.current}`}
       className="relative z-0 cursor-pointer"
+      prefetch
     >
       <HoverAnimatedCard
         tabIndex={-1}
@@ -45,7 +46,7 @@ const KiteCard: FC<KiteCardProps> = ({ kite }) => {
                 width={600}
                 height={600}
                 placeholder="blur"
-                blurDataURL={kite.image.asset?.metadata?.blurHash}
+                blurDataURL={kite.image.asset?.metadata?.lqip}
                 loading="lazy"
                 className={"mx-auto aspect-squares rounded-lg object-cover"}
               />

@@ -6,6 +6,12 @@ import TwineCard from "~/components/twine-card";
 import { getAllReels, getAllRods, getAllTwines } from "~/lib/cms";
 import { sanityProductCategoryTitleMap } from "~/lib/formatters";
 
+export const metadata = {
+  title: "Anyagok",
+  description:
+    "Sárkány készítéshez és eresztéshez szükséges anyagok, 1984-óta.",
+};
+
 export default async function Materials() {
   const reels = await getAllReels();
   const rods = await getAllRods();

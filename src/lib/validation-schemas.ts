@@ -1,7 +1,7 @@
 import { z } from "zod";
-
-import { formatPhoneNumber } from "./formatters";
 import type { WithImageAsset } from "./types";
+
+import { unformatPhoneNumber } from "./formatters";
 
 export const cartItemValidationSchema = z.object({
   _id: z.string().min(1, "Hiányzó termék azonosító."),
@@ -31,18 +31,22 @@ export const orderFormSchema = [
       lastName: z.string().min(1, "Kötelező mező"),
       phoneNumber: z
         .string()
-        .min(1, "Kötelező mező")
-        .regex(
-          /^(\+36)(20|30|31|70|50|51)\d{7}$/,
-          `Érvényes magyar telefonszámnak kell lennie +36 formátumban pl.: ${formatPhoneNumber("+36201234567")}`,
+        .transform((val) => unformatPhoneNumber(val))
+        .pipe(
+          z
+            .string()
+            .min(1, "Kötelező mező")
+            .regex(
+              /^(\+36)(20|30|31|70|50|51)\d{7}$/,
+              "Érvényes magyar telefonszámnak kell lennie +36 formátumban pl.: +36 20 123 4567",
+            ),
         ),
-
       shippingOption: z.enum(
         ["Személyes átvétel", "Postai szállítás", "Foxpost automatába"],
         { message: "Kérlek válassz egy szállítási módot!" },
       ),
 
-      shippingPostcode: z.string().optional(),
+      shippingPostcode: z.string().optional(), // validation handled in superRefine
       shippingCity: z.string().optional(),
       shippingAddress: z.string().optional(),
       shippingSubaddress: z.string().optional(),
@@ -53,34 +57,46 @@ export const orderFormSchema = [
         (!val.shippingPostcode || !val.shippingCity || !val.shippingAddress)
       ) {
         ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          path: ["shippingOption"],
+          code: z.ZodIssueCode.too_small,
+          path: ["shippingCity"],
+          minimum: 1,
           message: "Kérlek válassz egy automatát",
+          inclusive: false,
+          type: "string",
         });
       }
 
       if (val.shippingOption === "Postai szállítás") {
         if (!val.shippingPostcode) {
           ctx.addIssue({
-            code: z.ZodIssueCode.custom,
+            code: z.ZodIssueCode.too_small,
             path: ["shippingPostcode"],
+            minimum: 1,
             message: "Kötelező mező",
+            inclusive: false,
+            type: "string",
           });
         }
 
         if (!val.shippingCity) {
           ctx.addIssue({
-            code: z.ZodIssueCode.custom,
+            code: z.ZodIssueCode.too_small,
             path: ["shippingCity"],
+            minimum: 1,
             message: "Kötelező mező",
+            inclusive: false,
+            type: "string",
           });
         }
 
         if (!val.shippingAddress) {
           ctx.addIssue({
-            code: z.ZodIssueCode.custom,
+            code: z.ZodIssueCode.too_small,
             path: ["shippingAddress"],
+            minimum: 1,
             message: "Kötelező mező",
+            inclusive: false,
+            type: "string",
           });
         }
 

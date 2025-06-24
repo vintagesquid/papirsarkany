@@ -23,15 +23,14 @@ export default defineConfig({
     exclude: ["e2e"],
     env: loadEnv("", process.cwd(), ""),
     coverage: {
-      include: ["src"],
+      include: ["src/{components,hooks,lib,store}"],
       reporter: "text",
-      exclude: ["src/tests", "src/mocks"],
     },
   },
   resolve: {
     alias: {
       "~": path.resolve(__dirname, "src"),
-      "@sanity": path.resolve(__dirname, "sanity"),
+      "@sanity/lib": path.resolve(__dirname, "sanity/lib"),
     },
   },
 });

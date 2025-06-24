@@ -25,7 +25,7 @@ const ReelCard: FC<ReelCardProps> = ({ reel }) => {
           width={reel.image.asset?.metadata?.dimensions?.width}
           height={reel.image.asset?.metadata?.dimensions?.height}
           placeholder="blur"
-          blurDataURL={reel.image.asset?.metadata?.blurHash}
+          blurDataURL={reel.image.asset?.metadata?.lqip}
           className="mx-auto mb-6 max-h-32 rounded-lg object-contain"
         />
       )}
