@@ -31,7 +31,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "~": path.resolve(__dirname, "src"),
-      "@sanity": path.resolve(__dirname, "sanity"),
+      "@sanity/lib": path.resolve(__dirname, "sanity/lib"),
     },
   },
 });
