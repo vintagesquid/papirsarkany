@@ -1,6 +1,6 @@
 import { test } from "vitest";
 
-test.skip("failing in CI, but works locally")
+test.skip("failing in CI, but works locally");
 
 // import { getPositionFromHotspot, urlFor } from "~/lib/sanity-image";
 // import { kiteMock } from "~/mocks/product.mock";
@@ -21,4 +21,3 @@ test.skip("failing in CI, but works locally")
 //     `${kiteMock.image.hotspot.x * 100}% ${kiteMock.image.hotspot.y * 100}%`,
 //   );
 // });
-
