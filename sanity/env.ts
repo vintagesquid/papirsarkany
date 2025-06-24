@@ -1,4 +1,4 @@
-import { env } from "~/lib/env";
+import { env } from "node:process";
 
 export const apiVersion = env.NEXT_PUBLIC_SANITY_API_VERSION || "2024-05-23";
 
