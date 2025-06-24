@@ -21,7 +21,7 @@ export default defineConfig({
     setupFiles: ["./src/tests/vitest-cleanup-after-each.ts"],
     dir: "./src/tests",
     exclude: ["e2e"],
-    env: loadEnv("", process.cwd(), ""),
+    env: loadEnv("", process.cwd()),
     coverage: {
       include: ["src/{components,hooks,lib,store}"],
       reporter: "text",
