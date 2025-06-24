@@ -3,6 +3,7 @@
 import { describe, expect, test, vi } from "vitest";
 
 import { LOCAL_PICKUP_ADDRESS } from "~/lib/constants";
+import * as envModule from "~/lib/env";
 import {
   delay,
   isProdEnv,
@@ -10,7 +11,6 @@ import {
   normalizeOrderForm,
 } from "~/lib/helpers";
 import type { OrderForm } from "~/lib/validation-schemas";
-import * as envModule from "~/lib/env";
 
 test("delay - resolves after the given time", async () => {
   const delayTime = 6000;
