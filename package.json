@@ -64,16 +64,16 @@
     "@types/node": "22.13.5",
     "@types/react": "19.0.12",
     "@types/react-dom": "19.0.4",
-    "@vitejs/plugin-react": "^4.3.4",
-    "@vitest/coverage-v8": "3.1.1",
+    "@vitejs/plugin-react": "^4.6.0",
+    "@vitest/coverage-v8": "3.2.4",
     "daisyui": "^5.0.26",
     "jsdom": "^26.0.0",
     "prisma": "^6.5.0",
     "rimraf": "^6.0.1",
     "typescript": "5.8.2",
-    "vite": "^6.3.5",
+    "vite": "^7.0.0",
     "vite-plugin-svgr": "^4.3.0",
-    "vitest": "^3.1.1"
+    "vitest": "^3.2.4"
   },
   "packageManager": "pnpm@9.15.0+sha256.09a8fe31a34fda706354680619f4002f4ccef6dadff93240d24ef6c831f0fd28"
 }
