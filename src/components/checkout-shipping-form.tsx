@@ -12,14 +12,13 @@ import {
 import { getTotalPackageInfo, isFitInMaxLimit } from "~/lib/foxpost";
 import type { OrderForm } from "~/lib/validation-schemas";
 import { useCartStore } from "~/store/use-cart-store";
+import FoxpostLogo from "../../public/foxpost_logo.webp";
+import LocalPickUpIcon from "../../public/local-pick-up.svg?url";
+import ShippingWithPost from "../../public/shipping-with-post-logo.svg?url";
 import FormattedPhoneNumberInput from "./formatted-phone-number-input";
 import FoxpostMap from "./foxpost-map";
 import LazyLoadFramerMotion from "./lazy-load-framer-motion";
 import ShippingOptionRadioInput from "./shipping-option-radio-input";
-
-import FoxpostLogo from "../../public/foxpost_logo.webp";
-import LocalPickUpIcon from "../../public/local-pick-up.svg?url";
-import ShippingWithPost from "../../public/shipping-with-post-logo.svg?url";
 
 const CheckoutShippingForm: FC = () => {
   const {

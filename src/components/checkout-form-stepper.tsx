@@ -81,14 +81,14 @@ const CheckoutFormStepper: FC<CheckoutStepperProps> = ({ children }) => {
 
   const onInvalid: SubmitErrorHandler<OrderForm> = (errors) => {
     for (const key in errors) {
-      if (Object.prototype.hasOwnProperty.call(errors, key)) {
+      if (Object.hasOwn(errors, key)) {
         const element = errors[key as keyof typeof errors];
 
         if (!element) {
           return;
         }
 
-        // implement scroll to errors with non <input /> fields (e.g.: FoxpostMap)
+        // scroll to errors with non <input /> fields (e.g.: FoxpostMap)
         if (element.ref instanceof HTMLElement) {
           if (element.ref.tagName !== "INPUT") {
             element.ref.scrollIntoView?.({

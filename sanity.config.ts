@@ -4,8 +4,8 @@
 import { huHULocale } from "@sanity/locale-hu-hu";
 import { visionTool } from "@sanity/vision";
 import { defineConfig, isDev } from "sanity";
-import { media } from "sanity-plugin-media";
 import { structureTool } from "sanity/structure";
+import { media } from "sanity-plugin-media";
 import { apiVersion, dataset, projectId } from "./sanity/env";
 import { schema } from "./sanity/schema";
 

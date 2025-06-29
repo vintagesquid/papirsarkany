@@ -1,8 +1,7 @@
 "use client";
 
-import { type FC, useState } from "react";
-
 import type { Twine, TwineDiameters } from "@sanity/lib/sanity.types";
+import { type FC, useState } from "react";
 import { currencyFormatter, pricePerMeterFormatter } from "~/lib/formatters";
 import type { WithImageAsset } from "~/lib/types";
 import AddToCartButton from "./add-to-cart-button";

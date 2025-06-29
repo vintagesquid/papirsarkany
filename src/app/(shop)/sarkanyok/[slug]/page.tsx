@@ -1,8 +1,7 @@
-import AddToCartButton from "~/components/add-to-cart-button";
-
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import AddToCartButton from "~/components/add-to-cart-button";
 import { getAllKites, getKiteBySlug } from "~/lib/cms";
 import { MISSING_IMG_URL, NO_NAME } from "~/lib/constants";
 import { currencyFormatter } from "~/lib/formatters";
@@ -14,7 +13,9 @@ type Params = {
 
 export async function generateMetadata({
   params,
-}: { params: Promise<Params> }): Promise<Metadata | null> {
+}: {
+  params: Promise<Params>;
+}): Promise<Metadata | null> {
   const { slug } = await params;
 
   const kite = await getKiteBySlug(slug);
