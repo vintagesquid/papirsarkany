@@ -12,7 +12,7 @@ type MobileNavbarProps = {
 
 const MobileNavbar: FC<MobileNavbarProps> = ({ navbarItems }) => {
   return (
-    <div className="d-navbar border-black border-b-4 bg-white">
+    <nav className="d-navbar border-black border-b-4 bg-white">
       <div className="d-navbar-start gap-1">
         <div className="d-dropdown">
           <div
@@ -64,7 +64,7 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ navbarItems }) => {
           papirsarkany.hu
         </Link>
       </div>
-    </div>
+    </nav>
   );
 };
 

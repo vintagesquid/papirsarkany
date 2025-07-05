@@ -12,7 +12,7 @@ type DesktopNavbarProps = {
 
 const DesktopNavbar: FC<DesktopNavbarProps> = ({ navbarItems }) => {
   return (
-    <div className="d-navbar min-h-[68px] border-black border-b-4 bg-white">
+    <nav className="d-navbar min-h-[68px] border-black border-b-4 bg-white">
       <div className="d-navbar-start hidden gap-1 md:flex">
         <Link
           href={"/#hello"}
@@ -47,7 +47,7 @@ const DesktopNavbar: FC<DesktopNavbarProps> = ({ navbarItems }) => {
           <CartMenuItem />
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 
