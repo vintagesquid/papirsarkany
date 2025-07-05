@@ -4,11 +4,11 @@ import Link, { type LinkProps } from "next/link";
 import { usePathname } from "next/navigation";
 import type { FC, ReactNode } from "react";
 
-export type MenuItemProps = LinkProps & {
+export type NavigationMenuItemProps = LinkProps & {
   children?: ReactNode;
 };
 
-const NavMenuItem: FC<MenuItemProps> = (props: MenuItemProps) => {
+const NavigationMenuItem: FC<NavigationMenuItemProps> = (props: NavigationMenuItemProps) => {
   const { children } = props;
 
   const pathname = usePathname();
@@ -50,4 +50,4 @@ const NavMenuItem: FC<MenuItemProps> = (props: MenuItemProps) => {
   );
 };
 
-export default NavMenuItem;
+export default NavigationMenuItem;

@@ -2,15 +2,15 @@ import Link from "next/link";
 import type { FC } from "react";
 
 import HomeIcon from "~/assets/home.svg";
-import type { NavbarItems } from "~/lib/types";
+import type { NavigationItems } from "~/lib/types";
 import CartMenuItem from "./cart-menu-item";
-import NavMenuItem from "./nav-menu-item";
+import NavigationMenuItem from "./navigation-menu-item";
 
-type DesktopNavbarProps = {
-  navbarItems: NavbarItems;
+type DesktopNavigationProps = {
+  navigationItems: NavigationItems;
 };
 
-const DesktopNavbar: FC<DesktopNavbarProps> = ({ navbarItems }) => {
+const DesktopNavigation: FC<DesktopNavigationProps> = ({ navigationItems }) => {
   return (
     <nav className="d-navbar min-h-[68px] border-black border-b-4 bg-white">
       <div className="d-navbar-start hidden gap-1 md:flex">
@@ -22,25 +22,25 @@ const DesktopNavbar: FC<DesktopNavbarProps> = ({ navbarItems }) => {
           <HomeIcon className="h-full" />
         </Link>
         <ul className="d-menu d-menu-horizontal flex-nowrap gap-2 font-extrabold text-base">
-          {navbarItems.leftItems.map((navbarItem) => (
-            <NavMenuItem
-              key={navbarItem.href.toString()}
-              href={navbarItem.href}
+          {navigationItems.leftItems.map((navigationItem) => (
+            <NavigationMenuItem
+              key={navigationItem.href.toString()}
+              href={navigationItem.href}
             >
-              {navbarItem.children}
-            </NavMenuItem>
+              {navigationItem.children}
+            </NavigationMenuItem>
           ))}
         </ul>
       </div>
       <div className="d-navbar-end hidden md:flex">
         <ul className="d-menu d-menu-horizontal gap-2 font-extrabold text-base">
-          {navbarItems.rightItems.map((navbarItem) => (
-            <NavMenuItem
-              key={navbarItem.href.toString()}
-              href={navbarItem.href}
+          {navigationItems.rightItems.map((navigationItem) => (
+            <NavigationMenuItem
+              key={navigationItem.href.toString()}
+              href={navigationItem.href}
             >
-              {navbarItem.children}
-            </NavMenuItem>
+              {navigationItem.children}
+            </NavigationMenuItem>
           ))}
         </ul>
         <div className="flex-none">
@@ -51,4 +51,4 @@ const DesktopNavbar: FC<DesktopNavbarProps> = ({ navbarItems }) => {
   );
 };
 
-export default DesktopNavbar;
+export default DesktopNavigation;

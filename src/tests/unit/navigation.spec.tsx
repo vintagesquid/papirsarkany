@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import { afterEach, expect, test } from "vitest";
 
-import Navbar from "~/components/navbar";
+import Navigation from "~/components/navigation";
 import { viMockMatchMedia } from "~/mocks/matchMedia.mock";
 
 const mediaQueries = {
@@ -15,22 +15,22 @@ afterEach(() => {
   });
 });
 
-test("should render desktop-navbar on screens larger then md breakpoint", () => {
+test("should render desktop navigation on screens larger then md breakpoint", () => {
   viMockMatchMedia({
     media: mediaQueries.desktop,
     matches: true,
   });
 
-  const { container } = render(<Navbar />);
+  const { container } = render(<Navigation />);
 
   expect(container).toMatchSnapshot();
 });
 
-test("should render mobile-navbar on screens smaller then md breakpoint", () => {
+test("should render mobile navigation on screens smaller then md breakpoint", () => {
   viMockMatchMedia({
     media: mediaQueries.desktop,
     matches: false,
   });
-  const { container } = render(<Navbar />);
+  const { container } = render(<Navigation />);
   expect(container).toMatchSnapshot();
 });

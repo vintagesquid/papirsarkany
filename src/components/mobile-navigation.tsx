@@ -2,15 +2,15 @@ import Link from "next/link";
 import type { FC } from "react";
 
 import HamburgerIcon from "~/assets/hamburger.svg";
-import type { NavbarItems } from "~/lib/types";
+import type { NavigationItems } from "~/lib/types";
 import CartMenuItem from "./cart-menu-item";
-import NavMenuItem from "./nav-menu-item";
+import NavigationMenuItem from "./navigation-menu-item";
 
-type MobileNavbarProps = {
-  navbarItems: NavbarItems;
+type MobileNavigationProps = {
+  navigationItems: NavigationItems;
 };
 
-const MobileNavbar: FC<MobileNavbarProps> = ({ navbarItems }) => {
+const MobileNavigation: FC<MobileNavigationProps> = ({ navigationItems }) => {
   return (
     <nav className="d-navbar border-black border-b-4 bg-white">
       <div className="d-navbar-start gap-1">
@@ -31,22 +31,22 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ navbarItems }) => {
             className="d-menu d-dropdown-content z-1 mt-5 w-52 rounded-box bg-base-100 p-2 shadow-sm"
             data-pw-e2e="hamburger-menu-content"
           >
-            {navbarItems.rightItems.map((navbarItem) => (
-              <NavMenuItem
-                key={navbarItem.href.toString()}
-                href={navbarItem.href}
+            {navigationItems.rightItems.map((navigationItem) => (
+              <NavigationMenuItem
+                key={navigationItem.href.toString()}
+                href={navigationItem.href}
               >
-                {navbarItem.children}
-              </NavMenuItem>
+                {navigationItem.children}
+              </NavigationMenuItem>
             ))}
             <div className="d-divider m-0" />
-            {navbarItems.leftItems.map((navbarItem) => (
-              <NavMenuItem
-                key={navbarItem.href.toString()}
-                href={navbarItem.href}
+            {navigationItems.leftItems.map((navigationItem) => (
+              <NavigationMenuItem
+                key={navigationItem.href.toString()}
+                href={navigationItem.href}
               >
-                {navbarItem.children}
-              </NavMenuItem>
+                {navigationItem.children}
+              </NavigationMenuItem>
             ))}
           </ul>
         </div>
@@ -68,4 +68,4 @@ const MobileNavbar: FC<MobileNavbarProps> = ({ navbarItems }) => {
   );
 };
 
-export default MobileNavbar;
+export default MobileNavigation;

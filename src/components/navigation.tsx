@@ -3,9 +3,9 @@
 import type { FC } from "react";
 import useMedia from "use-media";
 
-import type { NavbarItems } from "~/lib/types";
-import DesktopNavbar from "./desktop-navbar";
-import MobileNavbar from "./mobile-navbar";
+import type { NavigationItems } from "~/lib/types";
+import DesktopNavigation from "./desktop-navigation";
+import MobileNavigation from "./mobile-navigation";
 
 let breakPoint: string;
 
@@ -14,7 +14,7 @@ if (typeof window !== "undefined") {
   breakPoint = styles.getPropertyValue("--breakpoint-md");
 }
 
-const navbarItems: NavbarItems = {
+const navigationItems: NavigationItems = {
   leftItems: [
     {
       children: "A vállalkozásról",
@@ -41,18 +41,18 @@ const navbarItems: NavbarItems = {
   ],
 };
 
-const Navbar: FC = () => {
+const Navigation: FC = () => {
   const isDesktop = useMedia({ minWidth: breakPoint }, true);
 
   return (
     <div className="sticky top-0 z-40">
       {isDesktop ? (
-        <DesktopNavbar navbarItems={navbarItems} />
+        <DesktopNavigation navigationItems={navigationItems} />
       ) : (
-        <MobileNavbar navbarItems={navbarItems} />
+        <MobileNavigation navigationItems={navigationItems} />
       )}
     </div>
   );
 };
 
-export default Navbar;
+export default Navigation;

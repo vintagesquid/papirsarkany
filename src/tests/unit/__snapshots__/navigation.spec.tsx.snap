@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`should render desktop-navbar on screens larger then md breakpoint 1`] = `
+exports[`should render desktop navigation on screens larger then md breakpoint 1`] = `
 <div>
   <div
     class="sticky top-0 z-40"
@@ -149,7 +149,7 @@ exports[`should render desktop-navbar on screens larger then md breakpoint 1`] =
 </div>
 `;
 
-exports[`should render mobile-navbar on screens smaller then md breakpoint 1`] = `
+exports[`should render mobile navigation on screens smaller then md breakpoint 1`] = `
 <div>
   <div
     class="sticky top-0 z-40"

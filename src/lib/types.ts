@@ -8,7 +8,7 @@ import type {
   Twine,
 } from "@sanity/lib/sanity.types";
 
-import type { MenuItemProps } from "~/components/nav-menu-item";
+import type { NavigationMenuItemProps } from "~/components/navigation-menu-item";
 import type { CartItem, OrderForm } from "./validation-schemas";
 
 export type WithImageAsset<T> = Omit<T, "image"> & {
@@ -272,7 +272,7 @@ export type Toast = {
  *
  * rightItems: on `desktop` rendered on `right` side on `mobile` rendered at the `top`
  */
-export type NavbarItems = {
-  leftItems: MenuItemProps[];
-  rightItems: MenuItemProps[];
+export type NavigationItems = {
+  leftItems: NavigationMenuItemProps[];
+  rightItems: NavigationMenuItemProps[];
 };
