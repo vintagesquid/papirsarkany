@@ -15,9 +15,9 @@ const MobileNavigation: FC<MobileNavigationProps> = ({ navigationItems }) => {
     <nav className="d-navbar border-black border-b-4 bg-white">
       <div className="d-navbar-start gap-1">
         <div className="d-dropdown">
+          {/** biome-ignore lint/a11y/useSemanticElements: we can't use <button> here because Safari has a bug that prevents the button from being focused. */}
           <div
             tabIndex={0}
-            // biome-ignore lint/a11y/useSemanticElements: we can't use <button> here because Safari has a bug that prevents the button from being focused.
             role="button"
             className="d-btn d-btn-ghost focus:ring-3 focus:ring-neutral"
             aria-label="mobile navigation menu"
