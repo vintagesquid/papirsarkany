@@ -8,7 +8,9 @@ export type NavigationMenuItemProps = LinkProps & {
   children?: ReactNode;
 };
 
-const NavigationMenuItem: FC<NavigationMenuItemProps> = (props: NavigationMenuItemProps) => {
+const NavigationMenuItem: FC<NavigationMenuItemProps> = (
+  props: NavigationMenuItemProps,
+) => {
   const { children } = props;
 
   const pathname = usePathname();
