@@ -1,6 +1,8 @@
+import type { FC } from "react";
+
 import Card from "~/components/card";
 
-const ImpressiumPage = () => {
+const ImpressiumPage: FC = () => {
   return (
     <div className="container">
       <Card className="prose prose-slate lg:prose-lg mx-auto max-w-[100ch] p-8">
