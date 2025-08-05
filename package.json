@@ -39,7 +39,7 @@
     "groq": "^3.93.0",
     "just-pick": "^4.2.0",
     "motion": "^12.5.0",
-    "next": "^15.3.1",
+    "next": "^15.3.3",
     "next-sanity": "^9.12.0",
     "next-sitemap": "^4.2.3",
     "postcss": "^8.5.3",
