@@ -33,7 +33,7 @@ export default async function Splash() {
             Papírsárkány árusítás 1984-óta.
           </Link>
         </div>
-        
+
         <div>
           <h2 className="font-bold underline">
             SÁRKÁNYOK NAPJA 2025.09.06. Szentkirályszabadja
