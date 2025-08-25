@@ -1,16 +1,15 @@
 import type { Order } from "@prisma/client";
-import sgMail, { type MailDataRequired } from "@sendgrid/mail";
-import { CUSTOMER_TEMPLATE_ID, VENDOR_TEMPLATE_ID } from "./constants";
+import { type CreateEmailOptions, Resend } from "resend";
+import CustomerEmail from "../../emails/customer";
+import VendorEmail from "../../emails/vendor";
 import { env } from "./env";
 import type { OrderMail } from "./types";
 
-export function setSendgridApiKey() {
-  const { SENDGRID_API_KEY } = env;
-  sgMail.setApiKey(SENDGRID_API_KEY);
-}
+const { EMAIL_SERVICE_API_KEY } = env;
+const resend = new Resend(EMAIL_SERVICE_API_KEY);
 
-export async function sendEmail(mailData: MailDataRequired) {
-  await sgMail.send(mailData);
+export async function sendEmail(mailData: CreateEmailOptions) {
+  await resend.emails.send(mailData);
 
   console.log(`Email is sent to ${mailData.to}`);
 }
@@ -18,23 +17,44 @@ export async function sendEmail(mailData: MailDataRequired) {
 export async function sendOrderEmails(order: Order, orderEmailData: OrderMail) {
   const { VENDOR_EMAIL_ADDRESS } = env;
 
-  const vendorMail: MailDataRequired = {
-    from: "mail.papirsarkany@gmail.com",
-    to: VENDOR_EMAIL_ADDRESS,
-    templateId: VENDOR_TEMPLATE_ID,
-    dynamicTemplateData: {
-      ...orderEmailData,
-      subject: `Rendelés #${order.id}`,
-    } satisfies OrderMail,
-  };
-
-  const customerMail: MailDataRequired = {
-    from: "mail.papirsarkany@gmail.com",
-    to: orderEmailData.contact.email,
+  const vendorMail: CreateEmailOptions = {
+    from: "mail@papirsarkany.hu",
     replyTo: VENDOR_EMAIL_ADDRESS,
-    templateId: CUSTOMER_TEMPLATE_ID,
-    dynamicTemplateData: orderEmailData,
+    to: VENDOR_EMAIL_ADDRESS,
+    subject: `Rendelés #${order.id}`,
+    react: VendorEmail({
+      orderId: order.id,
+      contact: orderEmailData.contact,
+      products: orderEmailData.products,
+      shippingOption: orderEmailData.shippingOption,
+      paymentOption: orderEmailData.paymentOption,
+      billing: orderEmailData.billing,
+      shipping: orderEmailData.shipping,
+      comment: orderEmailData.comment,
+      total: orderEmailData.total,
+      shippingFee: orderEmailData.shippingFee,
+      billingFee: orderEmailData.billingFee,
+    }),
   };
 
-  await Promise.all([sendEmail(vendorMail), sendEmail(customerMail)]);
+  const customerMail: CreateEmailOptions = {
+    from: "mail@papirsarkany.hu",
+    replyTo: VENDOR_EMAIL_ADDRESS,
+    to: orderEmailData.contact.email,
+    subject: "Köszönöm rendelését - papirsarkany.hu",
+    react: await CustomerEmail({
+      contact: orderEmailData.contact,
+      products: orderEmailData.products,
+      shippingOption: orderEmailData.shippingOption,
+      paymentOption: orderEmailData.paymentOption,
+      billing: orderEmailData.billing,
+      shipping: orderEmailData.shipping,
+      comment: orderEmailData.comment,
+      shippingFee: orderEmailData.shippingFee,
+      billingFee: orderEmailData.billingFee,
+      total: orderEmailData.total,
+    }),
+  };
+
+  await resend.batch.send([vendorMail, customerMail]);
 }
