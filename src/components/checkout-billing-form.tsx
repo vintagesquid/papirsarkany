@@ -3,7 +3,11 @@
 import type { ChangeEvent, FC } from "react";
 import { useFormContext } from "react-hook-form";
 
-import type { BillingOptionValue, ShippingOptionValue } from "~/lib/types";
+import type {
+  BillingFee,
+  BillingOptionValue,
+  ShippingOptionValue,
+} from "~/lib/types";
 import type { OrderForm } from "~/lib/validation-schemas";
 import { useCheckoutFormStore } from "~/store/use-checkout-form-store";
 import BillingOptionRadioInput from "./billing-option-radio-input";
@@ -21,7 +25,7 @@ const CheckoutBillingForm: FC = () => {
 
   const shippingBillingMap: Record<
     ShippingOptionValue,
-    { billingOptionValue: BillingOptionValue; billingFee?: number | null }[]
+    { billingOptionValue: BillingOptionValue; billingFee?: BillingFee }[]
   > = {
     "Személyes átvétel": [
       { billingOptionValue: "Előreutalással", billingFee: undefined },

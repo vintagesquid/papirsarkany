@@ -14,6 +14,8 @@ export function useOrder() {
   );
 
   const cart = useCartStore((state) => state.cart);
+  const shippingFee = useCartStore((state) => state.shippingFee);
+  const billingFee = useCartStore((state) => state.billingFee);
 
   const sendOrder = (formData: OrderForm) => {
     const totalPrice = getTotalPrice();
@@ -25,6 +27,8 @@ export function useOrder() {
         cart,
         totalPrice,
         foxpostOperatorId,
+        shippingFee: shippingFee,
+        billingFee: billingFee,
       } satisfies OrderRequestBody),
       headers: {
         Accept: "application/json",

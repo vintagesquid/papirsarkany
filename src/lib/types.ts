@@ -35,9 +35,12 @@ export type OrderRequestBody = {
   cart: CartItem[];
   totalPrice: number;
   foxpostOperatorId?: string;
+  shippingFee: ShippingFee;
+  billingFee?: BillingFee;
 };
 
 export type ShippingFee = number | "szállítási költség";
+export type BillingFee = number | undefined | null;
 
 export type ShippingOptionValue =
   | "Személyes átvétel"
@@ -84,6 +87,8 @@ export type OrderMail = NewOrder & {
     price: string;
     quantity: string;
   }[];
+  shippingFee: string | null;
+  billingFee: string | null;
   total: string;
 };
 

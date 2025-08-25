@@ -50,6 +50,9 @@ const CheckoutFormStepper: FC<CheckoutStepperProps> = ({ children }) => {
     reset,
   } = formMethods;
 
+  const shippingFee = useCartStore((state) => state.shippingFee);
+  const billingFee = useCartStore((state) => state.billingFee);
+
   const onSubmit: SubmitHandler<OrderForm> = async (data) => {
     if (isSubmitting) {
       return;
@@ -64,7 +67,7 @@ const CheckoutFormStepper: FC<CheckoutStepperProps> = ({ children }) => {
     }
 
     try {
-      const fullFormData = { ...formValues, ...data };
+      const fullFormData = { ...formValues, ...data, shippingFee, billingFee };
       const res = await sendOrder(fullFormData);
 
       if (!res.ok) {
@@ -75,7 +78,9 @@ const CheckoutFormStepper: FC<CheckoutStepperProps> = ({ children }) => {
 
       router.push("/sikeres-rendeles");
     } catch (error) {
-      alert(`Hiba történt a rendelés leadásakor. \n(${error})`);
+      alert(
+        `${error}\nHiba történt a rendelés leadásakor. \nVegye fel a kapcsolatot a mail@papapirsarkany.hu e-mail címen!`,
+      );
     }
   };
 

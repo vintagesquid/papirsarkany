@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { createOrder } from "~/lib/db";
-import { sendEmail, sendOrderEmails, setSendgridApiKey } from "~/lib/email";
+import { sendEmail, sendOrderEmails } from "~/lib/email";
 import { env } from "~/lib/env";
 import { currencyFormatter } from "~/lib/formatters";
 import {
@@ -11,8 +11,6 @@ import {
 } from "~/lib/foxpost";
 import { isProdEnv, isStageEnv, normalizeOrderForm } from "~/lib/helpers";
 import type { OrderMail, OrderRequestBody } from "~/lib/types";
-
-setSendgridApiKey();
 
 export async function POST(request: Request) {
   try {
@@ -83,6 +81,8 @@ export async function POST(request: Request) {
           price: currencyFormatter(product.price),
           quantity: product.quantity.toString(),
         })),
+        shippingFee: body.shippingFee.toString() || null,
+        billingFee: body.billingFee?.toString() || null,
         total: currencyFormatter(totalPrice),
       };
 
