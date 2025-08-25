@@ -2,7 +2,7 @@ import { render } from "@testing-library/react";
 import { afterEach, expect, test } from "vitest";
 
 import Navigation from "~/components/navigation";
-import { viMockMatchMedia } from "~/mocks/matchMedia.mock";
+import { viMockMatchMedia } from "~/mocks/match-media";
 
 const mediaQueries = {
   desktop: `(min-width: "var(--breakpoint-md)")`,
