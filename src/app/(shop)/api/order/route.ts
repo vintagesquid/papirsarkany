@@ -81,8 +81,12 @@ export async function POST(request: Request) {
           price: currencyFormatter(product.price),
           quantity: product.quantity.toString(),
         })),
-        shippingFee: body.shippingFee.toString() || null,
-        billingFee: body.billingFee?.toString() || null,
+        shippingFee: body.shippingFee
+          ? typeof body.shippingFee === "number"
+            ? currencyFormatter(body.shippingFee)
+            : body.shippingFee
+          : null,
+        billingFee: body.billingFee ? currencyFormatter(body.billingFee) : null,
         total: currencyFormatter(totalPrice),
       };
 
