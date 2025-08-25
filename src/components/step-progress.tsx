@@ -27,7 +27,7 @@ const StepProgress: FC = () => {
               tabIndex={isPrevious ? 0 : -1}
               type="button"
               key={stepLabel}
-              className={`d-step font-semibold before:transition-all before:duration-300 after:transition-all after:duration-300 after:content-[counter(step)]! focus-within:after:outline focus-visible:outline-hidden focus-visible:after:outline-neutral focus-visible:after:outline-offset-2 ${isActive ? "d-step-info" : "before:bg-white! after:bg-white!"} ${isPrevious ? "cursor-pointer" : ""} ${isLastStepReached ? "d-step-success" : ""}`}
+              className={`d-step font-semibold before:transition-colors before:duration-300 after:transition-colors after:duration-300 after:content-[counter(step)]! focus-within:after:outline focus-visible:outline-hidden focus-visible:after:outline-neutral focus-visible:after:outline-offset-2 ${isActive ? "d-step-info" : "before:bg-white! after:bg-white!"} ${isPrevious ? "cursor-pointer" : ""} ${isLastStepReached ? "d-step-success" : ""}`}
               onClick={() => onStepClick(isPrevious, idx)}
             >
               {stepLabel}

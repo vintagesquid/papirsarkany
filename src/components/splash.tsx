@@ -28,10 +28,16 @@ export default async function Splash() {
           </h1>
           <Link
             href="/sarkanyok"
-            className="d-btn d-btn-primary d-btn-block min-[370px]:d-btn-lg"
+            className="d-btn d-btn-primary min-[370px]:d-btn-lg"
           >
             Papírsárkány árusítás 1984-óta.
           </Link>
+        </div>
+
+        <div>
+          <h2 className="font-bold underline">
+            SÁRKÁNYOK NAPJA 2025.09.06. Szentkirályszabadja
+          </h2>
         </div>
       </div>
     </section>

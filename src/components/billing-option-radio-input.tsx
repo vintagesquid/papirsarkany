@@ -1,15 +1,14 @@
-import { useFormContext } from "react-hook-form";
-
 import type { FC } from "react";
+import { useFormContext } from "react-hook-form";
 import { currencyFormatter } from "~/lib/formatters";
-import type { BillingOptionValue } from "~/lib/types";
+import type { BillingFee, BillingOptionValue } from "~/lib/types";
 import type { OrderForm } from "~/lib/validation-schemas";
 import { useCartStore } from "~/store/use-cart-store";
 
 type BillingOptionRadioInputProps = {
   isDisabled?: boolean;
   value: BillingOptionValue;
-  billingFee?: number | null;
+  billingFee?: BillingFee;
 };
 
 const BillingOptionRadioInput: FC<BillingOptionRadioInputProps> = ({
@@ -21,7 +20,7 @@ const BillingOptionRadioInput: FC<BillingOptionRadioInputProps> = ({
 
   const setBillingFee = useCartStore((state) => state.setBillingFee);
 
-  const onInputClick = (billingFee: number | undefined | null) => {
+  const onInputClick = (billingFee: BillingFee) => {
     setBillingFee(billingFee || 0);
   };
 

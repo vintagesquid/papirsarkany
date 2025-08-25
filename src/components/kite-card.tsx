@@ -16,7 +16,7 @@ type KiteCardProps = {
 const KiteCard: FC<KiteCardProps> = ({ kite }) => {
   return (
     <Link
-      href={`sarkanyok/${kite.slug?.current}`}
+      href={`/sarkanyok/${kite.slug?.current}`}
       className="relative z-0 cursor-pointer"
       prefetch
     >

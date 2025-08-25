@@ -7,9 +7,6 @@ export const MISSING_IMG_URL = "/missing-image.svg";
 
 export const NO_NAME = "hiányzó név";
 
-export const VENDOR_TEMPLATE_ID = "d-6eee94a3becb45d2b50e5f8d6a1ac491";
-export const CUSTOMER_TEMPLATE_ID = "d-c5e1d19e77f54103978a24ff6c90344f";
-
 export const LOCAL_PICKUP_ADDRESS = {
   shippingPostcode: "2094",
   shippingCity: "Nagykovácsi",

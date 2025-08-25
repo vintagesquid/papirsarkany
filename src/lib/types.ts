@@ -8,7 +8,7 @@ import type {
   Twine,
 } from "@sanity/lib/sanity.types";
 
-import type { MenuItemProps } from "~/components/nav-menu-item";
+import type { NavigationMenuItemProps } from "~/components/navigation-menu-item";
 import type { CartItem, OrderForm } from "./validation-schemas";
 
 export type WithImageAsset<T> = Omit<T, "image"> & {
@@ -35,9 +35,12 @@ export type OrderRequestBody = {
   cart: CartItem[];
   totalPrice: number;
   foxpostOperatorId?: string;
+  shippingFee: ShippingFee;
+  billingFee?: BillingFee;
 };
 
 export type ShippingFee = number | "szállítási költség";
+export type BillingFee = number | undefined | null;
 
 export type ShippingOptionValue =
   | "Személyes átvétel"
@@ -84,6 +87,8 @@ export type OrderMail = NewOrder & {
     price: string;
     quantity: string;
   }[];
+  shippingFee: string | null;
+  billingFee: string | null;
   total: string;
 };
 
@@ -272,7 +277,7 @@ export type Toast = {
  *
  * rightItems: on `desktop` rendered on `right` side on `mobile` rendered at the `top`
  */
-export type NavbarItems = {
-  leftItems: MenuItemProps[];
-  rightItems: MenuItemProps[];
+export type NavigationItems = {
+  leftItems: NavigationMenuItemProps[];
+  rightItems: NavigationMenuItemProps[];
 };

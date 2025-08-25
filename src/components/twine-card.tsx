@@ -1,8 +1,7 @@
 "use client";
 
-import { type FC, useState } from "react";
-
 import type { Twine, TwineDiameters } from "@sanity/lib/sanity.types";
+import { type FC, useState } from "react";
 import { currencyFormatter, pricePerMeterFormatter } from "~/lib/formatters";
 import type { WithImageAsset } from "~/lib/types";
 import AddToCartButton from "./add-to-cart-button";
@@ -51,10 +50,10 @@ const TwineCard: FC<TwineCardProps> = ({ twine }) => {
 
           <div className="flex-1/2 self-end">
             <fieldset className="d-fieldset">
-              <div className="d-join w-fit rounded-r-full outline-offset-0 transition-all duration-75 focus-within:outline-2 focus-within:outline-offset-2">
+              <div className="d-join w-fit rounded-r-full outline-offset-0 duration-75 focus-within:outline-2 focus-within:outline-offset-2">
                 <input
                   type="number"
-                  className="d-input d-join-item w-[clamp(4rem,14rem,100%)] outline-hidden! transition-all duration-150 focus:rounded-l-[0.0625rem]"
+                  className="d-input d-join-item w-[clamp(4rem,14rem,100%)] outline-hidden! duration-150 focus:rounded-l-[0.0625rem]"
                   placeholder="hossz"
                   onChange={(e) => setLength(+e.target.value)}
                 />

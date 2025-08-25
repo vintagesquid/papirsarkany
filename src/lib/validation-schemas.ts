@@ -1,7 +1,7 @@
 import { z } from "zod";
-import type { WithImageAsset } from "./types";
 
 import { unformatPhoneNumber } from "./formatters";
+import type { WithImageAsset } from "./types";
 
 export const cartItemValidationSchema = z.object({
   _id: z.string().min(1, "Hiányzó termék azonosító."),

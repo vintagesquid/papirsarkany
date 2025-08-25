@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
 import AppVersionScript from "~/components/app-version-script";
 import CartStoreRehydrate from "~/components/cart-store-rehydrate";
 import Footer from "~/components/footer";
-import Navbar from "~/components/navbar";
+import Navigation from "~/components/navigation";
 import ToastContainer from "~/components/toast-container";
 import TruendoScript from "~/components/truendo-script";
 import "./globals.css";
@@ -34,7 +34,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className={`${inter.className} `}>
         <div className="flex min-h-screen flex-col">
           <ToastContainer />
-          <Navbar />
+          <Navigation />
           <main className="grid min-h-[calc(100dvh-68px)] flex-1 overflow-x-hidden bg-sky-100 sm:min-h-[calc(100dvh-72px)] lg:min-h-[calc(100dvh-76px)]">
             {children}
             <Analytics />
