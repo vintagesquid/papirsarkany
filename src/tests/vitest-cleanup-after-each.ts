@@ -1,6 +1,7 @@
 import { cleanup } from "@testing-library/react";
-import { afterEach } from "vitest";
+import { afterEach, vitest } from "vitest";
 
 afterEach(() => {
   cleanup();
+  vitest.clearAllTimers();
 });
