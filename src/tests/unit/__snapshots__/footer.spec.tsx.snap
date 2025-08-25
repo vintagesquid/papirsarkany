@@ -9,10 +9,17 @@ exports[`should match snapshot 1`] = `
       class="flex flex-col items-center justify-center gap-x-2 gap-y-4 text-center font-medium text-sm md:flex-row"
     >
       <a
-        class=""
-        href="aszf"
+        href="/aszf"
       >
         ÁSZF
+      </a>
+      <div>
+        |
+      </div>
+      <a
+        href="/impresszum"
+      >
+        Impresszum
       </a>
       <div
         class="d-divider d-divider-neutral d-divider-horizontal hidden md:flex"
