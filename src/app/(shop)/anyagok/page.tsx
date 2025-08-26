@@ -1,12 +1,12 @@
+import type { Metadata } from "next";
 import ProductContainer from "~/components/product-container";
 import ReelCard from "~/components/reel-card";
 import RodCard from "~/components/rod-card";
 import TwineCard from "~/components/twine-card";
-
 import { getAllReels, getAllRods, getAllTwines } from "~/lib/cms";
 import { sanityProductCategoryTitleMap } from "~/lib/formatters";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Anyagok",
   description:
     "Sárkány készítéshez és eresztéshez szükséges anyagok, 1984-óta.",

@@ -1,8 +1,9 @@
+import type { Metadata } from "next";
 import KiteCard from "~/components/kite-card";
 import ProductContainer from "~/components/product-container";
 import { getAllKites } from "~/lib/cms";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Sárkányok",
   description:
     "Magyarországon, kézzel készült minőségi papírsárkányok 1984-óta.",

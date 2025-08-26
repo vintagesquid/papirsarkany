@@ -1,7 +1,8 @@
+import type { Metadata } from "next";
 import CheckoutLink from "~/components/checkout-link";
 import OrderSummaryCard from "~/components/order-summary-card";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Kosár",
   description: "Kosár",
 };
