@@ -64,6 +64,8 @@ export default async function Kite(props: { params: Promise<Params> }) {
             alt={kite.name || NO_NAME}
             placeholder="blur"
             blurDataURL={kite.image.asset?.metadata?.lqip}
+            fetchPriority="high"
+            priority
           />
         )}
       </div>
