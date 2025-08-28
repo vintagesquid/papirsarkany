@@ -108,7 +108,7 @@ const RodCard: FC<RodCardProps> = ({ rod }) => {
             {currencyFormatter(
               selectedDiameter.pricePerMeter * Math.ceil(selectedLength / 100),
             )}{" "}
-            <span className="text-base text-gray-400">
+            <span className="text-base text-gray-500">
               ({pricePerMeterFormatter(selectedDiameter.pricePerMeter)})
             </span>
           </h2>

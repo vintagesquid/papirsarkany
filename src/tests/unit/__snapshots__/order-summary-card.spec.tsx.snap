@@ -34,7 +34,7 @@ exports[`should render "definitive" layout when provided 1`] = `
             Forgó szélzsák
           </h3>
           <span
-            class="font-normal text-gray-400 text-sm"
+            class="font-normal text-gray-500 text-sm"
           >
             2
              db
@@ -63,7 +63,7 @@ exports[`should render "definitive" layout when provided 1`] = `
         Összesen
          
         <span
-          class="font-normal text-base text-gray-400"
+          class="font-normal text-base text-gray-500"
         >
           2
            db
@@ -280,7 +280,7 @@ exports[`should render "full" layout by default 1`] = `
         Összesen
          
         <span
-          class="font-normal text-base text-gray-400"
+          class="font-normal text-base text-gray-500"
         >
           2
            db

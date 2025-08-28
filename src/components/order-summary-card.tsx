@@ -62,7 +62,7 @@ const OrderSummaryCard: FC<OrderSummaryCardProps> = ({ layout = "full" }) => {
                 <div>
                   <h3 className="font-bold">{item.name}</h3>
 
-                  <span className="font-normal text-gray-400 text-sm">
+                  <span className="font-normal text-gray-500 text-sm">
                     {item.quantity} db
                   </span>
                 </div>
@@ -99,7 +99,7 @@ const OrderSummaryCard: FC<OrderSummaryCardProps> = ({ layout = "full" }) => {
         <div className="flex justify-between font-bold">
           <h3 className="text-balance">
             Összesen{" "}
-            <span className="font-normal text-base text-gray-400">
+            <span className="font-normal text-base text-gray-500">
               {getTotalItemCount()} db
             </span>
           </h3>
@@ -178,7 +178,7 @@ const OrderSummaryCard: FC<OrderSummaryCardProps> = ({ layout = "full" }) => {
       <div className="flex justify-between font-bold">
         <h3>
           Összesen{" "}
-          <span className="font-normal text-base text-gray-400">
+          <span className="font-normal text-base text-gray-500">
             {getTotalItemCount()} db
           </span>
         </h3>
