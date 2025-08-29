@@ -1,5 +1,4 @@
-import { render, renderHook, screen } from "@testing-library/react";
-
+import { fireEvent, render, renderHook, screen } from "@testing-library/react";
 import { FormProvider, useForm } from "react-hook-form";
 import { expect, test, vi } from "vitest";
 import CheckoutBillingForm from "~/components/checkout-billing-form";
@@ -26,7 +25,7 @@ test("should throw error if shipping option was not selected", () => {
   consoleErrorMock.mockRestore();
 });
 
-test('should render isSameAdressAsShipping checkbox connected to the form if "Postai szállítás" was selected ', () => {
+test('should render isSameAdressAsShipping checkbox connected to the form if "Postai szállítás" was selected ', async () => {
   const {
     result: { current: methods },
   } = renderHook(() =>
@@ -52,7 +51,10 @@ test('should render isSameAdressAsShipping checkbox connected to the form if "Po
 
   expect(methods.getValues("isSameAdressAsShipping")).toBe(true);
 
-  isSameAdressAsShippingCheckbox.click();
+  fireEvent.click(isSameAdressAsShippingCheckbox);
+  await screen.findByLabelText(
+    "A számlázási adataim megegyeznek a szállítási címemmel",
+  );
 
   expect(methods.getValues("isSameAdressAsShipping")).toBe(false);
 });
