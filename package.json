@@ -37,6 +37,7 @@
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "client-only": "^0.0.1",
+    "dotenv": "^17.2.1",
     "groq": "^4.5.0",
     "just-pick": "^4.2.0",
     "motion": "^12.5.0",
