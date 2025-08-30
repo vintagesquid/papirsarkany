@@ -3,7 +3,6 @@
 import { expect, test } from "vitest";
 import { getPositionFromHotspot, urlFor } from "~/lib/sanity-image";
 import { kiteMock } from "~/mocks/product.mock";
-import 'dotenv/config';
 
 test("urlFor should return an object with url property", () => {
   expect(urlFor(kiteMock.image)).toBeDefined();
