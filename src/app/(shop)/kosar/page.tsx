@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import CheckoutLink from "~/components/checkout-link";
-import Heading from '~/components/heading';
+import Heading from "~/components/heading";
 import OrderSummaryCard from "~/components/order-summary-card";
 
 export const metadata: Metadata = {
@@ -11,7 +11,9 @@ export const metadata: Metadata = {
 export default function Cart() {
   return (
     <div className="container flex flex-col gap-4 p-8">
-      <Heading as={'h1'} className="text-center font-bold">Kosár tartalma</Heading>
+      <Heading as={"h1"} className="text-center font-bold">
+        Kosár tartalma
+      </Heading>
 
       <div className="grid flex-1 items-center">
         <div className="space-y-4">

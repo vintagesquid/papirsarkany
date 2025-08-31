@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Heading from '~/components/heading';
+import Heading from "~/components/heading";
 import ProductContainer from "~/components/product-container";
 import ReelCard from "~/components/reel-card";
 import RodCard from "~/components/rod-card";
@@ -21,11 +21,13 @@ export default async function Materials() {
   return (
     <div className="material-pattern">
       <div className="container space-y-10 p-8">
-        <Heading as='h1' className="text-center font-bold">Anyagok</Heading>
+        <Heading as="h1" className="text-center font-bold">
+          Anyagok
+        </Heading>
         <div className="space-y-8">
           {reels && reels.length > 0 && (
             <div className="space-y-4">
-              <Heading as={'h2'} className="font-bold">
+              <Heading as={"h2"} className="font-bold">
                 {sanityProductCategoryTitleMap.reel}
               </Heading>
               <ProductContainer>
@@ -37,7 +39,7 @@ export default async function Materials() {
           )}
           {twines && twines.length > 0 && (
             <div className="space-y-4">
-              <Heading as={'h2'} className="font-bold">
+              <Heading as={"h2"} className="font-bold">
                 {sanityProductCategoryTitleMap.twine}
               </Heading>
               <ProductContainer>
@@ -49,7 +51,9 @@ export default async function Materials() {
           )}
           {rods && rods.length > 0 && (
             <div className="space-y-4">
-              <Heading as={'h2'} className="font-bold">{sanityProductCategoryTitleMap.rod}</Heading>
+              <Heading as={"h2"} className="font-bold">
+                {sanityProductCategoryTitleMap.rod}
+              </Heading>
               <ProductContainer>
                 {rods.map((rod) => (
                   <RodCard rod={rod} key={rod._id} />

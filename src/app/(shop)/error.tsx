@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 
 import RestartIcon from "~/assets/restart.svg";
-import Heading from '~/components/heading';
+import Heading from "~/components/heading";
 import { useToastStore } from "~/store/use-toast-store";
 
 // biome-ignore lint/suspicious/noShadowRestrictedNames: Next.js error boundary
@@ -29,7 +29,9 @@ export default function Error({
   return (
     <div className="grid place-items-center">
       <div className="space-y-8 text-center">
-        <Heading as='h1' size={2}>Hoppá, valahol elszakadt a eresztő zsinór!</Heading>
+        <Heading as="h1" size={2}>
+          Hoppá, valahol elszakadt a eresztő zsinór!
+        </Heading>
         <button
           type="button"
           className="d-btn d-btn-outline d-btn-neutral"

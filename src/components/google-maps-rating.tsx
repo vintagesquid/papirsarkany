@@ -64,8 +64,12 @@ const GoogleMapsRating: FC<GoogleMapsRating> = ({ rating }) => {
           </defs>
         </m.svg>
 
-        <div className="mt-4 font-bold text-3xl md:text-4xl lg:text-5xl">{rating} / 5</div>
-        <div className="mt-2 font-semibold text-xl md:text-2xl lg:text-3xl">Google Maps értékelésünk</div>
+        <div className="mt-4 font-bold text-3xl md:text-4xl lg:text-5xl">
+          {rating} / 5
+        </div>
+        <div className="mt-2 font-semibold text-xl md:text-2xl lg:text-3xl">
+          Google Maps értékelésünk
+        </div>
       </m.div>
     </LazyLoadFramerMotion>
   );

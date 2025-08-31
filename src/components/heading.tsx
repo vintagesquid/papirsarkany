@@ -1,5 +1,5 @@
 import type { FC, HTMLAttributes, ReactNode, Ref } from "react";
-import { twMerge } from 'tailwind-merge'
+import { twMerge } from "tailwind-merge";
 
 type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 
@@ -31,7 +31,7 @@ const Heading: FC<HeadingProps> = ({
   ...rest
 }) => {
   const HeadingElement = as;
-  
+
   const defaultSize = getDefaultSizeFromAs(as);
   const sizeClass = sizeClassMap[size ?? defaultSize];
 
