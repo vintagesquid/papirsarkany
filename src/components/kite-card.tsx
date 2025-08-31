@@ -8,6 +8,7 @@ import { getPositionFromHotspot, urlFor } from "~/lib/sanity-image";
 import type { WithImageAsset } from "~/lib/types";
 import AddToCartButton from "./add-to-cart-button";
 import HoverAnimatedCard from "./hover-animated-card";
+import Heading from './heading';
 
 type KiteCardProps = {
   kite: WithImageAsset<Kite>;
@@ -26,7 +27,7 @@ const KiteCard: FC<KiteCardProps> = ({ kite }) => {
       >
         <div className="flex h-full flex-col justify-between gap-3">
           <div>
-            <h3 className="text-center font-bold">{kite.name}</h3>
+            <Heading as='h3' className="text-center font-bold">{kite.name}</Heading>
 
             {kite.isBeginner && (
               <div className="text-center font-bold text-primary underline">
@@ -51,9 +52,9 @@ const KiteCard: FC<KiteCardProps> = ({ kite }) => {
                 className={"mx-auto aspect-squares rounded-lg object-cover"}
               />
             )}
-            <h3 className="text-center font-bold text-primary">
+            <Heading as='h3' className="text-center font-bold text-primary">
               {currencyFormatter(kite.price || 0)}
-            </h3>
+            </Heading>
           </div>
 
           <div className="flex justify-end">

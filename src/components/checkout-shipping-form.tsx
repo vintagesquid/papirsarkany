@@ -19,6 +19,7 @@ import FormattedPhoneNumberInput from "./formatted-phone-number-input";
 import FoxpostMap from "./foxpost-map";
 import LazyLoadFramerMotion from "./lazy-load-framer-motion";
 import ShippingOptionRadioInput from "./shipping-option-radio-input";
+import Heading from './heading';
 
 const CheckoutShippingForm: FC = () => {
   const {
@@ -75,7 +76,7 @@ const CheckoutShippingForm: FC = () => {
     <>
       <div>
         <div className="mx-auto max-w-(--breakpoint-sm) space-y-2">
-          <h2 className="underline underline-offset-8">Elérhetőség</h2>
+          <Heading as={'h2'} className="underline underline-offset-8">Elérhetőség</Heading>
           <fieldset className="d-fieldset">
             <label className="d-label" htmlFor="email">
               <span className="d-label-text text-lg">Email</span>
@@ -141,7 +142,7 @@ const CheckoutShippingForm: FC = () => {
               </span>
             </label>
           </fieldset>
-          <h2 className="underline underline-offset-8">Szállítás</h2>
+          <Heading as='h2' className="underline underline-offset-8">Szállítás</Heading>
           <ShippingOptionRadioInput
             label={"Személyes átvétel"}
             onClick={onPersonalPickupOptionClick}

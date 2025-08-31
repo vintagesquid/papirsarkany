@@ -8,6 +8,7 @@ import type { OrderForm } from "~/lib/validation-schemas";
 import { useCheckoutFormStore } from "~/store/use-checkout-form-store";
 import Card from "./card";
 import OrderSummaryCard from "./order-summary-card";
+import Heading from './heading';
 
 const CheckoutSummaryForm: FC = () => {
   const router = useRouter();
@@ -22,14 +23,14 @@ const CheckoutSummaryForm: FC = () => {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-center font-bold">Rendelés összegzése</h1>
+      <Heading as='h1' className="text-center font-bold">Rendelés összegzése</Heading>
 
       <OrderSummaryCard layout="definitive" />
 
       <div className="max-w grid grid-cols-1 gap-4 md:grid-cols-3">
         <Card className="mx-auto w-full max-w-xs p-6">
           <div>
-            <h4 className="font-bold underline">Elérhetőség</h4>
+            <Heading as='h4' className="font-bold underline">Elérhetőség</Heading>
             <div>
               {formValues.lastName} {formValues.firstName}
             </div>
@@ -40,7 +41,7 @@ const CheckoutSummaryForm: FC = () => {
 
         <Card className="mx-auto w-full max-w-xs p-6">
           <div>
-            <h4 className="font-bold underline">Szállítás</h4>
+            <Heading as='h4' className="font-bold underline">Szállítás</Heading>
             <div>{formValues.shippingOption}</div>
             <div>
               {formValues.shippingPostcode} {formValues.shippingCity}
@@ -52,7 +53,7 @@ const CheckoutSummaryForm: FC = () => {
 
         <Card className="mx-auto w-full max-w-xs p-6">
           <div>
-            <h4 className="font-bold underline">Fizetés</h4>
+            <Heading as='h4' className="font-bold underline">Fizetés</Heading>
             <div>{formValues.paymentOption}</div>
             <div>
               {formValues.billingPostcode} {formValues.billingCity}

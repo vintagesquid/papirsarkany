@@ -6,6 +6,7 @@ import { currencyFormatter } from "~/lib/formatters";
 import type { WithImageAsset } from "~/lib/types";
 import AddToCartButton from "./add-to-cart-button";
 import Card from "./card";
+import Heading from './heading';
 
 type ReelCardProps = {
   reel: WithImageAsset<Reel>;
@@ -15,7 +16,7 @@ const ReelCard: FC<ReelCardProps> = ({ reel }) => {
   return (
     <Card className="flex w-full flex-col justify-between gap-3 p-5">
       <div>
-        <h3 className="text-center font-bold">{reel.name}</h3>
+        <Heading as='h3' className="text-center font-bold">{reel.name}</Heading>
       </div>
 
       {reel.image && (
@@ -31,9 +32,9 @@ const ReelCard: FC<ReelCardProps> = ({ reel }) => {
       )}
 
       {reel.price && (
-        <h3 className="text-center font-bold text-primary">
+        <Heading as='h3' className="text-center font-bold text-primary">
           {currencyFormatter(reel.price)}
-        </h3>
+        </Heading>
       )}
 
       <div className="flex justify-end">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import AddToCartButton from "~/components/add-to-cart-button";
+import Heading from '~/components/heading';
 import { getAllKites, getKiteBySlug } from "~/lib/cms";
 import { MISSING_IMG_URL, NO_NAME } from "~/lib/constants";
 import { currencyFormatter } from "~/lib/formatters";
@@ -71,41 +72,41 @@ export default async function Kite(props: { params: Promise<Params> }) {
       </div>
       <div className="space-y-4 md:flex-2 md:space-y-8">
         <div className="text-center md:text-left">
-          <h1 className="font-bold">{kite.name}</h1>
+          <Heading as='h1' className="font-bold">{kite.name}</Heading>
           {kite.isBeginner && (
-            <h3 className="font-bold text-primary underline underline-offset-8">
+            <Heading as='h2' size={3} className="font-bold text-primary underline underline-offset-8">
               Kezdőknek ajánlott!
-            </h3>
+            </Heading>
           )}
         </div>
         <div className="space-y-2 text-center md:text-left">
           {kite.price && (
-            <h2 className="font-bold text-primary">
+            <Heading as={'h2'} className="font-bold text-primary">
               {currencyFormatter(kite.price)}
-            </h2>
+            </Heading>
           )}
           <AddToCartButton product={kite} />
         </div>
         <div className="space-y-1">
           {kite.size && (
-            <h3>
+            <Heading as='h3'>
               <b>Méret: </b>
               {kite.size}
-            </h3>
+            </Heading>
           )}
           {kite.materials && kite.materials?.length > 0 && (
-            <h3>
+            <Heading as='h3'>
               <b>Anyagok: </b>
               {kite.materials.join(", ")}
-            </h3>
+            </Heading>
           )}
           {kite.windSpeed && (
-            <h3>
+            <Heading as='h3'>
               <b>Szél: </b>
               {kite.windSpeed}
-            </h3>
+            </Heading>
           )}
-          <h4>{kite.description}</h4>
+          <Heading as='h4'>{kite.description}</Heading>
         </div>
       </div>
     </div>

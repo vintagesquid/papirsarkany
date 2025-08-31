@@ -6,6 +6,7 @@ import { currencyFormatter, pricePerMeterFormatter } from "~/lib/formatters";
 import type { WithImageAsset } from "~/lib/types";
 import AddToCartButton from "./add-to-cart-button";
 import Card from "./card";
+import Heading from './heading';
 
 type RodCardProps = {
   rod: WithImageAsset<Rod>;
@@ -62,7 +63,7 @@ const RodCard: FC<RodCardProps> = ({ rod }) => {
   return (
     <div className="relative z-0">
       <Card className="w-full space-y-3 p-5">
-        <h3 className="font-bold">{rod.name}</h3>
+        <Heading as='h3' className="font-bold">{rod.name}</Heading>
 
         <div className="flex flex-wrap gap-2">
           <fieldset className="d-fieldset flex-1">
@@ -104,14 +105,14 @@ const RodCard: FC<RodCardProps> = ({ rod }) => {
           </fieldset>
         </div>
         {selectedDiameter.pricePerMeter && selectedLength && (
-          <h2>
+          <Heading as={'h2'}>
             {currencyFormatter(
               selectedDiameter.pricePerMeter * Math.ceil(selectedLength / 100),
             )}{" "}
             <span className="text-base text-gray-500">
               ({pricePerMeterFormatter(selectedDiameter.pricePerMeter)})
             </span>
-          </h2>
+          </Heading>
         )}
 
         <div className="flex justify-end">
