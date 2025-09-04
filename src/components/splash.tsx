@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getGoogleMapsRating } from "~/lib/google-cloud";
 import GoogleMapsRating from "./google-maps-rating";
 import Heading from "./heading";
+import News from "./news";
 
 export default async function Splash() {
   const { rating, userRatingCount } = await getGoogleMapsRating();
@@ -35,10 +36,8 @@ export default async function Splash() {
           </Link>
         </div>
 
-        <div>
-          <Heading as="h2" className="font-bold underline">
-            SÁRKÁNYOK NAPJA 2025.09.06. Szentkirályszabadja
-          </Heading>
+        <div className="space-y-2">
+          <News />
         </div>
       </div>
     </section>

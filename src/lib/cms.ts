@@ -8,6 +8,7 @@ import type {
 } from "@sanity/lib/sanity.types";
 import {
   getAllKitesQuery,
+  getAllNewsQuery,
   getAllReelsQuery,
   getAllRodsQuery,
   getAllTwinesQuery,
@@ -39,4 +40,8 @@ export async function getAllReels(): Promise<GetAllReelsQueryResult> {
 
 export async function getAllTwines(): Promise<GetAllTwinesQueryResult> {
   return await client.fetch(getAllTwinesQuery);
+}
+
+export async function getAllNews() {
+  return await client.fetch(getAllNewsQuery);
 }

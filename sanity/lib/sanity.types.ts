@@ -13,6 +13,16 @@
  */
 
 // Source: schema.json
+export type News = {
+  _id: string;
+  _type: "news";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  label?: string;
+  link?: string;
+};
+
 export type TwineDiameters = Array<{
   diameter?: number;
   pricePerMeter?: number;
@@ -276,7 +286,7 @@ export type SanityAssetSourceData = {
   url?: string;
 };
 
-export type AllSanitySchemaTypes = TwineDiameters | Twine | Reel | Lengths | RodDiameters | Rod | KiteMaterials | Kite | MediaTag | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
+export type AllSanitySchemaTypes = News | TwineDiameters | Twine | Reel | Lengths | RodDiameters | Rod | KiteMaterials | Kite | MediaTag | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/lib/actions/publish-all-modified.ts
 // Variable: modifiedPublishedQuery
@@ -320,6 +330,14 @@ export type ModifiedPublishedQueryResult = Array<{
   _updatedAt: string;
   _rev: string;
   name?: Slug;
+} | {
+  _id: string;
+  _type: "news";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  label?: string;
+  link?: string;
 } | {
   _id: string;
   _type: "reel";
@@ -589,6 +607,17 @@ export type GetAllTwinesQueryResult = Array<{
   };
   diameters?: TwineDiameters;
 }>;
+// Variable: getAllNewsQuery
+// Query: *[_type == 'news'] | order(_createdAt desc)
+export type GetAllNewsQueryResult = Array<{
+  _id: string;
+  _type: "news";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  label?: string;
+  link?: string;
+}>;
 
 // Query TypeMap
 import "@sanity/client";
@@ -600,5 +629,6 @@ declare module "@sanity/client" {
     "*[_type == 'rod'] { ..., image { ..., asset-> { url, metadata } } } | order(name asc)": GetAllRodsQueryResult;
     "*[_type == 'reel'] { ..., image { ..., asset-> { url, metadata } } } | order(name asc)": GetAllReelsQueryResult;
     "*[_type == 'twine'] { ..., image { ..., asset-> { url, metadata } } } | order(name asc)": GetAllTwinesQueryResult;
+    "*[_type == 'news'] | order(_createdAt desc)": GetAllNewsQueryResult;
   }
 }
