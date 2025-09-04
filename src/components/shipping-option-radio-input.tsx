@@ -1,5 +1,3 @@
-"use client";
-
 import Image, { type ImageProps } from "next/image";
 import type { MouseEventHandler, ReactNode } from "react";
 import { useFormContext } from "react-hook-form";
