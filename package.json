@@ -18,7 +18,8 @@
     "test:unit": "vitest",
     "coverage": "vitest --coverage",
     "test:e2e": "playwright test",
-    "lint-and-format": "biome check",
+    "check": "biome check",
+    "check:write": "biome check --fix --unsafe",
     "dev:email": "email dev"
   },
   "dependencies": {
