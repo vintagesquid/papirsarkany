@@ -1,12 +1,13 @@
+import type { Metadata } from "next";
+import Heading from "~/components/heading";
 import ProductContainer from "~/components/product-container";
 import ReelCard from "~/components/reel-card";
 import RodCard from "~/components/rod-card";
 import TwineCard from "~/components/twine-card";
-
 import { getAllReels, getAllRods, getAllTwines } from "~/lib/cms";
 import { sanityProductCategoryTitleMap } from "~/lib/formatters";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Anyagok",
   description:
     "Sárkány készítéshez és eresztéshez szükséges anyagok, 1984-óta.",
@@ -20,13 +21,15 @@ export default async function Materials() {
   return (
     <div className="material-pattern">
       <div className="container space-y-10 p-8">
-        <h1 className="text-center font-bold">Anyagok</h1>
+        <Heading as="h1" className="text-center font-bold">
+          Anyagok
+        </Heading>
         <div className="space-y-8">
           {reels && reels.length > 0 && (
             <div className="space-y-4">
-              <h2 className="font-bold">
+              <Heading as={"h2"} className="font-bold">
                 {sanityProductCategoryTitleMap.reel}
-              </h2>
+              </Heading>
               <ProductContainer>
                 {reels.map((reel) => (
                   <ReelCard reel={reel} key={reel._id} />
@@ -36,9 +39,9 @@ export default async function Materials() {
           )}
           {twines && twines.length > 0 && (
             <div className="space-y-4">
-              <h2 className="font-bold">
+              <Heading as={"h2"} className="font-bold">
                 {sanityProductCategoryTitleMap.twine}
-              </h2>
+              </Heading>
               <ProductContainer>
                 {twines.map((twine) => (
                   <TwineCard twine={twine} key={twine._id} />
@@ -48,7 +51,9 @@ export default async function Materials() {
           )}
           {rods && rods.length > 0 && (
             <div className="space-y-4">
-              <h2 className="font-bold">{sanityProductCategoryTitleMap.rod}</h2>
+              <Heading as={"h2"} className="font-bold">
+                {sanityProductCategoryTitleMap.rod}
+              </Heading>
               <ProductContainer>
                 {rods.map((rod) => (
                   <RodCard rod={rod} key={rod._id} />

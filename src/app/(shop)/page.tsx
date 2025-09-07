@@ -3,6 +3,7 @@ import Link from "next/link";
 import AboutBusinessIcon from "~/assets/about-business.svg";
 import ContactIcon from "~/assets/contact.svg";
 import CraftingIcon from "~/assets/crafting.svg";
+import Heading from "~/components/heading";
 import HomeSection from "~/components/home-section";
 import ScrollTriggeredAnimatedCard from "~/components/scroll-triggered-animated-card";
 import Splash from "~/components/splash";
@@ -22,13 +23,15 @@ export default function Home() {
             <AboutBusinessIcon />
           </HomeSection.Icon>
           <HomeSection.Content>
-            <h1 className="text-center font-bold">A vállalkozásról</h1>
+            <Heading as="h3" size={1} className="text-center font-bold">
+              A vállalkozásról
+            </Heading>
 
             <ScrollTriggeredAnimatedCard
               animationDirection="right-to-left"
               className="p-5 text-center font-semibold sm:p-10"
             >
-              <h3>
+              <Heading as={"h4"} size={3}>
                 <span className="font-bold text-primary">Üzletem nincs</span>,
                 ezért{" "}
                 <span className="font-bold text-primary">
@@ -43,14 +46,14 @@ export default function Home() {
                   </Link>{" "}
                 </span>
                 (63-as BKV busszal megközelíthető) is vásárolhat
-              </h3>
+              </Heading>
             </ScrollTriggeredAnimatedCard>
 
             <ScrollTriggeredAnimatedCard
               animationDirection="left-to-right"
               className="p-5 text-center font-semibold sm:p-10"
             >
-              <h3>
+              <Heading as={"h4"} size={3}>
                 Sárkányaim repülési és{" "}
                 <span className="font-bold text-primary">nyolc napos </span>
                 pénzvisszafizetési garanciával kaphatók.
@@ -69,19 +72,21 @@ export default function Home() {
                 <span className="font-bold text-primary">
                   Mindenkinek kellemes sárkányeresztést kívánok!
                 </span>
-              </h3>
+              </Heading>
             </ScrollTriggeredAnimatedCard>
 
             <ScrollTriggeredAnimatedCard
               animationDirection="right-to-left"
               className="space-y-2 p-5 text-center sm:p-10"
             >
-              <h3 className="font-bold">Ducsai Barnabás</h3>
-              <h4>
+              <Heading as={"h4"} size={3} className="font-bold">
+                Ducsai Barnabás
+              </Heading>
+              <Heading as={"h5"} size={4}>
                 <b>Adószám:</b> 61090938-1-33
                 <br />
                 <b>Számlaszám:</b> Erste Bank 11600006-00000000-76709302
-              </h4>
+              </Heading>
             </ScrollTriggeredAnimatedCard>
           </HomeSection.Content>
         </HomeSection>
@@ -91,15 +96,15 @@ export default function Home() {
             <CraftingIcon />
           </HomeSection.Icon>
           <HomeSection.Content>
-            <h1 className="text-center font-bold">
+            <Heading as={"h3"} size={1} className="text-center font-bold">
               Sárkányépítő foglalkozások
-            </h1>
+            </Heading>
 
             <ScrollTriggeredAnimatedCard
               animationDirection="left-to-right"
               className="p-5 text-center font-semibold sm:p-10"
             >
-              <h3>
+              <Heading as={"h4"} size={3}>
                 A{" "}
                 <span className="font-bold text-primary">
                   sárkánykészítés és -repítés{" "}
@@ -108,14 +113,14 @@ export default function Home() {
                 &quot;tudomány&quot; apáról fiúra szállt, illetve a nagyobbaktól
                 lesték el a kisebbek. A gyerekek mára elfelejtették ezt a szép
                 régi játékot.
-              </h3>
+              </Heading>
             </ScrollTriggeredAnimatedCard>
 
             <ScrollTriggeredAnimatedCard
               animationDirection="right-to-left"
               className="p-5 text-center font-semibold sm:p-10"
             >
-              <h3>
+              <Heading as={"h4"} size={3}>
                 Vállalom{" "}
                 <span className="font-bold text-primary">
                   sárkányépítő foglalkozások
@@ -128,7 +133,7 @@ export default function Home() {
                 (Szelet a megrendelő biztosít.)
                 <br />
                 Ár egyedi megállapodás alapján.
-              </h3>
+              </Heading>
             </ScrollTriggeredAnimatedCard>
           </HomeSection.Content>
         </HomeSection>
@@ -139,11 +144,13 @@ export default function Home() {
           </HomeSection.Icon>
 
           <HomeSection.Content>
-            <h1 className="text-center font-bold">Elérhetőség</h1>
+            <Heading as={"h3"} size={1} className="text-center font-bold">
+              Elérhetőség
+            </Heading>
 
             <div className="text-center font-semibold">
-              <h3>{env.VENDOR_EMAIL_ADDRESS}</h3>
-              <h3>+36 30 9754 786</h3>
+              <Heading as={"h4"}>{env.VENDOR_EMAIL_ADDRESS}</Heading>
+              <Heading as={"h4"}>+36 30 9754 786</Heading>
             </div>
 
             <iframe

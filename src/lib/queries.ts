@@ -19,3 +19,7 @@ export const getAllReelsQuery = defineQuery(
 export const getAllTwinesQuery = defineQuery(
   `*[_type == 'twine'] { ..., image { ..., asset-> { url, metadata } } } | order(name asc)`,
 );
+
+export const getAllNewsQuery = defineQuery(
+  `*[_type == 'news'] | order(_createdAt desc)`,
+);

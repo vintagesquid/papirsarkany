@@ -1,7 +1,8 @@
+import type { Metadata } from "next";
 import type { FC } from "react";
 import Card from "~/components/card";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Adatvédelmi Nyilatkozat és Felhasználási Feltételek",
 };
 

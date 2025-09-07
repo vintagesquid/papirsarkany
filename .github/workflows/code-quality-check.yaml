@@ -1,7 +1,11 @@
 name: Code Quality Check
+permissions:
+  contents: read
 
 on:
   push:
+
+
 
 jobs:
   lint-and-format:
@@ -26,11 +30,14 @@ jobs:
         run: pnpx prisma generate
 
       - name: Run lint and format
-        run: pnpm run lint-and-format
+        run: pnpm run check
 
   unit-tests:
     runs-on: ubuntu-latest
-
+    environment: Preview
+    env: 
+      NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ vars.NEXT_PUBLIC_SANITY_PROJECT_ID}}
+      NEXT_PUBLIC_SANITY_DATASET: ${{ vars.NEXT_PUBLIC_SANITY_DATASET }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

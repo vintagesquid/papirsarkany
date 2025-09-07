@@ -6,6 +6,7 @@ import { currencyFormatter, pricePerMeterFormatter } from "~/lib/formatters";
 import type { WithImageAsset } from "~/lib/types";
 import AddToCartButton from "./add-to-cart-button";
 import Card from "./card";
+import Heading from "./heading";
 
 type TwineCardProps = {
   twine: WithImageAsset<Twine>;
@@ -29,7 +30,9 @@ const TwineCard: FC<TwineCardProps> = ({ twine }) => {
   return (
     <div className="relative z-0">
       <Card className="w-full space-y-3 p-5">
-        <h3 className="font-bold">{twine.name}</h3>{" "}
+        <Heading as="h3" className="font-bold">
+          {twine.name}
+        </Heading>{" "}
         <span>(szakítószilárdság: {selectedDiameter.tensileStrength} kg)</span>
         <div className="flex flex-wrap gap-2">
           <fieldset className="d-fieldset min-w-fit flex-1">
@@ -65,14 +68,14 @@ const TwineCard: FC<TwineCardProps> = ({ twine }) => {
           </div>
         </div>
         {selectedDiameter.pricePerMeter && (
-          <h2>
+          <Heading as={"h2"}>
             {currencyFormatter(
               selectedDiameter.pricePerMeter * Math.ceil(length),
             )}{" "}
-            <span className="text-base text-gray-400">
+            <span className="text-base text-gray-500">
               ({pricePerMeterFormatter(selectedDiameter.pricePerMeter)})
             </span>
-          </h2>
+          </Heading>
         )}
         <div className="flex justify-end">
           <AddToCartButton

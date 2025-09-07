@@ -1,10 +1,10 @@
 "use client";
 
-import Link, { type LinkProps } from "next/link";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type { FC, ReactNode } from "react";
+import type { ComponentProps, FC, ReactNode } from "react";
 
-export type NavigationMenuItemProps = LinkProps & {
+export type NavigationMenuItemProps = ComponentProps<typeof Link> & {
   children?: ReactNode;
 };
 
@@ -15,7 +15,7 @@ const NavigationMenuItem: FC<NavigationMenuItemProps> = (
 
   const pathname = usePathname();
 
-  const isActive = (href: LinkProps["href"]) => {
+  const isActive = (href: typeof props.href) => {
     if (!pathname || !href) {
       return false;
     }

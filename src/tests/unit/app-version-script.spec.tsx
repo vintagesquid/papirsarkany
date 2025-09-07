@@ -8,7 +8,7 @@ test("AppVersionScript", () => {
   render(<AppVersionScript />);
 
   const scriptTag = window.document.querySelector("script");
-  const scriptContent = scriptTag?.innerHTML;
+  const scriptContent = scriptTag?.textContent;
 
   if (scriptContent) {
     new Function(scriptContent)();

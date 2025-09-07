@@ -7,7 +7,8 @@ import type {
   SanityImageMetadata,
   Twine,
 } from "@sanity/lib/sanity.types";
-
+import type Link from "next/link";
+import type { ComponentProps } from "react";
 import type { NavigationMenuItemProps } from "~/components/navigation-menu-item";
 import type { CartItem, OrderForm } from "./validation-schemas";
 
@@ -265,7 +266,7 @@ export type Toast = {
 } & (
   | {
       type: "success";
-      href?: string;
+      href?: ComponentProps<typeof Link>["href"];
     }
   | {
       type: "error";

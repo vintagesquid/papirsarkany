@@ -1,4 +1,5 @@
 import React, { type FC, type ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 
 type HomeSectionProps = {
   id: string;
@@ -19,11 +20,11 @@ type HomeSectionCompound = FC<HomeSectionProps> & {
   Content: FC<ContentProps>;
 };
 
-const HomeSection: HomeSectionCompound = (props) => {
+const HomeSection: HomeSectionCompound = ({ children, id, className }) => {
   let Icon: ReactNode | null = null;
   let Content: ReactNode | null = null;
 
-  React.Children.forEach(props.children, (child) => {
+  React.Children.forEach(children, (child) => {
     if (React.isValidElement(child)) {
       if (child.type === HomeSection.Icon) {
         Icon = child;
@@ -34,7 +35,7 @@ const HomeSection: HomeSectionCompound = (props) => {
   });
 
   return (
-    <section id={props.id} className={`py-12 ${props.className}`}>
+    <section id={id} className={twMerge("py-12", className)}>
       {Icon && <div className="flex justify-center px-12 pb-12">{Icon}</div>}
 
       <div className="space-y-8 prose-headings:text-balance prose-headings:leading-relaxed">

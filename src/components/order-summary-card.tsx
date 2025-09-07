@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { type FC, Fragment } from "react";
-
 import TrashCanIcon from "~/assets/trash-can.svg";
 import useCart from "~/hooks/use-cart";
 import { MISSING_IMG_URL, NO_NAME } from "~/lib/constants";
@@ -10,6 +9,7 @@ import { currencyFormatter, formatShippingFee } from "~/lib/formatters";
 import type { CartItem } from "~/lib/validation-schemas";
 import { useCartStore } from "~/store/use-cart-store";
 import Card from "./card";
+import Heading from "./heading";
 import ProductinCartCounter from "./product-in-cart-counter";
 
 type OrderSummaryCardProps = {
@@ -33,7 +33,7 @@ const OrderSummaryCard: FC<OrderSummaryCardProps> = ({ layout = "full" }) => {
   if (cart.length < 1) {
     return (
       <div className="text-center">
-        <h1>Üres a kosarad.</h1>
+        <Heading as="h1">Üres a kosarad.</Heading>
       </div>
     );
   }
@@ -60,18 +60,20 @@ const OrderSummaryCard: FC<OrderSummaryCardProps> = ({ layout = "full" }) => {
                 </div>
 
                 <div>
-                  <h3 className="font-bold">{item.name}</h3>
+                  <Heading as="h3" className="font-bold">
+                    {item.name}
+                  </Heading>
 
-                  <span className="font-normal text-gray-400 text-sm">
+                  <span className="font-normal text-gray-500 text-sm">
                     {item.quantity} db
                   </span>
                 </div>
               </div>
               <div className="flex flex-1 items-center justify-end gap-4">
                 {item.price && (
-                  <h3 className="font-bold">
+                  <Heading as="h3" className="font-bold">
                     {currencyFormatter(item.price * item.quantity)}
-                  </h3>
+                  </Heading>
                 )}
               </div>
             </div>
@@ -83,27 +85,27 @@ const OrderSummaryCard: FC<OrderSummaryCardProps> = ({ layout = "full" }) => {
           <div>
             {Boolean(shippingFee) && (
               <div className="flex justify-between font-bold">
-                <h5>Szállítás</h5>
-                <h5>{formatShippingFee(shippingFee)}</h5>
+                <Heading as="h5">Szállítás</Heading>
+                <Heading as="h5">{formatShippingFee(shippingFee)}</Heading>
               </div>
             )}
             {Boolean(billingFee) && (
               <div className="flex justify-between font-bold">
-                <h5>Kezelési díj</h5>
-                <h5>+{currencyFormatter(billingFee)}</h5>
+                <Heading as="h5">Kezelési díj</Heading>
+                <Heading as="h5">+{currencyFormatter(billingFee)}</Heading>
               </div>
             )}
           </div>
         )}
 
         <div className="flex justify-between font-bold">
-          <h3 className="text-balance">
+          <Heading as="h3" className="text-balance">
             Összesen{" "}
-            <span className="font-normal text-base text-gray-400">
+            <span className="font-normal text-base text-gray-500">
               {getTotalItemCount()} db
             </span>
-          </h3>
-          <h3>{currencyFormatter(totalPrice)}</h3>
+          </Heading>
+          <Heading as="h3">{currencyFormatter(totalPrice)}</Heading>
         </div>
       </Card>
     );
@@ -129,19 +131,21 @@ const OrderSummaryCard: FC<OrderSummaryCardProps> = ({ layout = "full" }) => {
               )}
 
               <div>
-                <h3 className="font-bold">{item.name}</h3>
+                <Heading as="h3" className="font-bold">
+                  {item.name}
+                </Heading>
                 {item.price && (
-                  <h4 className="block font-bold md:hidden">
+                  <Heading as="h4" className="block font-bold md:hidden">
                     {currencyFormatter(item.price * item.quantity)}
-                  </h4>
+                  </Heading>
                 )}
               </div>
             </div>
             <div className="hidden flex-1 items-center justify-end gap-4 md:flex">
               {item.price && (
-                <h4 className="font-bold">
+                <Heading as="h4" className="font-bold">
                   {currencyFormatter(item.price * item.quantity)}
-                </h4>
+                </Heading>
               )}
 
               <div>
@@ -176,13 +180,13 @@ const OrderSummaryCard: FC<OrderSummaryCardProps> = ({ layout = "full" }) => {
       ))}
 
       <div className="flex justify-between font-bold">
-        <h3>
+        <Heading as="h3">
           Összesen{" "}
-          <span className="font-normal text-base text-gray-400">
+          <span className="font-normal text-base text-gray-500">
             {getTotalItemCount()} db
           </span>
-        </h3>
-        <h3>{currencyFormatter(totalPrice)}</h3>
+        </Heading>
+        <Heading as="h3">{currencyFormatter(totalPrice)}</Heading>
       </div>
     </Card>
   );

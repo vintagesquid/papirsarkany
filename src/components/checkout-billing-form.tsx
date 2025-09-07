@@ -11,6 +11,7 @@ import type {
 import type { OrderForm } from "~/lib/validation-schemas";
 import { useCheckoutFormStore } from "~/store/use-checkout-form-store";
 import BillingOptionRadioInput from "./billing-option-radio-input";
+import Heading from "./heading";
 
 const CheckoutBillingForm: FC = () => {
   const {
@@ -84,7 +85,9 @@ const CheckoutBillingForm: FC = () => {
   };
   return (
     <div className="mx-auto max-w-(--breakpoint-sm) space-y-2">
-      <h2 className="underline underline-offset-8">Fizetés</h2>
+      <Heading as={"h2"} className="underline underline-offset-8">
+        Fizetés
+      </Heading>
 
       {shippingBillingMap[selectedShippingOption].map(
         ({ billingOptionValue, billingFee }) => (
@@ -99,7 +102,9 @@ const CheckoutBillingForm: FC = () => {
 
       <span className="text-error">{errors.paymentOption?.message}</span>
 
-      <h2 className="underline underline-offset-8">Számlázási cím</h2>
+      <Heading as={"h2"} className="underline underline-offset-8">
+        Számlázási cím
+      </Heading>
 
       {selectedShippingOption === "Postai szállítás" && (
         <fieldset className="d-fieldset pt-4">

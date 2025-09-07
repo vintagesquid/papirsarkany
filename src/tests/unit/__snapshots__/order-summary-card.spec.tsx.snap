@@ -29,12 +29,12 @@ exports[`should render "definitive" layout when provided 1`] = `
         </div>
         <div>
           <h3
-            class="font-bold"
+            class="text-xl md:text-2xl lg:text-3xl font-bold"
           >
             Forgó szélzsák
           </h3>
           <span
-            class="font-normal text-gray-400 text-sm"
+            class="font-normal text-gray-500 text-sm"
           >
             2
              db
@@ -45,7 +45,7 @@ exports[`should render "definitive" layout when provided 1`] = `
         class="flex flex-1 items-center justify-end gap-4"
       >
         <h3
-          class="font-bold"
+          class="text-xl md:text-2xl lg:text-3xl font-bold"
         >
           24 000 Ft
         </h3>
@@ -58,18 +58,20 @@ exports[`should render "definitive" layout when provided 1`] = `
       class="flex justify-between font-bold"
     >
       <h3
-        class="text-balance"
+        class="text-xl md:text-2xl lg:text-3xl text-balance"
       >
         Összesen
          
         <span
-          class="font-normal text-base text-gray-400"
+          class="font-normal text-base text-gray-500"
         >
           2
            db
         </span>
       </h3>
-      <h3>
+      <h3
+        class="text-xl md:text-2xl lg:text-3xl"
+      >
         24 000 Ft
       </h3>
     </div>
@@ -102,12 +104,12 @@ exports[`should render "full" layout by default 1`] = `
         />
         <div>
           <h3
-            class="font-bold"
+            class="text-xl md:text-2xl lg:text-3xl font-bold"
           >
             Forgó szélzsák
           </h3>
           <h4
-            class="block font-bold md:hidden"
+            class="text-base md:text-xl lg:text-2xl block font-bold md:hidden"
           >
             24 000 Ft
           </h4>
@@ -117,7 +119,7 @@ exports[`should render "full" layout by default 1`] = `
         class="hidden flex-1 items-center justify-end gap-4 md:flex"
       >
         <h4
-          class="font-bold"
+          class="text-base md:text-xl lg:text-2xl font-bold"
         >
           24 000 Ft
         </h4>
@@ -276,17 +278,21 @@ exports[`should render "full" layout by default 1`] = `
     <div
       class="flex justify-between font-bold"
     >
-      <h3>
+      <h3
+        class="text-xl md:text-2xl lg:text-3xl"
+      >
         Összesen
          
         <span
-          class="font-normal text-base text-gray-400"
+          class="font-normal text-base text-gray-500"
         >
           2
            db
         </span>
       </h3>
-      <h3>
+      <h3
+        class="text-xl md:text-2xl lg:text-3xl"
+      >
         24 000 Ft
       </h3>
     </div>
@@ -299,7 +305,9 @@ exports[`should render "Üres a kosarad" when cart is empty 1`] = `
   <div
     class="text-center"
   >
-    <h1>
+    <h1
+      class="text-3xl md:text-4xl lg:text-5xl"
+    >
       Üres a kosarad.
     </h1>
   </div>
