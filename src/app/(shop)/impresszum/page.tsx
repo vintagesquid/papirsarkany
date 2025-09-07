@@ -3,8 +3,6 @@ import type { FC } from "react";
 import Card from "~/components/card";
 import Heading from "~/components/heading";
 
-// import Heading from '~/components/heading';
-
 const ImpressiumPage: FC = () => {
   return (
     <div className="container">
