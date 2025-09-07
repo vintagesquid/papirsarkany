@@ -36,9 +36,7 @@ export default async function Splash() {
           </Link>
         </div>
 
-        <div className="space-y-2">
-          <News />
-        </div>
+        <News />
       </div>
     </section>
   );
