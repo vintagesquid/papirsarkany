@@ -10,6 +10,7 @@ jobs:
     env:
       GOOGLE_CLOUD_API_KEY: ${{ secrets.GOOGLE_CLOUD_API_KEY }}
       VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET}}
+      SKIP_ENV_VALIDATION: true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code

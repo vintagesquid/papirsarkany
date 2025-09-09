@@ -53,5 +53,5 @@ export const env = createEnv({
     VERCEL_ENV: process.env.VERCEL_ENV,
     VERCEL_GIT_PULL_REQUEST_ID: process.env.VERCEL_GIT_PULL_REQUEST_ID,
   },
-  skipValidation: Boolean(process.env.CI),
+  skipValidation: Boolean(process.env.SKIP_ENV_VALIDATION),
 });
