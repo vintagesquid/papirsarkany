@@ -1,4 +1,6 @@
 name: Run E2E tests
+permissions:
+  contents: read
 
 on:
   deployment_status:
