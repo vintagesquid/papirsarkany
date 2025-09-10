@@ -4,8 +4,12 @@ import Heading from "./heading";
 const News = async () => {
   const news = await getAllNews();
 
+  if (news.length < 1) {
+    return null;
+  }
+
   return (
-    <>
+    <div className="space-y-2">
       {news.map((item) => {
         return (
           <div key={item._id}>
@@ -21,7 +25,7 @@ const News = async () => {
           </div>
         );
       })}
-    </>
+    </div>
   );
 };
 

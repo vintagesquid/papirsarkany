@@ -1,6 +1,7 @@
 import { client } from "@sanity/lib/client";
 import type {
   GetAllKitesQueryResult,
+  GetAllNewsQueryResult,
   GetAllReelsQueryResult,
   GetAllRodsQueryResult,
   GetAllTwinesQueryResult,
@@ -42,6 +43,6 @@ export async function getAllTwines(): Promise<GetAllTwinesQueryResult> {
   return await client.fetch(getAllTwinesQuery);
 }
 
-export async function getAllNews() {
+export async function getAllNews(): Promise<GetAllNewsQueryResult> {
   return await client.fetch(getAllNewsQuery);
 }

@@ -66,7 +66,7 @@ const CustomerEmail = ({
           fontFamily="Inter"
           fallbackFontFamily="Verdana"
           webFont={{
-            url: "(https://fonts.gstatic.com/s/inter/v19/UcC73FwrK3iLTeHuS_fjbvMwCp504jAa2JL7W0Q5n-wU.woff2",
+            url: "https://fonts.gstatic.com/s/inter/v19/UcC73FwrK3iLTeHuS_fjbvMwCp504jAa2JL7W0Q5n-wU.woff2",
             format: "woff2",
           }}
           fontWeight={400}
