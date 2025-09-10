@@ -81,8 +81,8 @@ importers:
         specifier: 19.1.1
         version: 19.1.1(react@19.1.1)
       react-email:
-        specifier: ^4.2.10
-        version: 4.2.10
+        specifier: ^4.2.11
+        version: 4.2.11
       react-hook-form:
         specifier: ^7.53.1
         version: 7.53.1(react@19.1.1)
@@ -130,8 +130,8 @@ importers:
         specifier: ^1.51.1
         version: 1.51.1
       '@react-email/preview-server':
-        specifier: 4.2.10
-        version: 4.2.10(@emotion/is-prop-valid@1.2.2)(@playwright/test@1.51.1)(postcss@8.5.3)
+        specifier: 4.2.11
+        version: 4.2.11(@emotion/is-prop-valid@1.2.2)(@playwright/test@1.51.1)(postcss@8.5.3)
       '@testing-library/react':
         specifier: ^16.3.0
         version: 16.3.0(@testing-library/dom@10.4.0)(@types/react-dom@19.1.9(@types/react@19.1.12))(@types/react@19.1.12)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -3200,8 +3200,8 @@ packages:
     peerDependencies:
       react: ^18.0 || ^19.0 || ^19.0.0-rc
 
-  '@react-email/preview-server@4.2.10':
-    resolution: {integrity: sha512-lq8N90cVXoWvWUuYUx9LO9h3XGIfd1+EXKP/qUm9ND5ZEskA8pSrDYq/5rw5VnQ2r9F/mFzYwbkOeBfQphrpJA==}
+  '@react-email/preview-server@4.2.11':
+    resolution: {integrity: sha512-0eoBZt/AXEuymYCgnPBaovipFbKT58gbREVsVpIT5HNmr9t84w7vFT+2b18w9Bi4eBy5dyoewnX5Oc4N61Jzww==}
 
   '@react-email/preview@0.0.13':
     resolution: {integrity: sha512-F7j9FJ0JN/A4d7yr+aw28p4uX7VLWs7hTHtLo7WRyw4G+Lit6Zucq4UWKRxJC8lpsUdzVmG7aBJnKOT+urqs/w==}
@@ -6892,8 +6892,8 @@ packages:
     peerDependencies:
       react: '>= 16.8'
 
-  react-email@4.2.10:
-    resolution: {integrity: sha512-VVq6Zk5f+Q55kb1mAY5B9gxChSgNnk+nos5Z6VyJMS4/gk4TSvNddhUuchvWyKVf5CbpGS9/BFEBmWfr7NSLtA==}
+  react-email@4.2.11:
+    resolution: {integrity: sha512-/7TXRgsTrXcV1u7kc5ZXDVlPvZqEBaYcflMhE2FgWIJh3OHLjj2FqctFTgYcp0iwzbR59a7gzJLmSKyD0wYJEQ==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -11677,7 +11677,7 @@ snapshots:
       md-to-react-email: 5.0.5(react@19.1.1)
       react: 19.1.1
 
-  '@react-email/preview-server@4.2.10(@emotion/is-prop-valid@1.2.2)(@playwright/test@1.51.1)(postcss@8.5.3)':
+  '@react-email/preview-server@4.2.11(@emotion/is-prop-valid@1.2.2)(@playwright/test@1.51.1)(postcss@8.5.3)':
     dependencies:
       '@babel/core': 7.26.10
       '@babel/parser': 7.27.0
@@ -15686,7 +15686,7 @@ snapshots:
       prop-types: 15.8.1
       react: 19.1.1
 
-  react-email@4.2.10:
+  react-email@4.2.11:
     dependencies:
       '@babel/parser': 7.28.3
       '@babel/traverse': 7.28.3
