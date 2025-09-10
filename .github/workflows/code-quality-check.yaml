@@ -36,6 +36,11 @@ jobs:
     runs-on: ubuntu-latest
     environment: Preview
     env: 
+      DATABASE_URL: ${{ secrets.DATABASE_URL}},
+      DATABASE_URL_UNPOOLED: ${{ secrets.DATABASE_URL_UNPOOLED}},
+      VENDOR_EMAIL_ADDRESS: ${{ secrets.VENDOR_EMAIL_ADDRESS}},
+      EMAIL_SERVICE_API_KEY: ${{ secrets.EMAIL_SERVICE_API_KEY}},
+      GOOGLE_CLOUD_API_KEY: ${{secrets.GOOGLE_CLOUD_API_KEY}}
       NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ vars.NEXT_PUBLIC_SANITY_PROJECT_ID}}
       NEXT_PUBLIC_SANITY_DATASET: ${{ vars.NEXT_PUBLIC_SANITY_DATASET }}
     steps:
