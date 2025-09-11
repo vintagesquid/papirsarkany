@@ -9,6 +9,8 @@ jobs:
   check-version-bump:
     name: Check if version number was bumped
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     if: github.base_ref == 'main' && github.head_ref == 'develop'
     outputs:
       should_release: ${{ steps.compare_versions.outputs.should_release }}
