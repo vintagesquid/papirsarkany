@@ -24,7 +24,7 @@ const RodCard: FC<RodCardProps> = ({ rod }) => {
   function getSelectedDiamaterFirstLength(
     selectedDiameter: RodDiameters[number] | undefined,
   ) {
-    if (!selectedDiameter || !selectedDiameter.lengths) {
+    if (!selectedDiameter?.lengths) {
       return undefined;
     }
 
