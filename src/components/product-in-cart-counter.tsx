@@ -66,7 +66,6 @@ const ProductinCartCounter: FC<ProductinCartCounterProps> = ({ cartItem }) => {
   const handleInputKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       e.currentTarget.blur();
-      return;
     }
   };
 
