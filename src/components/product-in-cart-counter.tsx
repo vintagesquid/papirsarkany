@@ -13,7 +13,6 @@ import { useCartStore } from "~/store/use-cart-store";
 
 type ProductinCartCounterProps = {
   cartItem: CartItem;
-  value: number;
 };
 
 const ProductinCartCounter: FC<ProductinCartCounterProps> = ({ cartItem }) => {
