@@ -22,13 +22,13 @@ const AddToCartButton: FC<AddToCartProps> = ({ product }) => {
     e.preventDefault();
 
     try {
-      const cartItem = Object.assign(
-        { image: product.image },
-        cartItemValidationSchema.parse({
+      const cartItem = {
+        image: product.image,
+        ...cartItemValidationSchema.parse({
           ...product,
           quantity: 1,
         }),
-      );
+      };
 
       addToCart(cartItem);
 
