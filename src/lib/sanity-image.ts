@@ -11,7 +11,9 @@ export function urlFor(source: SanityImageSource): ImageUrlBuilder {
 }
 
 export function getPositionFromHotspot(hotspot?: SanityImageHotspot): string {
-  if (!hotspot || !hotspot.x || !hotspot.y) return "center";
+  if (!hotspot?.x || !hotspot.y) {
+    return "center";
+  }
 
   return `${hotspot.x * 100}% ${hotspot.y * 100}%`;
 }
