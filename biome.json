@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.0.6/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.2.4/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -55,7 +55,13 @@
             "noUndeclaredVariables": "off",
             "noUnreachable": "off",
             "noUnreachableSuper": "off",
-            "noInvalidUseBeforeDeclaration": "off"
+            "noInvalidUseBeforeDeclaration": "off",
+            "useUniqueElementIds": {
+              "level": "warn",
+              "options": {
+                "excludedComponents": ["HomeSection", "Script", "section"]
+              }
+            }
           },
           "suspicious": {
             "noDuplicateClassMembers": "off",
