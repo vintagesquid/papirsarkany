@@ -1,7 +1,7 @@
 "use client";
 
 import { m } from "motion/react";
-import type { FC } from "react";
+import { type FC, useId } from "react";
 
 import LazyLoadFramerMotion from "./lazy-load-framer-motion";
 
@@ -14,6 +14,8 @@ const THRESHOLD = 3;
 const GoogleMapsRating: FC<GoogleMapsRating> = ({ rating }) => {
   const ratingRatio = (rating / 5) * 100;
   const normalizedInsetPath = `inset(${THRESHOLD + (100 - ratingRatio)}% 0 0 0)`;
+
+  const clipPathId = useId();
 
   return (
     <LazyLoadFramerMotion>
@@ -30,7 +32,7 @@ const GoogleMapsRating: FC<GoogleMapsRating> = ({ rating }) => {
             hover: { scale: [1, 1.05, 1], rotate: [0, -6, 6, -6, 0] },
           }}
         >
-          <g clipPath="url(#clip0_901_3111)">
+          <g clipPath={`url(#${clipPathId})`}>
             <m.path
               initial={{
                 clipPath: "inset(100% 0 0 0)",
@@ -58,7 +60,7 @@ const GoogleMapsRating: FC<GoogleMapsRating> = ({ rating }) => {
             />
           </g>
           <defs>
-            <clipPath id="clip0_901_3111">
+            <clipPath id={clipPathId}>
               <rect width="32" height="32" fill="white" />
             </clipPath>
           </defs>

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import type { FC } from "react";
+import { type FC, useId } from "react";
 import { useFormContext } from "react-hook-form";
 import type { OrderForm } from "~/lib/validation-schemas";
 import { useCheckoutFormStore } from "~/store/use-checkout-form-store";
@@ -20,6 +20,8 @@ const CheckoutSummaryForm: FC = () => {
   const formValues = getValues();
 
   const prevStep = useCheckoutFormStore((state) => state.prevStep);
+
+  const commentId = useId();
 
   return (
     <div className="space-y-6">
@@ -73,15 +75,15 @@ const CheckoutSummaryForm: FC = () => {
       </div>
 
       <fieldset className="d-fieldset">
-        <label className="d-label" htmlFor="comment">
+        <label className="d-label" htmlFor={commentId}>
           <span className="d-labels-text text-lg">Megjegyzés</span>
         </label>
         <textarea
-          id="comment"
+          id={commentId}
           className="d-textarea d-textarea-primary w-full"
           {...register("comment")}
         />
-        <label className="d-label justify-end" htmlFor="comment">
+        <label className="d-label justify-end" htmlFor={commentId}>
           <span className="d-label-text-alt">
             14 napos elállási jog fentartva a rendelés leadásától számítva.
           </span>

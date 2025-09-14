@@ -43,12 +43,12 @@ const ProductinCartCounter: FC<ProductinCartCounterProps> = ({ cartItem }) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     hasPendingChanges.current = true;
 
-    const newQuantity = Number.parseInt(e.target.value);
+    const newQuantity = Number.parseInt(e.target.value, 10);
     setTemporaryQuantityValue(newQuantity);
   };
 
   const handleBlur = (e: FocusEvent<HTMLInputElement>) => {
-    const newQuantity = Number.parseInt(e.target.value);
+    const newQuantity = Number.parseInt(e.target.value, 10);
 
     if (
       newQuantity < 1 ||

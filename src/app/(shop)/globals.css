@@ -1,3 +1,5 @@
+/* biome-ignore-all lint/suspicious/noUnknownAtRules: tailwind directves */
+
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @plugin "daisyui" {
@@ -70,5 +72,6 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   /* biome-ignore lint/correctness/noUnknownFunction: theme is a Tailwind function */
+  /* biome-ignore lint/complexity/noImportantStyles: specifitcy needs to increased to max  */
   -webkit-box-shadow: 0 0 0 30px theme("colors.base-100") inset !important;
 }

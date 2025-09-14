@@ -12,12 +12,12 @@ import { env } from "~/lib/env";
 // revalidate page every day
 export const revalidate = 86400;
 
-export default function Home() {
+export default function HomePage() {
   return (
     <div>
       <Splash />
 
-      <div className="container mx-auto max-w-(--breakpoint-lg) ">
+      <div className="container mx-auto max-w-(--breakpoint-lg)">
         <HomeSection id="vallalkozas">
           <HomeSection.Icon>
             <AboutBusinessIcon />

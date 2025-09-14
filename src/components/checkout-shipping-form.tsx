@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, m } from "motion/react";
-import { type FC, useMemo, useState } from "react";
+import { type FC, useId, useMemo, useState } from "react";
 import { useFormContext } from "react-hook-form";
 
 import {
@@ -30,6 +30,8 @@ const CheckoutShippingForm: FC = () => {
     getValues,
     formState: { errors },
   } = useFormContext<OrderForm>();
+  const fieldId = useId();
+
   const cart = useCartStore((state) => state.cart);
 
   const [isShowFoxpostMap, setIsShowFoxpostMap] = useState(false);
@@ -80,17 +82,17 @@ const CheckoutShippingForm: FC = () => {
             Elérhetőség
           </Heading>
           <fieldset className="d-fieldset">
-            <label className="d-label" htmlFor="email">
+            <label className="d-label" htmlFor={`${fieldId}-email`}>
               <span className="d-label-text text-lg">Email</span>
             </label>
             <input
-              id="email"
+              id={`${fieldId}-email`}
               type="text"
               placeholder={"mail.papirsarkany@gmail.com"}
               className="d-input w-full"
               {...register("email")}
             />
-            <label className="d-label" htmlFor="email">
+            <label className="d-label" htmlFor={`${fieldId}-email`}>
               <span className="d-label-text-alt text-error">
                 {errors.email?.message}
               </span>
@@ -98,32 +100,32 @@ const CheckoutShippingForm: FC = () => {
           </fieldset>
           <div className="gap-4 sm:grid sm:grid-cols-2">
             <fieldset className="d-fieldset">
-              <label className="d-label" htmlFor="lastName">
+              <label className="d-label" htmlFor={`${fieldId}-lastName`}>
                 <span className="d-label-text text-lg">Vezetéknév</span>
               </label>
               <input
-                id="lastName"
+                id={`${fieldId}-lastName`}
                 type="text"
                 className="d-input w-full"
                 {...register("lastName")}
               />
-              <label className="d-label" htmlFor="lastName">
+              <label className="d-label" htmlFor={`${fieldId}-lastName`}>
                 <span className="d-label-text-alt text-error">
                   {errors.lastName?.message}
                 </span>
               </label>
             </fieldset>
             <fieldset className="d-fieldset">
-              <label className="d-label" htmlFor="firstName">
+              <label className="d-label" htmlFor={`${fieldId}-firstName`}>
                 <span className="d-label-text text-lg">Keresztnév</span>
               </label>
               <input
-                id="firstName"
+                id={`${fieldId}-firstName`}
                 type="text"
                 className="d-input w-full"
                 {...register("firstName")}
               />
-              <label className="d-label" htmlFor="firstName">
+              <label className="d-label" htmlFor={`${fieldId}-firstName`}>
                 <span className="d-label-text-alt text-error">
                   {errors.firstName?.message}
                 </span>
@@ -131,14 +133,14 @@ const CheckoutShippingForm: FC = () => {
             </fieldset>
           </div>
           <fieldset className="d-fieldset">
-            <label className="d-label" htmlFor="phoneNumber">
+            <label className="d-label" htmlFor={`${fieldId}-phoneNumber`}>
               <span className="d-label-text text-lg">Telefonszám</span>
             </label>
             <FormattedPhoneNumberInput
-              id="phoneNumber"
+              id={`${fieldId}-phoneNumber`}
               {...register("phoneNumber")}
             />
-            <label className="d-label" htmlFor="phoneNumber">
+            <label className="d-label" htmlFor={`${fieldId}-phoneNumber`}>
               <span className="d-label-text-alt text-error">
                 {errors.phoneNumber?.message}
               </span>
@@ -216,49 +218,61 @@ const CheckoutShippingForm: FC = () => {
           {watch("shippingOption") === "Postai szállítás" && (
             <>
               <fieldset className="d-fieldset">
-                <label className="d-label" htmlFor="shippingPostcode">
+                <label
+                  className="d-label"
+                  htmlFor={`${fieldId}-shippingPostcode`}
+                >
                   <span className="d-label-text text-lg">Irányítószám</span>
                 </label>
                 <input
-                  id="shippingPostcode"
+                  id={`${fieldId}-shippingPostcode`}
                   type="text"
                   className="d-input w-full"
                   {...register("shippingPostcode")}
                 />
-                <label className="d-label" htmlFor="shippingPostcode">
+                <label
+                  className="d-label"
+                  htmlFor={`${fieldId}-shippingPostcode`}
+                >
                   <span className="d-label-text-alt text-error">
                     {errors.shippingPostcode?.message}
                   </span>
                 </label>
               </fieldset>
               <fieldset className="d-fieldset">
-                <label className="d-label" htmlFor="shippingCity">
+                <label className="d-label" htmlFor={`${fieldId}-shippingCity`}>
                   <span className="d-label-text text-lg">Város</span>
                 </label>
                 <input
-                  id="shippingCity"
+                  id={`${fieldId}-shippingCity`}
                   type="text"
                   className="d-input w-full"
                   {...register("shippingCity")}
                 />
-                <label className="d-label" htmlFor="shippingCity">
+                <label className="d-label" htmlFor={`${fieldId}-shippingCity`}>
                   <span className="d-label-text-alt text-error">
                     {errors.shippingCity?.message}
                   </span>
                 </label>
               </fieldset>
               <fieldset className="d-fieldset">
-                <label className="d-label" htmlFor="shippingAddress">
+                <label
+                  className="d-label"
+                  htmlFor={`${fieldId}-shippingAddress`}
+                >
                   <span className="d-label-text text-lg">Cím</span>
                 </label>
                 <input
-                  id="shippingAddress"
+                  id={`${fieldId}-shippingAddress`}
                   type="text"
                   placeholder="Utca, házszám"
                   className="d-input w-full"
                   {...register("shippingAddress")}
                 />
-                <label className="d-label" htmlFor="shippingAddress">
+                <label
+                  className="d-label"
+                  htmlFor={`${fieldId}-shippingAddress`}
+                >
                   <span className="d-label-text-alt text-error">
                     {errors.shippingAddress?.message}
                   </span>
