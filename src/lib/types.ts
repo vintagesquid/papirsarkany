@@ -82,7 +82,7 @@ export type NewOrder = {
 };
 
 export type OrderMail = NewOrder & {
-  subject: string;
+  id: number;
   products: {
     name: string;
     price: string;

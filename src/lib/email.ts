@@ -1,4 +1,3 @@
-import type { Order } from "@prisma/client";
 import { type CreateEmailOptions, Resend } from "resend";
 import CustomerEmail from "../../emails/customer";
 import VendorEmail from "../../emails/vendor";
@@ -14,16 +13,16 @@ export async function sendEmail(mailData: CreateEmailOptions) {
   console.log(`Email is sent to ${mailData.to}`);
 }
 
-export async function sendOrderEmails(order: Order, orderEmailData: OrderMail) {
+export async function sendOrderEmails(orderEmailData: OrderMail) {
   const { VENDOR_EMAIL_ADDRESS } = env;
 
   const vendorMail: CreateEmailOptions = {
     from: "mail@papirsarkany.hu",
     replyTo: VENDOR_EMAIL_ADDRESS,
     to: VENDOR_EMAIL_ADDRESS,
-    subject: `Rendelés #${order.id}`,
+    subject: `Rendelés #${orderEmailData.id}`,
     react: VendorEmail({
-      orderId: order.id,
+      orderId: orderEmailData.id,
       contact: orderEmailData.contact,
       products: orderEmailData.products,
       shippingOption: orderEmailData.shippingOption,
@@ -42,7 +41,7 @@ export async function sendOrderEmails(order: Order, orderEmailData: OrderMail) {
     replyTo: VENDOR_EMAIL_ADDRESS,
     to: orderEmailData.contact.email,
     subject: "Köszönöm rendelését - papirsarkany.hu",
-    react: await CustomerEmail({
+    react: CustomerEmail({
       contact: orderEmailData.contact,
       products: orderEmailData.products,
       shippingOption: orderEmailData.shippingOption,

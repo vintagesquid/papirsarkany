@@ -21,39 +21,9 @@ export async function POST(request: Request) {
 
     const order = await createOrder(normalizedFormData, cart);
 
-    if (
-      normalizedFormData.shippingOption === "Foxpost automatába" &&
-      foxpostOperatorId &&
-      isProdEnv()
-    ) {
-      const cod =
-        normalizedFormData.paymentOption === "Átvételkor bankártyával"
-          ? totalPrice
-          : 0;
-
-      const fullName = `${normalizedFormData.lastName} ${normalizedFormData.firstName}`;
-
-      const foxpostResponse = await createParcel({
-        cod,
-        destination: foxpostOperatorId,
-        recipientEmail: normalizedFormData.email,
-        recipientName: fullName,
-        recipientPhone: normalizedFormData.phoneNumber,
-        size: getFoxpostPackageSize(getTotalPackageInfo(cart)) || "M",
-      });
-
-      const foxpostResponseBody = (await foxpostResponse.json()) as {
-        valid: boolean;
-        parsels: unknown[];
-      };
-
-      if (!foxpostResponse.ok || !foxpostResponseBody.valid) {
-        throw new Error(foxpostResponse.statusText);
-      }
-    }
-
     if (isProdEnv() || isStageEnv()) {
       const orderEmailData: OrderMail = {
+        id: order.id,
         contact: {
           email: normalizedFormData.email,
           firstName: normalizedFormData.firstName,
@@ -75,7 +45,6 @@ export async function POST(request: Request) {
           subaddress: normalizedFormData.billingSubaddress,
         },
         comment: normalizedFormData.comment,
-        subject: "papirsarkany.hu - Köszönöm rendelését!",
         products: cart.map((product) => ({
           name: product.name,
           price: currencyFormatter(product.price),
@@ -89,10 +58,37 @@ export async function POST(request: Request) {
         total: currencyFormatter(totalPrice),
       };
 
-      await sendOrderEmails(order, orderEmailData);
+      await sendOrderEmails(orderEmailData);
     }
 
-    return NextResponse.json(body);
+    if (
+      normalizedFormData.shippingOption === "Foxpost automatába" &&
+      foxpostOperatorId &&
+      isProdEnv()
+    ) {
+      const foxpostResponse = await createParcel({
+        cod:
+          normalizedFormData.paymentOption === "Átvételkor bankártyával"
+            ? totalPrice
+            : 0,
+        destination: foxpostOperatorId,
+        recipientEmail: normalizedFormData.email,
+        recipientName: `${normalizedFormData.lastName} ${normalizedFormData.firstName}`,
+        recipientPhone: normalizedFormData.phoneNumber,
+        size: getFoxpostPackageSize(getTotalPackageInfo(cart)) || "M",
+      });
+
+      const foxpostResponseBody = (await foxpostResponse.json()) as {
+        valid: boolean;
+        parcels: unknown[];
+      };
+
+      if (!foxpostResponse.ok || !foxpostResponseBody.valid) {
+        throw new Error(foxpostResponse.statusText);
+      }
+    }
+
+    return NextResponse.json(order);
   } catch (error) {
     console.error(error);
 
