@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import AddToCartButton from "~/components/add-to-cart-button";
+import Available from "~/components/available";
 import Heading from "~/components/heading";
 import { getAllKites, getKiteBySlug } from "~/lib/cms";
 import { MISSING_IMG_URL, NO_NAME } from "~/lib/constants";
@@ -86,11 +87,14 @@ export default async function Kite(props: { params: Promise<Params> }) {
           )}
         </div>
         <div className="space-y-2 text-center md:text-left">
-          {kite.price && (
-            <Heading as={"h2"} className="font-bold text-primary">
-              {currencyFormatter(kite.price)}
-            </Heading>
-          )}
+          <div className="items-center gap-2 md:flex">
+            {kite.price && (
+              <Heading as={"h2"} className="font-bold text-primary">
+                {currencyFormatter(kite.price)}
+              </Heading>
+            )}
+            <Available />
+          </div>
           <AddToCartButton product={kite} />
         </div>
         <div className="space-y-1">
