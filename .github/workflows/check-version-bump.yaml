@@ -12,8 +12,6 @@ jobs:
     permissions:
       contents: read
     if: github.base_ref == 'main' && github.head_ref == 'develop'
-    outputs:
-      should_release: ${{ steps.compare_versions.outputs.should_release }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -21,8 +19,7 @@ jobs:
       - name: Get latest GitHub release
         id: get_latest_release
         run: |
-          LATEST_RELEASE=$(gh release list --limit 1 --json tagName -q '.[0].tagName' || echo "none")
-          echo "latest_release=$LATEST_RELEASE" >> $GITHUB_ENV
+          LATEST_RELEASE=$(gh release list --limit 1 --json tagName -q '.[0].tagName' || echo "none") >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
