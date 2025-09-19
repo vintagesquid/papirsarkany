@@ -9,7 +9,9 @@ const Footer: FC = () => {
       <div className="flex flex-col items-center justify-center gap-x-2 gap-y-4 text-center font-medium text-sm md:flex-row">
         {/* Links */}
         <Link href="/aszf">ÁSZF</Link>
-        <div>|</div>
+
+        <div className="hidden md:block">|</div>
+
         <Link href="/impresszum">Impresszum</Link>
 
         <div className="d-divider d-divider-neutral d-divider-horizontal hidden md:flex" />

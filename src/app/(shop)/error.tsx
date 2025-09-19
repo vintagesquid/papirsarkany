@@ -1,13 +1,11 @@
 "use client"; // Error components must be Client Components
 
 import { useEffect } from "react";
-
 import RestartIcon from "~/assets/restart.svg";
 import Heading from "~/components/heading";
 import { useToastStore } from "~/store/use-toast-store";
 
-// biome-ignore lint/suspicious/noShadowRestrictedNames: Next.js error boundary
-export default function Error({
+export default function ErrorPage({
   error,
   reset,
 }: {

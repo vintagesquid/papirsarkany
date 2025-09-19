@@ -1,6 +1,6 @@
 "use client";
 
-import type { ChangeEvent, FC } from "react";
+import { type ChangeEvent, type FC, useId } from "react";
 import { useFormContext } from "react-hook-form";
 
 import type {
@@ -21,6 +21,7 @@ const CheckoutBillingForm: FC = () => {
     setValue,
     trigger,
   } = useFormContext<OrderForm>();
+  const fieldId = useId();
 
   const prevStep = useCheckoutFormStore((state) => state.prevStep);
 
@@ -126,49 +127,49 @@ const CheckoutBillingForm: FC = () => {
         !getValues("isSameAdressAsShipping")) && (
         <>
           <fieldset className="d-fieldset">
-            <label className="d-label" htmlFor="billingPostcode">
+            <label className="d-label" htmlFor={`${fieldId}-billingPostcode`}>
               <span className="d-label-text text-lg">Irányítószám</span>
             </label>
             <input
-              id="billingPostcode"
+              id={`${fieldId}-billingPostcode`}
               type="text"
               className="d-input w-full"
               {...register("billingPostcode")}
             />
-            <label className="d-label" htmlFor="billingPostcode">
+            <label className="d-label" htmlFor={`${fieldId}-billingPostcode`}>
               <span className="d-label-text-alt text-error">
                 {errors.billingPostcode?.message}
               </span>
             </label>
           </fieldset>
           <fieldset className="d-fieldset">
-            <label className="d-label" htmlFor="billingCity">
+            <label className="d-label" htmlFor={`${fieldId}-billingCity`}>
               <span className="d-label-text text-lg">Város</span>
             </label>
             <input
-              id="billingCity"
+              id={`${fieldId}-billingCity`}
               type="text"
               className="d-input w-full"
               {...register("billingCity")}
             />
-            <label className="d-label" htmlFor="billingCity">
+            <label className="d-label" htmlFor={`${fieldId}-billingCity`}>
               <span className="d-label-text-alt text-error">
                 {errors.billingCity?.message}
               </span>
             </label>
           </fieldset>
           <fieldset className="d-fieldset">
-            <label className="d-label" htmlFor="billingAddress">
+            <label className="d-label" htmlFor={`${fieldId}-billingAddress`}>
               <span className="d-label-text text-lg">Cím</span>
             </label>
             <input
-              id="billingAddress"
+              id={`${fieldId}-billingAddress`}
               type="text"
               placeholder="Utca, házszám"
               className="d-input w-full"
               {...register("billingAddress")}
             />
-            <label className="d-label" htmlFor="billingAddress">
+            <label className="d-label" htmlFor={`${fieldId}-billingAddress`}>
               <span className="d-label-text-alt text-error">
                 {errors.billingAddress?.message}
               </span>

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "Kosár",
 };
 
-export default function Cart() {
+export default function CartPage() {
   return (
     <div className="container flex flex-col gap-4 p-8">
       <Heading as={"h1"} className="text-center font-bold">

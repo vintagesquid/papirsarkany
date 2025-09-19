@@ -8,7 +8,7 @@ import {
   Link,
   Text,
 } from "@react-email/components";
-// biome-ignore lint/correctness/noUnusedImports: <must import in react-email components>
+// biome-ignore lint/correctness/noUnusedImports: must import in react-email components
 import * as React from "react";
 import type { BillingOptionValue, ShippingOptionValue } from "~/lib/types";
 import { kiteMock } from "~/mocks/product.mock";

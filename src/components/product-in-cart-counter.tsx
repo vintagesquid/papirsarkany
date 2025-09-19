@@ -13,7 +13,6 @@ import { useCartStore } from "~/store/use-cart-store";
 
 type ProductinCartCounterProps = {
   cartItem: CartItem;
-  value: number;
 };
 
 const ProductinCartCounter: FC<ProductinCartCounterProps> = ({ cartItem }) => {
@@ -44,12 +43,12 @@ const ProductinCartCounter: FC<ProductinCartCounterProps> = ({ cartItem }) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     hasPendingChanges.current = true;
 
-    const newQuantity = Number.parseInt(e.target.value);
+    const newQuantity = Number.parseInt(e.target.value, 10);
     setTemporaryQuantityValue(newQuantity);
   };
 
   const handleBlur = (e: FocusEvent<HTMLInputElement>) => {
-    const newQuantity = Number.parseInt(e.target.value);
+    const newQuantity = Number.parseInt(e.target.value, 10);
 
     if (
       newQuantity < 1 ||
@@ -66,7 +65,6 @@ const ProductinCartCounter: FC<ProductinCartCounterProps> = ({ cartItem }) => {
   const handleInputKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       e.currentTarget.blur();
-      return;
     }
   };
 
