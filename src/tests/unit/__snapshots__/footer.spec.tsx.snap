@@ -13,7 +13,9 @@ exports[`should match snapshot 1`] = `
       >
         ÁSZF
       </a>
-      <div>
+      <div
+        class="hidden md:block"
+      >
         |
       </div>
       <a
