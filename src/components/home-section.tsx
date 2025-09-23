@@ -35,11 +35,13 @@ const HomeSection: HomeSectionCompound = ({ children, id, className }) => {
   });
 
   return (
-    <section id={id} className={twMerge("py-12", className)}>
-      {Icon && <div className="flex justify-center px-12 pb-12">{Icon}</div>}
+    <section id={id} className={twMerge("even:clouds-pattern py-12 even:bg-primary even:py-64 even:text-primary-content", className)}>
+      <div className="container">
+        {Icon && <div className="flex justify-center px-12 pb-12">{Icon}</div>}
 
-      <div className="space-y-8 prose-headings:text-balance prose-headings:leading-relaxed">
-        {Content}
+        <div className="space-y-8 prose-headings:text-balance prose-headings:leading-relaxed">
+          {Content}
+        </div>
       </div>
     </section>
   );

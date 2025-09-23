@@ -40,6 +40,37 @@
   background-image: url(/home-pattern.svg);
 }
 
+@utility splash-pattern {
+  background-image: url(/splash-background.svg);
+}
+@utility clouds-pattern {
+  position: relative;
+  
+  &::before,
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    left: 0;
+    right: 0;
+    background-size: cover;
+    background-image: url(/clouds.svg);
+    background-position-y: bottom;
+  }
+
+  &::before {
+    top: -1px;
+    rotate: 180deg;
+    background-position-x: 0%;
+  }
+  &::after {
+    bottom: -1px;
+    background-position-x: 100%;
+  }
+}
+
 /* mask-b-from-66% is impacting performance in firefox (screen resize) */
 @utility fast-mask-33 {
   mask-image: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 33%);

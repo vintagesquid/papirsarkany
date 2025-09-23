@@ -69,7 +69,7 @@ const GoogleMapsRating: FC<GoogleMapsRating> = ({ rating }) => {
         <div className="mt-4 font-bold text-3xl md:text-4xl lg:text-5xl">
           {rating} / 5
         </div>
-        <div className="mt-2 font-semibold text-xl md:text-2xl lg:text-3xl">
+        <div className="mt-2 font-semibold text-lg md:text-xl lg:text-2xl">
           Google Maps értékelésünk
         </div>
       </m.div>
