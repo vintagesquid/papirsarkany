@@ -15,7 +15,12 @@ const News = async () => {
           <div key={item._id}>
             <Heading as="h2" className="font-bold">
               {item.link ? (
-                <a href={item.link} target="_blank" rel="noopener noreferrer" className='underline'>
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline"
+                >
                   {item.label}
                 </a>
               ) : (

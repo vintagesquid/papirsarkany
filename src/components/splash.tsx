@@ -20,10 +20,10 @@ const Splash = async () => {
           </Link>
         </div>
         <div className="space-y-4 sm:space-y-12">
-          <div className='space-y-2'>
-          <Heading as="h1" className="font-bold max-[369px]:text-2xl">
-            www.papirsarkany.hu
-          </Heading>
+          <div className="space-y-2">
+            <Heading as="h1" className="font-bold max-[369px]:text-2xl">
+              www.papirsarkany.hu
+            </Heading>
 
             <Link href={"/sarkanyok"}>
               <Heading as="h2" size={1} className="font-semibold underline">
@@ -32,7 +32,7 @@ const Splash = async () => {
             </Link>
           </div>
 
-        <News />
+          <News />
         </div>
       </div>
     </div>

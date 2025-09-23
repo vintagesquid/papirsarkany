@@ -17,7 +17,7 @@ export default function HomePage() {
     <div>
       <Splash />
       {/* <Splash /> */}
-      <div> 
+      <div>
         <HomeSection id="vallalkozas">
           <HomeSection.Icon>
             <AboutBusinessIcon />
