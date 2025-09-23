@@ -45,9 +45,7 @@ exports[`should match snapshot 1`] = `
         <svg
           class="h-8 w-8"
           fill="none"
-          height="800px"
           viewBox="0 0 24 24"
-          width="800px"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
