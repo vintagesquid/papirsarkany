@@ -23,6 +23,7 @@
     "dev:email": "email dev"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@hookform/resolvers": "~4.0.0",
     "@prisma/client": "^6.16.0",
     "@react-email/components": "^0.5.3",
@@ -39,6 +40,7 @@
     "@vercel/speed-insights": "^1.2.0",
     "client-only": "^0.0.1",
     "groq": "^4.7.0",
+    "gsap": "^3.13.0",
     "just-pick": "^4.2.0",
     "motion": "^12.5.0",
     "next": "^15.5.2",

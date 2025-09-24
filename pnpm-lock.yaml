@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@gsap/react':
+        specifier: ^2.1.2
+        version: 2.1.2(gsap@3.13.0)(react@19.1.1)
       '@hookform/resolvers':
         specifier: ~4.0.0
         version: 4.0.0(react-hook-form@7.53.1(react@19.1.1))
@@ -56,6 +59,9 @@ importers:
       groq:
         specifier: ^4.7.0
         version: 4.7.0
+      gsap:
+        specifier: ^3.13.0
+        version: 3.13.0
       just-pick:
         specifier: ^4.2.0
         version: 4.2.0
@@ -1959,6 +1965,12 @@ packages:
 
   '@floating-ui/utils@0.2.10':
     resolution: {integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==}
+
+  '@gsap/react@2.1.2':
+    resolution: {integrity: sha512-JqliybO1837UcgH2hVOM4VO+38APk3ECNrsuSM4MuXp+rbf+/2IG2K1YJiqfTcXQHH7XlA0m3ykniFYstfq0Iw==}
+    peerDependencies:
+      gsap: ^3.12.5
+      react: '>=17'
 
   '@hookform/resolvers@3.9.1':
     resolution: {integrity: sha512-ud2HqmGBM0P0IABqoskKWI6PEf6ZDDBZkFqe2Vnl+mTHCEHzr3ISjjZyCwTjC/qpL25JC9aIDkloQejvMeq0ug==}
@@ -5538,6 +5550,9 @@ packages:
   groq@4.7.0:
     resolution: {integrity: sha512-d/+bjw95E6ozbFtA+HrUfukyvko5urcvgX0glbaCyn5Punk5UN5KMJzPXIdp3klaq9Hp2V4U4zT5NEsN03OJjg==}
     engines: {node: '>=20.19 <22 || >=22.12'}
+
+  gsap@3.13.0:
+    resolution: {integrity: sha512-QL7MJ2WMjm1PHWsoFrAQH/J8wUeqZvMtHO58qdekHpCfhvhSL4gSiz6vJf5EeMP0LOn3ZCprL2ki/gjED8ghVw==}
 
   gunzip-maybe@1.4.2:
     resolution: {integrity: sha512-4haO1M4mLO91PW57BMsDFf75UmwoRX0GkdD+Faw+Lr+r/OZrOCS0pIBwOL1xCKQqnQzbNFGgK2V2CpBUPeFNTw==}
@@ -10431,6 +10446,11 @@ snapshots:
 
   '@floating-ui/utils@0.2.10': {}
 
+  '@gsap/react@2.1.2(gsap@3.13.0)(react@19.1.1)':
+    dependencies:
+      gsap: 3.13.0
+      react: 19.1.1
+
   '@hookform/resolvers@3.9.1(react-hook-form@7.54.2(react@19.1.1))':
     dependencies:
       react-hook-form: 7.54.2(react@19.1.1)
@@ -14295,6 +14315,8 @@ snapshots:
   groq@3.93.0: {}
 
   groq@4.7.0: {}
+
+  gsap@3.13.0: {}
 
   gunzip-maybe@1.4.2:
     dependencies:
