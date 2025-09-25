@@ -12,7 +12,7 @@ type MobileNavigationProps = {
 
 const MobileNavigation: FC<MobileNavigationProps> = ({ navigationItems }) => {
   return (
-    <nav className="d-navbar border-black border-b-4 bg-white">
+    <nav className="d-navbar">
       <div className="d-navbar-start gap-1">
         <div className="d-dropdown">
           {/** biome-ignore lint/a11y/useSemanticElements: we can't use <button> here because Safari has a bug that prevents the button from being focused. */}
@@ -28,7 +28,7 @@ const MobileNavigation: FC<MobileNavigationProps> = ({ navigationItems }) => {
           <ul
             // biome-ignore lint/a11y/noNoninteractiveTabindex: safari has a bug that prevents the button from being focused
             tabIndex={0}
-            className="d-menu d-dropdown-content z-1 mt-5 w-52 rounded-box bg-base-100 p-2 shadow-sm"
+            className="d-menu d-dropdown-content z-1 mt-5 w-52 rounded-box rounded-t-none border-3 border-black border-t-none bg-base-100 p-2 shadow-sm"
             data-pw-e2e="hamburger-menu-content"
           >
             {navigationItems.rightItems.map((navigationItem) => (

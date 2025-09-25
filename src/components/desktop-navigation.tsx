@@ -12,7 +12,7 @@ type DesktopNavigationProps = {
 
 const DesktopNavigation: FC<DesktopNavigationProps> = ({ navigationItems }) => {
   return (
-    <nav className="d-navbar min-h-[68px] border-black border-b-4 bg-white">
+    <nav className="d-navbar min-h-[68px]">
       <div className="d-navbar-start hidden gap-1 md:flex">
         <Link
           href={"/#hello"}
@@ -21,7 +21,7 @@ const DesktopNavigation: FC<DesktopNavigationProps> = ({ navigationItems }) => {
         >
           <HomeIcon className="h-full" />
         </Link>
-        <ul className="d-menu d-menu-horizontal flex-nowrap gap-2 font-extrabold text-base">
+        <ul className="d-menu d-menu-horizontal flex-nowrap font-extrabold text-base">
           {navigationItems.leftItems.map((navigationItem) => (
             <NavigationMenuItem
               key={navigationItem.href.toString()}
@@ -33,7 +33,7 @@ const DesktopNavigation: FC<DesktopNavigationProps> = ({ navigationItems }) => {
         </ul>
       </div>
       <div className="d-navbar-end hidden md:flex">
-        <ul className="d-menu d-menu-horizontal gap-2 font-extrabold text-base">
+        <ul className="d-menu d-menu-horizontal font-extrabold text-base">
           {navigationItems.rightItems.map((navigationItem) => (
             <NavigationMenuItem
               key={navigationItem.href.toString()}
