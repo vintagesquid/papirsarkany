@@ -38,7 +38,7 @@ const HomeSection: HomeSectionCompound = ({ children, id, className }) => {
     <section
       id={id}
       className={twMerge(
-        "even:clouds-pattern py-12 even:bg-primary even:py-64 even:text-primary-content",
+        "even:clouds-pattern py-12 even:bg-primary even:py-24 even:text-primary-content",
         className,
       )}
     >
