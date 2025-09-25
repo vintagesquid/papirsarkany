@@ -2,7 +2,6 @@
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
 import { type FC, useRef } from "react";
 import useMedia from "use-media";
 import type { NavigationItems } from "~/lib/types";
@@ -42,8 +41,6 @@ const navigationItems: NavigationItems = {
     },
   ],
 };
-
-gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const Navigation: FC = () => {
   const navigationBarRef = useRef<HTMLDivElement>(null);
