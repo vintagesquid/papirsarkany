@@ -32,7 +32,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <TruendoScript />
         <AppVersionScript />
       </head>
-      <body className={`${inter.className} `}>
+      <body className={inter.className}>
         <div className="flex min-h-screen flex-col">
           <ToastContainer />
           <Navigation />
