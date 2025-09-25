@@ -1,7 +1,8 @@
+import type { FC } from "react";
 import { getAllNews } from "~/lib/cms";
 import Heading from "./heading";
 
-const News = async () => {
+const News: FC = async () => {
   const news = await getAllNews();
 
   if (news.length < 1) {
