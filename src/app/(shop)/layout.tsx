@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <ToastContainer />
           <GSAPSetup />
           <Navigation />
-          <main className="grid min-h-[calc(100dvh-68px)] flex-1 overflow-x-hidden bg-white sm:min-h-[calc(100dvh-72px)] lg:min-h-[calc(100dvh-76px)]">
+          <main className="grid min-h-[calc(100dvh-68px)] flex-1 overflow-x-hidden bg-sky-100 sm:min-h-[calc(100dvh-72px)] lg:min-h-[calc(100dvh-76px)]">
             {children}
             <Analytics />
             <SpeedInsights />
