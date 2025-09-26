@@ -2,6 +2,7 @@
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { Draggable } from "gsap/Draggable";
 import { type FC, useRef } from "react";
 import useMedia from "use-media";
 import type { NavigationItems } from "~/lib/types";
@@ -42,20 +43,52 @@ const navigationItems: NavigationItems = {
   ],
 };
 
+const ANIMATION_OFFSET = 30;
+
 const Navigation: FC = () => {
   const navigationBarRef = useRef<HTMLDivElement>(null);
 
   const isDesktop = useMedia({ minWidth: breakPoint }, true);
 
   useGSAP(() => {
+    const toggleDraggable = (progress: number) => {
+      if (progress > 0) {
+        draggable.enable();
+      } else if (progress === 0) {
+        draggable.disable();
+      }
+    };
+
+    const draggable = Draggable.create(navigationBarRef.current, {
+      type: "x,y",
+      inertia: true,
+      bounds: navigationBarRef.current,
+      edgeResistance: 0.85,
+      dragClickables: false,
+      onDragEnd: function () {
+        gsap.to(this.target, {
+          x: 0,
+          y: this.startY,
+          duration: 0.65,
+          ease: "elastic.out(0.6, 0.4)",
+        });
+      },
+    })[0];
+
     gsap.to(navigationBarRef.current, {
       scrollTrigger: {
         trigger: document.body,
         start: `+=${navigationBarRef.current?.offsetHeight}`,
         end: "+=150",
         scrub: 0.35,
+        onRefreshInit({ progress }) {
+          toggleDraggable(progress);
+        },
+        onUpdate({ progress }) {
+          toggleDraggable(progress);
+        },
       },
-      y: "30px",
+      y: ANIMATION_OFFSET,
       width: "95%",
       borderRadius: "1rem",
     });
