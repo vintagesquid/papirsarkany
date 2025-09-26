@@ -3,10 +3,11 @@
 exports[`should render desktop navigation on screens larger then md breakpoint 1`] = `
 <div>
   <div
-    class="sticky top-0 z-40"
+    class="sticky top-0 z-40 mx-auto w-full border-black border-b-4 bg-white"
+    style="user-select: text; transform: translate3d(0px, 0px, 0px) ; border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-top-right-radius: 0; border-top-left-radius: 0; width: 0%; border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-top-right-radius: 0; border-top-left-radius: 0; border-bottom-width: 0; border-right-width: 0; border-left-width: 0; border-top-width: 0; border-bottom-width: 0; border-right-width: 0; border-left-width: 0; border-top-width: 0;"
   >
     <nav
-      class="d-navbar min-h-[68px] border-black border-b-4 bg-white"
+      class="d-navbar min-h-[68px]"
     >
       <div
         class="d-navbar-start hidden gap-1 md:flex"
@@ -40,7 +41,7 @@ exports[`should render desktop navigation on screens larger then md breakpoint 1
           </svg>
         </a>
         <ul
-          class="d-menu d-menu-horizontal flex-nowrap gap-2 font-extrabold text-base"
+          class="d-menu d-menu-horizontal flex-nowrap font-extrabold text-base"
         >
           <li
             class="text-sm lg:text-base"
@@ -78,7 +79,7 @@ exports[`should render desktop navigation on screens larger then md breakpoint 1
         class="d-navbar-end hidden md:flex"
       >
         <ul
-          class="d-menu d-menu-horizontal gap-2 font-extrabold text-base"
+          class="d-menu d-menu-horizontal font-extrabold text-base"
         >
           <li
             class="text-sm lg:text-base"
@@ -152,10 +153,11 @@ exports[`should render desktop navigation on screens larger then md breakpoint 1
 exports[`should render mobile navigation on screens smaller then md breakpoint 1`] = `
 <div>
   <div
-    class="sticky top-0 z-40"
+    class="sticky top-0 z-40 mx-auto w-full border-black border-b-4 bg-white"
+    style="user-select: text; transform: translate3d(0px, 0px, 0px) ; border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-top-right-radius: 0; border-top-left-radius: 0; width: 0%; border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-top-right-radius: 0; border-top-left-radius: 0; border-bottom-width: 0; border-right-width: 0; border-left-width: 0; border-top-width: 0; border-bottom-width: 0; border-right-width: 0; border-left-width: 0; border-top-width: 0;"
   >
     <nav
-      class="d-navbar border-black border-b-4 bg-white"
+      class="d-navbar"
     >
       <div
         class="d-navbar-start gap-1"
@@ -185,7 +187,7 @@ exports[`should render mobile navigation on screens smaller then md breakpoint 1
             </svg>
           </div>
           <ul
-            class="d-menu d-dropdown-content z-1 mt-5 w-52 rounded-box bg-base-100 p-2 shadow-sm"
+            class="d-menu d-dropdown-content z-1 mt-5 w-52 rounded-box rounded-t-none border-3 border-black border-t-none bg-base-100 p-2 shadow-sm"
             data-pw-e2e="hamburger-menu-content"
             tabindex="0"
           >
