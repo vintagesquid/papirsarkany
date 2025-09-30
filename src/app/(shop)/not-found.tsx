@@ -9,7 +9,7 @@ export default function NotFound() {
           A keresett oldal nem található.
         </Heading>
         <Link
-          className="d-btn d-btn-ghost d-btn-lg normal-case"
+          className="d-btn d-btn-ghost d-btn-primary d-btn-lg normal-case"
           href="/sarkanyok"
         >
           Nézz szét a sárkányaink közt
