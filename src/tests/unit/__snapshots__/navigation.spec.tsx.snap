@@ -3,8 +3,7 @@
 exports[`should render desktop navigation on screens larger then md breakpoint 1`] = `
 <div>
   <div
-    class="fixed top-0 right-0 left-0 z-40 mx-auto w-full border-black border-b-4 bg-white"
-    style="user-select: text; transform: translate3d(0px, 0px, 0px) ; border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-top-right-radius: 0; border-top-left-radius: 0; width: 0%; border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-top-right-radius: 0; border-top-left-radius: 0; border-bottom-width: 0; border-right-width: 0; border-left-width: 0; border-top-width: 0; border-bottom-width: 0; border-right-width: 0; border-left-width: 0; border-top-width: 0;"
+    class="sticky top-0 right-0 left-0 z-40 mx-auto w-full border-black border-b-4 bg-white"
   >
     <nav
       class="d-navbar min-h-[68px]"
@@ -153,8 +152,7 @@ exports[`should render desktop navigation on screens larger then md breakpoint 1
 exports[`should render mobile navigation on screens smaller then md breakpoint 1`] = `
 <div>
   <div
-    class="fixed top-0 right-0 left-0 z-40 mx-auto w-full border-black border-b-4 bg-white"
-    style="user-select: text; transform: translate3d(0px, 0px, 0px) ; border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-top-right-radius: 0; border-top-left-radius: 0; width: 0%; border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-top-right-radius: 0; border-top-left-radius: 0; border-bottom-width: 0; border-right-width: 0; border-left-width: 0; border-top-width: 0; border-bottom-width: 0; border-right-width: 0; border-left-width: 0; border-top-width: 0;"
+    class="sticky top-0 right-0 left-0 z-40 mx-auto w-full border-black border-b-4 bg-white"
   >
     <nav>
       <div
@@ -244,7 +242,6 @@ exports[`should render mobile navigation on screens smaller then md breakpoint 1
       <ul
         class="space-y-4 overflow-y-hidden pb-2 font-bold *:p-2 *:pl-4"
         data-pw-e2e="hamburger-menu-content"
-        style="padding-bottom: 0px; height: 0px;"
       >
         <li
           class="text-sm lg:text-base"

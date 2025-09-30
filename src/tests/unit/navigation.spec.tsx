@@ -1,7 +1,4 @@
-import { useGSAP } from "@gsap/react";
 import { render } from "@testing-library/react";
-import gsap from "gsap";
-import { CustomEase, Draggable, ScrollTrigger } from "gsap/all";
 import { afterAll, beforeEach, expect, test, vi } from "vitest";
 import Navigation from "~/components/navigation";
 import { viMockMatchMedia } from "~/mocks/match-media.mock";
@@ -15,7 +12,6 @@ beforeEach(() => {
     media: mediaQueries.desktop,
     matches: false,
   });
-  gsap.registerPlugin(useGSAP, ScrollTrigger, Draggable, CustomEase);
 });
 
 afterAll(() => {
