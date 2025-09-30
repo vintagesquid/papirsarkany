@@ -109,7 +109,7 @@ const Navigation: FC = () => {
   return (
     <div
       ref={navigationBarRef}
-      className="sticky top-0 z-40 mx-auto w-full border-black border-b-4 bg-white"
+      className="fixed top-0 right-0 left-0 z-40 mx-auto w-full border-black border-b-4 bg-white"
     >
       {isDesktop ? (
         <DesktopNavigation navigationItems={navigationItems} />

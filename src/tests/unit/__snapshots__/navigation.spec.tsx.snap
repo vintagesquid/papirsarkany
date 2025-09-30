@@ -3,7 +3,7 @@
 exports[`should render desktop navigation on screens larger then md breakpoint 1`] = `
 <div>
   <div
-    class="sticky top-0 z-40 mx-auto w-full border-black border-b-4 bg-white"
+    class="fixed top-0 right-0 left-0 z-40 mx-auto w-full border-black border-b-4 bg-white"
     style="user-select: text; transform: translate3d(0px, 0px, 0px) ; border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-top-right-radius: 0; border-top-left-radius: 0; width: 0%; border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-top-right-radius: 0; border-top-left-radius: 0; border-bottom-width: 0; border-right-width: 0; border-left-width: 0; border-top-width: 0; border-bottom-width: 0; border-right-width: 0; border-left-width: 0; border-top-width: 0;"
   >
     <nav
@@ -153,152 +153,153 @@ exports[`should render desktop navigation on screens larger then md breakpoint 1
 exports[`should render mobile navigation on screens smaller then md breakpoint 1`] = `
 <div>
   <div
-    class="sticky top-0 z-40 mx-auto w-full border-black border-b-4 bg-white"
+    class="fixed top-0 right-0 left-0 z-40 mx-auto w-full border-black border-b-4 bg-white"
     style="user-select: text; transform: translate3d(0px, 0px, 0px) ; border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-top-right-radius: 0; border-top-left-radius: 0; width: 0%; border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-top-right-radius: 0; border-top-left-radius: 0; border-bottom-width: 0; border-right-width: 0; border-left-width: 0; border-top-width: 0; border-bottom-width: 0; border-right-width: 0; border-left-width: 0; border-top-width: 0;"
   >
-    <nav
-      class="d-navbar"
-    >
+    <nav>
       <div
-        class="d-navbar-start gap-1"
+        class="d-navbar"
       >
         <div
-          class="d-dropdown"
+          class="d-navbar-start gap-1"
         >
           <div
-            aria-label="mobile navigation menu"
-            class="d-btn d-btn-ghost focus:ring-3 focus:ring-neutral"
-            role="button"
-            tabindex="0"
+            class="d-dropdown"
           >
-            <svg
-              class="h-5 w-5"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+            <button
+              aria-label="mobile navigation menu"
+              class="d-btn d-btn-ghost focus:ring-3 focus:ring-neutral"
+              type="button"
             >
-              <path
-                d="M4 6h16M4 12h8m-8 6h16"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                style="stroke-width: 2;"
-              />
-            </svg>
+              <svg
+                class="h-5 w-5"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 6h16M4 12h8m-8 6h16"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  style="stroke-width: 2;"
+                />
+              </svg>
+            </button>
           </div>
-          <ul
-            class="d-menu d-dropdown-content z-1 mt-5 w-52 rounded-box rounded-t-none border-3 border-black border-t-none bg-base-100 p-2 shadow-sm"
-            data-pw-e2e="hamburger-menu-content"
-            tabindex="0"
+          <div
+            class="flex-none"
           >
-            <li
-              class="text-sm lg:text-base"
-            >
-              <a
-                class=""
-                href="/sarkanyok"
-              >
-                Sárkányok
-              </a>
-            </li>
-            <li
-              class="text-sm lg:text-base"
-            >
-              <a
-                class=""
-                href="/anyagok"
-              >
-                Anyagok
-              </a>
-            </li>
-            <div
-              class="d-divider m-0"
-            />
-            <li
-              class="text-sm lg:text-base"
-            >
-              <a
-                class=""
-                href="/#vallalkozas"
-              >
-                A vállalkozásról
-              </a>
-            </li>
-            <li
-              class="text-sm lg:text-base"
-            >
-              <a
-                class=""
-                href="/#sarkany-keszites"
-              >
-                Sárkány készítés
-              </a>
-            </li>
-            <li
-              class="text-sm lg:text-base"
-            >
-              <a
-                class=""
-                href="/#elerhetoseg"
-              >
-                Elérhetőség
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div
-          class="flex-none"
-        >
-          <a
-            class="d-btn-circle"
-            data-pw-e2e="cart-menu-item"
-            href="/kosar"
-          >
-            <div
-              class="p-0"
+            <a
+              class="d-btn-circle"
+              data-pw-e2e="cart-menu-item"
+              href="/kosar"
             >
               <div
-                class="d-btn d-btn-circle d-btn-ghost"
+                class="p-0"
               >
                 <div
-                  class="d-indicator"
+                  class="d-btn d-btn-circle d-btn-ghost"
                 >
-                  <svg
-                    class="h-5 w-5"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <div
+                    class="d-indicator"
                   >
-                    <path
-                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                    />
-                  </svg>
-                  <span
-                    class="d-badge d-indicator-item d-badge-sm"
-                    data-testid="cart-menu-item-total-count"
-                  >
-                    0
-                  </span>
+                    <svg
+                      class="h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                      />
+                    </svg>
+                    <span
+                      class="d-badge d-indicator-item d-badge-sm"
+                      data-testid="cart-menu-item-total-count"
+                    >
+                      0
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </a>
+          </div>
+        </div>
+        <div
+          class="d-navbar-end"
+        >
+          <a
+            class="d-btn d-btn-ghost normal-case min-[320px]:text-xl"
+            href="/"
+          >
+            papirsarkany.hu
           </a>
         </div>
       </div>
-      <div
-        class="d-navbar-end"
+      <ul
+        class="space-y-4 overflow-y-hidden pb-2 font-bold *:p-2 *:pl-4"
+        data-pw-e2e="hamburger-menu-content"
+        style="padding-bottom: 0px; height: 0px;"
       >
-        <a
-          class="d-btn d-btn-ghost normal-case min-[320px]:text-xl"
-          href="/"
+        <li
+          class="text-sm lg:text-base"
         >
-          papirsarkany.hu
-        </a>
-      </div>
+          <a
+            class=""
+            href="/sarkanyok"
+          >
+            Sárkányok
+          </a>
+        </li>
+        <li
+          class="text-sm lg:text-base"
+        >
+          <a
+            class=""
+            href="/anyagok"
+          >
+            Anyagok
+          </a>
+        </li>
+        <div
+          class="d-divider m-0"
+        />
+        <li
+          class="text-sm lg:text-base"
+        >
+          <a
+            class=""
+            href="/#vallalkozas"
+          >
+            A vállalkozásról
+          </a>
+        </li>
+        <li
+          class="text-sm lg:text-base"
+        >
+          <a
+            class=""
+            href="/#sarkany-keszites"
+          >
+            Sárkány készítés
+          </a>
+        </li>
+        <li
+          class="text-sm lg:text-base"
+        >
+          <a
+            class=""
+            href="/#elerhetoseg"
+          >
+            Elérhetőség
+          </a>
+        </li>
+      </ul>
     </nav>
   </div>
 </div>

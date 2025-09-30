@@ -1,16 +1,24 @@
 "use client";
 
-import Link from "next/link";
-
+import Link, { type LinkProps } from "next/link";
 import type { FC } from "react";
 import CartIcon from "~/assets/cart.svg";
 import useCart from "~/hooks/use-cart";
 
-const CartMenuItem: FC = () => {
+type CartMenuItemProps = {
+  onNavigate?: LinkProps<"/">["onNavigate"];
+};
+
+const CartMenuItem: FC<CartMenuItemProps> = ({ onNavigate }) => {
   const { getTotalItemCount } = useCart();
 
   return (
-    <Link href={"/kosar"} className="d-btn-circle" data-pw-e2e="cart-menu-item">
+    <Link
+      href={"/kosar"}
+      className="d-btn-circle"
+      onNavigate={onNavigate}
+      data-pw-e2e="cart-menu-item"
+    >
       <div className="p-0">
         <div className="d-btn d-btn-circle d-btn-ghost">
           <div className="d-indicator">
