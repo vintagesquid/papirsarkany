@@ -19,8 +19,8 @@ export default function NotFound() {
     >
       <body className={inter.className}>
         <div className="splash-pattern grid min-h-screen place-items-center bg-cover bg-sky-100 text-white">
-          <div className="text-center">
-            <Heading as="h1" size={2}>
+          <div className="space-y-4 text-center">
+            <Heading as="h1" size={1}>
               A keresett oldal nem található.
             </Heading>
             <Link
