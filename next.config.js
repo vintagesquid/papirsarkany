@@ -6,6 +6,9 @@ const withBundleAnalyzer = NextBundleAnalyzer({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    globalNotFound: true
+  },
   typedRoutes: true,
   webpack(config) {
     const fileLoaderRule = config.module.rules.find((rule) =>
