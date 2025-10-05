@@ -1,7 +1,7 @@
 "use client";
-import { type FC, useId, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { type FC, useId, useRef } from "react";
 
 type GoogleMapsRating = {
   rating: number;

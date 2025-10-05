@@ -16,17 +16,17 @@ const ToastContainer: FC = () => {
   const dismissToast = useToastStore((state) => state.dismissToast);
 
   return toasts.map((toast) => (
-      <div key={toast.id}>
-        {toast.active && (
-          <button
-          type='button'
-            className="d-toast d-toast-end d-toast-bottom z-50 cursor-pointer"
-            onClick={() => dismissToast(toast.id)}
-          >
-            <Toast toast={toast} />
-          </button>
-        )}
-      </div>
+    <div key={toast.id}>
+      {toast.active && (
+        <button
+          type="button"
+          className="d-toast d-toast-end d-toast-bottom z-50 cursor-pointer"
+          onClick={() => dismissToast(toast.id)}
+        >
+          <Toast toast={toast} />
+        </button>
+      )}
+    </div>
   ));
 };
 

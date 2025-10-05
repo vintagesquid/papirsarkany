@@ -1,11 +1,11 @@
 "use client";
 
-import { type ComponentProps, type FC, type ReactNode, useRef } from "react";
-import Card from "./card";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { type ComponentProps, type FC, type ReactNode, useRef } from "react";
+import Card from "./card";
 
-type HoverAnimatedCardProps =  ComponentProps<'div'> & {
+type HoverAnimatedCardProps = ComponentProps<"div"> & {
   children: ReactNode;
 };
 
@@ -37,12 +37,14 @@ const HoverAnimatedCard: FC<HoverAnimatedCardProps> = ({
   return (
     <div
       ref={containerRef}
+      role="none"
       className="h-full w-full"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      
     >
-      <Card className={className} {...props}>{children}</Card>
+      <Card className={className} {...props}>
+        {children}
+      </Card>
     </div>
   );
 };

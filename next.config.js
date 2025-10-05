@@ -7,7 +7,7 @@ const withBundleAnalyzer = NextBundleAnalyzer({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    globalNotFound: true
+    globalNotFound: true,
   },
   typedRoutes: true,
   webpack(config) {
