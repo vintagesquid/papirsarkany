@@ -1,6 +1,4 @@
 "use client";
-
-import { AnimatePresence, m } from "motion/react";
 import { type FC, useId, useMemo, useState } from "react";
 import { useFormContext } from "react-hook-form";
 
@@ -18,7 +16,6 @@ import ShippingWithPost from "../../public/shipping-with-post-logo.svg?url";
 import FormattedPhoneNumberInput from "./formatted-phone-number-input";
 import FoxpostMap from "./foxpost-map";
 import Heading from "./heading";
-import LazyLoadFramerMotion from "./lazy-load-framer-motion";
 import ShippingOptionRadioInput from "./shipping-option-radio-input";
 
 const CheckoutShippingForm: FC = () => {
@@ -175,37 +172,17 @@ const CheckoutShippingForm: FC = () => {
             isDisabled={!isFitInFoxpostLimit}
           />
         </div>
-        <LazyLoadFramerMotion>
-          <AnimatePresence>
-            {watch("shippingOption") === "Foxpost automatába" &&
-              isShowFoxpostMap && (
-                <m.div
-                  initial={{
-                    scaleY: 0,
-                    transformOrigin: "top",
-                  }}
-                  animate={{
-                    scaleY: 1,
-                  }}
-                  exit={{
-                    scaleY: 0,
-                    opacity: 0,
-                    transitionTimingFunction: "ease-in",
-                  }}
-                >
-                  {errors.shippingCity && (
-                    <div
-                      className="text-error"
-                      ref={register("shippingCity").ref}
-                    >
-                      {errors.shippingCity?.message}
-                    </div>
-                  )}
-                  <FoxpostMap hideMap={() => setIsShowFoxpostMap(false)} />
-                </m.div>
+        {watch("shippingOption") === "Foxpost automatába" &&
+          isShowFoxpostMap && (
+            <div>
+              {errors.shippingCity && (
+                <div className="text-error" ref={register("shippingCity").ref}>
+                  {errors.shippingCity?.message}
+                </div>
               )}
-          </AnimatePresence>
-        </LazyLoadFramerMotion>
+              <FoxpostMap hideMap={() => setIsShowFoxpostMap(false)} />
+            </div>
+          )}
         <div className="mx-auto mt-2 max-w-(--breakpoint-sm) space-y-2">
           <ShippingOptionRadioInput
             label="Postai szállítás"
