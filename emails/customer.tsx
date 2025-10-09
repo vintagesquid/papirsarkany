@@ -10,43 +10,15 @@ import {
 } from "@react-email/components";
 // biome-ignore lint/correctness/noUnusedImports: must import in react-email components
 import * as React from "react";
-import type { BillingOptionValue, ShippingOptionValue } from "~/lib/types";
+import OrderSummarySection from 'react-email/components/order-summary-section';
+import type { OrderMail } from "~/lib/types";
 import { kiteMock } from "~/mocks/product.mock";
 
-type CustomerEmailProps = {
-  contact: {
-    email: string;
-    firstName: string;
-    lastName: string;
-    phone: string;
-  };
-  shippingOption: ShippingOptionValue;
-  paymentOption: BillingOptionValue;
-  shipping: {
-    postcode?: string;
-    city?: string;
-    address?: string;
-    subaddress?: string;
-  };
-  shippingFee: string | null;
-  billing: {
-    postcode: string;
-    city: string;
-    address: string;
-    subaddress?: string;
-  };
-  billingFee: string | null;
-  comment: string | undefined;
 
-  products: {
-    name: string;
-    price: string;
-    quantity: string;
-  }[];
-  total: string;
-};
+type CustomerEmailProps = OrderMail;
 
 const CustomerEmail = ({
+  orderId,
   contact,
   billing,
   paymentOption,
@@ -73,7 +45,7 @@ const CustomerEmail = ({
           fontStyle="normal"
         />
       </Head>
-      <Container>
+      <Container style={{ padding: "0 12px" }}>
         <Heading style={{ textAlign: "center" }} as="h1">
           Köszönöm rendelését!
         </Heading>
@@ -85,6 +57,9 @@ const CustomerEmail = ({
           Köszönöm a{" "}
           <Link href="https://www.papirsarkany.hu/">papirsarkany.hu</Link>-n
           leadott rendelését. Hamarosan felveszem önnel a kapcsolatot.
+          <br />
+          <br />
+          Rendelés szám: <b>{orderId}</b>
           <br />
           <br />
           <b>
@@ -136,41 +111,12 @@ const CustomerEmail = ({
           </Text>
         )}
 
-        <ul>
-          {products.map((product) => (
-            <li key={product.name}>
-              <Text style={{ fontSize: "18px" }}>
-                <b>
-                  {product.name}: {product.price} - {product.quantity} db
-                </b>
-              </Text>
-            </li>
-          ))}
-
-          {shippingFee && (
-            <li>
-              <Text style={{ fontSize: "18px" }}>
-                <b>Szállítás díj: {shippingFee}</b>
-              </Text>
-            </li>
-          )}
-
-          {billingFee && (
-            <li>
-              <Text style={{ fontSize: "18px" }}>
-                <b>Utánvét díj: {billingFee}</b>
-              </Text>
-            </li>
-          )}
-        </ul>
-
-        <Hr />
-
-        <Text style={{ fontSize: "24px" }}>
-          <u>
-            <b>Összesen: {total}</b>
-          </u>
-        </Text>
+        <OrderSummarySection
+          products={products}
+          shippingFee={shippingFee}
+          billingFee={billingFee}
+          total={total}
+        />
       </Container>
     </Html>
   );
@@ -178,7 +124,21 @@ const CustomerEmail = ({
 
 CustomerEmail.PreviewProps = {
   orderId: 1,
-  products: [{ name: kiteMock.name, price: "12 000 Ft", quantity: "2" }],
+  products: [
+    {
+      name: kiteMock.name,
+      price: "24 000 Ft",
+      quantity: "2",
+      imageUrl: kiteMock.image.asset.url,
+      url: "https://papirsarkany.vercel.app/sarkanyok/forgo-szelzsak",
+    },
+    {
+      name: kiteMock.name,
+      price: "24 000 Ft",
+      quantity: "2",
+      url: "https://papirsarkany.vercel.app/sarkanyok/forgo-szelzsak",
+    },
+  ],
   total: "24 000 Ft",
   contact: {
     email: "kulka.janos@test.com",
@@ -201,7 +161,7 @@ CustomerEmail.PreviewProps = {
     address: "Felső Zöldmáli út 13",
     subaddress: "",
   },
-  billingFee: "2000 Ft",
+  billingFee: "2 000 Ft",
   comment: "",
 } as CustomerEmailProps;
 
