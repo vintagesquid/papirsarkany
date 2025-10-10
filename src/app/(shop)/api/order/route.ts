@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { getProductById } from "~/lib/cms";
+import { CONTENT_TYPE_PATH_DIRECTORY_MAP } from "~/lib/constants";
 
 import { createOrder } from "~/lib/db";
 import { sendEmail, sendOrderEmails } from "~/lib/email";
@@ -23,7 +25,7 @@ export async function POST(request: Request) {
 
     if (isProdEnv() || isStageEnv()) {
       const orderEmailData: OrderMail = {
-        id: order.id,
+        orderId: order.id,
         contact: {
           email: normalizedFormData.email,
           firstName: normalizedFormData.firstName,
@@ -45,11 +47,23 @@ export async function POST(request: Request) {
           subaddress: normalizedFormData.billingSubaddress,
         },
         comment: normalizedFormData.comment,
-        products: cart.map((product) => ({
-          name: product.name,
-          price: currencyFormatter(product.price),
-          quantity: product.quantity.toString(),
-        })),
+        products: await Promise.all(
+          cart.map(async (cartItem) => {
+            const product = await getProductById(cartItem._id);
+
+            const productURL = product
+              ? `${env.VERCEL_URL}/${CONTENT_TYPE_PATH_DIRECTORY_MAP[product._type]}/${product.slug ?? ""}`
+              : null;
+
+            return {
+              name: cartItem.name,
+              price: currencyFormatter(cartItem.price),
+              quantity: cartItem.quantity.toString(),
+              imageUrl: cartItem.image?.asset?.url ?? null,
+              url: productURL,
+            };
+          }),
+        ),
         shippingFee:
           typeof body.shippingFee === "number"
             ? currencyFormatter(body.shippingFee)

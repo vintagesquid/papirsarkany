@@ -10,10 +10,9 @@ import {
 } from "@react-email/components";
 // biome-ignore lint/correctness/noUnusedImports: must import in react-email components
 import * as React from "react";
-import OrderSummarySection from 'react-email/components/order-summary-section';
+import OrderSummarySection from "react-email/components/order-summary-section";
 import type { OrderMail } from "~/lib/types";
 import { kiteMock } from "~/mocks/product.mock";
-
 
 type CustomerEmailProps = OrderMail;
 

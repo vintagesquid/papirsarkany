@@ -14,6 +14,7 @@ import {
   getAllRodsQuery,
   getAllTwinesQuery,
   getKiteBySlugQuery,
+  getProductByIdQuery,
 } from "./queries";
 
 export async function getAllKites(): Promise<GetAllKitesQueryResult> {
@@ -45,4 +46,8 @@ export async function getAllTwines(): Promise<GetAllTwinesQueryResult> {
 
 export async function getAllNews(): Promise<GetAllNewsQueryResult> {
   return await client.fetch(getAllNewsQuery);
+}
+
+export async function getProductById(id: string) {
+  return await client.fetch(getProductByIdQuery, { id });
 }

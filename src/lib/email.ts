@@ -20,9 +20,9 @@ export async function sendOrderEmails(orderEmailData: OrderMail) {
     from: "mail@papirsarkany.hu",
     replyTo: VENDOR_EMAIL_ADDRESS,
     to: VENDOR_EMAIL_ADDRESS,
-    subject: `Rendelés #${orderEmailData.id}`,
+    subject: `Rendelés #${orderEmailData.orderId}`,
     react: VendorEmail({
-      orderId: orderEmailData.id,
+      orderId: orderEmailData.orderId,
       contact: orderEmailData.contact,
       products: orderEmailData.products,
       shippingOption: orderEmailData.shippingOption,
@@ -42,6 +42,7 @@ export async function sendOrderEmails(orderEmailData: OrderMail) {
     to: orderEmailData.contact.email,
     subject: "Köszönöm rendelését - papirsarkany.hu",
     react: CustomerEmail({
+      orderId: orderEmailData.orderId,
       contact: orderEmailData.contact,
       products: orderEmailData.products,
       shippingOption: orderEmailData.shippingOption,

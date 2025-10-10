@@ -37,7 +37,6 @@ const HoverAnimatedCard: FC<HoverAnimatedCardProps> = ({
   return (
     <div
       ref={containerRef}
-      role="none"
       className="h-full w-full"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}

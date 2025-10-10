@@ -618,6 +618,25 @@ export type GetAllNewsQueryResult = Array<{
   label?: string;
   link?: string;
 }>;
+// Variable: getProductByIdQuery
+// Query: *[_type in ['kite','rod', 'reel', 'twine' ] && _id == $id] { _id, _type, slug}[0]
+export type GetProductByIdQueryResult = {
+  _id: string;
+  _type: "kite";
+  slug: Slug | null;
+} | {
+  _id: string;
+  _type: "reel";
+  slug: null;
+} | {
+  _id: string;
+  _type: "rod";
+  slug: null;
+} | {
+  _id: string;
+  _type: "twine";
+  slug: null;
+} | null;
 
 // Query TypeMap
 import "@sanity/client";
@@ -630,5 +649,6 @@ declare module "@sanity/client" {
     "*[_type == 'reel'] { ..., image { ..., asset-> { url, metadata } } } | order(name asc)": GetAllReelsQueryResult;
     "*[_type == 'twine'] { ..., image { ..., asset-> { url, metadata } } } | order(name asc)": GetAllTwinesQueryResult;
     "*[_type == 'news'] | order(_createdAt desc)": GetAllNewsQueryResult;
+    "*[_type in ['kite','rod', 'reel', 'twine' ] && _id == $id] { _id, _type, slug}[0]": GetProductByIdQueryResult;
   }
 }
