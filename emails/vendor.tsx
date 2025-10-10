@@ -45,7 +45,7 @@ const VendorEmail = ({
           fontStyle="normal"
         />
       </Head>
-      <Container>
+            <Container style={{ padding: "0 12px" }}>
         <Heading style={{ textAlign: "center" }} as="h1">
           Rendelés #{orderId}
         </Heading>
