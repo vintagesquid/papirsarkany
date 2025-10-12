@@ -52,7 +52,7 @@ export async function POST(request: Request) {
             const product = await getProductById(cartItem._id);
             const productURL = new URL(
               product
-                ? `${CONTENT_TYPE_PATH_DIRECTORY_MAP[product._type]}/${product.slug ?? ""}`
+                ? `${CONTENT_TYPE_PATH_DIRECTORY_MAP[product._type]}/${product.slug?.current ?? ""}`
                 : "",
               env.SITE_URL,
             );
