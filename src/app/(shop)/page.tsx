@@ -7,16 +7,18 @@ import EmphasizedText from "~/components/emphasized-text";
 import Heading from "~/components/heading";
 import HomeSection from "~/components/home-section";
 import Splash from "~/components/splash";
-import { env } from "~/lib/env";
+import { getContact } from "~/lib/cms";
 
 // revalidate page every day
 export const revalidate = 86400;
 
-export default function HomePage() {
+export default async function HomePage() {
+  const contact = await getContact();
+
   return (
     <div>
       <Splash />
-      {/* <Splash /> */}
+
       <div>
         <HomeSection id="vallalkozas">
           <HomeSection.Icon>
@@ -62,12 +64,12 @@ export default function HomePage() {
 
             <div>
               <Heading as={"h4"} size={2} className="font-bold">
-                Ducsai Barnabás
+                {contact.name}
               </Heading>
               <Heading as={"h5"} size={3}>
-                <b>Adószám:</b> 61090938-1-33
+                <b>Adószám:</b> {contact.taxId}
                 <br />
-                <b>Számlaszám:</b> Erste Bank 11600006-00000000-76709302
+                <b>Számlaszám:</b> {contact.bankAccountNumber}
               </Heading>
             </div>
           </HomeSection.Content>
@@ -121,8 +123,8 @@ export default function HomePage() {
             </Heading>
 
             <div className="text-center font-semibold">
-              <Heading as={"h4"}>{env.VENDOR_EMAIL_ADDRESS}</Heading>
-              <Heading as={"h4"}>+36 30 9754 786</Heading>
+              <Heading as={"h4"}>{contact.email}</Heading>
+              <Heading as={"h4"}>{contact.phoneNumber}</Heading>
             </div>
 
             <iframe

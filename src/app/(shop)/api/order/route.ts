@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getProductById } from "~/lib/cms";
+import { getContact, getProductById } from "~/lib/cms";
 import { CONTENT_TYPE_PATH_DIRECTORY_MAP } from "~/lib/constants";
 
 import { createOrder } from "~/lib/db";
@@ -107,8 +107,10 @@ export async function POST(request: Request) {
     console.error(error);
 
     if (isProdEnv()) {
+      const contact = await getContact()
+
       await sendEmail({
-        from: env.VENDOR_EMAIL_ADDRESS,
+        from: contact.email,
         to: "balint.ducsai@gmail.com",
         subject: "error detected in papirsarkany.hu/api/order",
         text: `Error caught in url papirsarkany/api/order. \nreason: ${error}`,

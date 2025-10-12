@@ -6,7 +6,6 @@ export const env = createEnv({
     DATABASE_URL: z.string().url(),
     DATABASE_URL_UNPOOLED: z.string().url(),
 
-    VENDOR_EMAIL_ADDRESS: z.string().email(),
     EMAIL_SERVICE_API_KEY: z.string(),
 
     SANITY_API_TOKEN: z.string().optional(),
@@ -34,7 +33,6 @@ export const env = createEnv({
     DATABASE_URL: process.env.DATABASE_URL,
     DATABASE_URL_UNPOOLED: process.env.DATABASE_URL_UNPOOLED,
 
-    VENDOR_EMAIL_ADDRESS: process.env.VENDOR_EMAIL_ADDRESS,
     EMAIL_SERVICE_API_KEY: process.env.EMAIL_SERVICE_API_KEY,
 
     NEXT_PUBLIC_SANITY_PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,

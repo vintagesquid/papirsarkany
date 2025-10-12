@@ -1,7 +1,8 @@
 "use client";
+
 import { type FC, useId, useMemo, useState } from "react";
 import { useFormContext } from "react-hook-form";
-
+import type { Contact } from "@sanity/lib/sanity.types";
 import {
   FOXPOST_PACKAGE_MAX_LIMIT,
   FOXPOST_SHIPPING_FEE,
@@ -18,7 +19,11 @@ import FoxpostMap from "./foxpost-map";
 import Heading from "./heading";
 import ShippingOptionRadioInput from "./shipping-option-radio-input";
 
-const CheckoutShippingForm: FC = () => {
+type CheckoutShippingFormProps = {
+  contact: Contact;
+};
+
+const CheckoutShippingForm: FC<CheckoutShippingFormProps> = ({ contact }) => {
   const {
     register,
     watch,
@@ -85,7 +90,7 @@ const CheckoutShippingForm: FC = () => {
             <input
               id={`${fieldId}-email`}
               type="text"
-              placeholder={"mail.papirsarkany@gmail.com"}
+              placeholder={contact.email}
               className="d-input w-full"
               {...register("email")}
             />

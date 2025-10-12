@@ -3,6 +3,7 @@ import CustomerEmail from "../../emails/customer";
 import VendorEmail from "../../emails/vendor";
 import { env } from "./env";
 import type { OrderMail } from "./types";
+import { getContact } from './cms';
 
 const { EMAIL_SERVICE_API_KEY } = env;
 const resend = new Resend(EMAIL_SERVICE_API_KEY);
@@ -14,12 +15,12 @@ export async function sendEmail(mailData: CreateEmailOptions) {
 }
 
 export async function sendOrderEmails(orderEmailData: OrderMail) {
-  const { VENDOR_EMAIL_ADDRESS } = env;
+  const contact = await getContact();
 
   const vendorMail: CreateEmailOptions = {
     from: "mail@papirsarkany.hu",
-    replyTo: VENDOR_EMAIL_ADDRESS,
-    to: VENDOR_EMAIL_ADDRESS,
+    replyTo: contact.email,
+    to: contact.email,
     subject: `Rendelés #${orderEmailData.orderId}`,
     react: VendorEmail({
       orderId: orderEmailData.orderId,
@@ -38,7 +39,7 @@ export async function sendOrderEmails(orderEmailData: OrderMail) {
 
   const customerMail: CreateEmailOptions = {
     from: "mail@papirsarkany.hu",
-    replyTo: VENDOR_EMAIL_ADDRESS,
+    replyTo: contact.email,
     to: orderEmailData.contact.email,
     subject: "Köszönöm rendelését - papirsarkany.hu",
     react: CustomerEmail({
