@@ -35,11 +35,11 @@ const HoverAnimatedCard: FC<HoverAnimatedCardProps> = ({
   });
 
   return (
-    // biome-ignore lint/a11y/noStaticElementInteractions: gsap animations
     <div
       className="h-full w-full"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
+      role='none'
     >
       <Card className={className} {...props}>
         {children}
