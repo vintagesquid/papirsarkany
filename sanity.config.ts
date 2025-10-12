@@ -29,7 +29,26 @@ export default defineConfig({
   schema,
   plugins: [
     structureTool({
-      title: "Struktúra",
+      structure: (S) =>
+        S.list()
+          .title("Tartalom")
+          .items([
+            // singleton document
+            S.listItem()
+              .id("contact")
+              .schemaType("contact")
+              .title("Kontakt")
+              .child(
+                S.editor()
+                  .id("contact")
+                  .schemaType("contact")
+                  .documentId("contact"),
+              ),
+
+            S.divider(),
+
+            ...S.documentTypeListItems().filter((d) => d.getId() !== "contact"),
+          ]),
     }),
     huHULocale(),
     media(),
