@@ -1,3 +1,4 @@
+// import { GetProductByIdQueryResult } from '@sanity/lib/sanity.types';
 import type { Route } from "next";
 import type { RemovePrefix } from "type-fest";
 import type {
@@ -24,7 +25,8 @@ export const FOXPOST_PACKAGE_CONSTRAINST = [
   { x: 60, y: 36, z: 61, weight: 25 * 1000, category: "XL" },
 ] as const satisfies FoxpostPackageInfoCategoryConstraints[];
 
-export const FOXPOST_PACKAGE_MAX_LIMIT = FOXPOST_PACKAGE_CONSTRAINST.at(-1);
+export const FOXPOST_PACKAGE_MAX_LIMIT =
+  FOXPOST_PACKAGE_CONSTRAINST[FOXPOST_PACKAGE_CONSTRAINST.length - 1];
 
 export const FOXPOST_SHIPPING_FEE = 1590;
 
