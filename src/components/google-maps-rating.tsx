@@ -55,7 +55,7 @@ const GoogleMapsRating: FC<GoogleMapsRating> = ({ rating }) => {
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         aria-hidden="true"
-        >
+      >
         <g clipPath={`url(#${clipPathId})`}>
           <path
             ref={pathRef}

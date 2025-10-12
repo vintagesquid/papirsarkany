@@ -39,7 +39,7 @@ const HoverAnimatedCard: FC<HoverAnimatedCardProps> = ({
       className="h-full w-full"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      role='none'
+      role="none"
     >
       <Card className={className} {...props}>
         {children}
