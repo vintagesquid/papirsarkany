@@ -21,7 +21,7 @@ export default defineType({
       name: "phoneNumber",
       type: "string",
       title: "Telefonszám",
-      description: '(formázva)',
+      description: "(formázva)",
       validation: (rule) => rule.required(),
     }),
     defineField({

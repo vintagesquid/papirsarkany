@@ -107,7 +107,7 @@ export async function POST(request: Request) {
     console.error(error);
 
     if (isProdEnv()) {
-      const contact = await getContact()
+      const contact = await getContact();
 
       await sendEmail({
         from: contact.email,

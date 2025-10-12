@@ -1,9 +1,9 @@
 import { type CreateEmailOptions, Resend } from "resend";
 import CustomerEmail from "../../emails/customer";
 import VendorEmail from "../../emails/vendor";
+import { getContact } from "./cms";
 import { env } from "./env";
 import type { OrderMail } from "./types";
-import { getContact } from './cms';
 
 const { EMAIL_SERVICE_API_KEY } = env;
 const resend = new Resend(EMAIL_SERVICE_API_KEY);

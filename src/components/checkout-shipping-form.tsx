@@ -1,8 +1,8 @@
 "use client";
 
+import type { Contact } from "@sanity/lib/sanity.types";
 import { type FC, useId, useMemo, useState } from "react";
 import { useFormContext } from "react-hook-form";
-import type { Contact } from "@sanity/lib/sanity.types";
 import {
   FOXPOST_PACKAGE_MAX_LIMIT,
   FOXPOST_SHIPPING_FEE,
