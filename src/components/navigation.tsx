@@ -65,7 +65,7 @@ const Navigation: FC = () => {
       bounds: navigationBarRef.current,
       edgeResistance: 0.85,
       dragClickables: false,
-      onDragEnd: function () {
+      onDragEnd() {
         gsap.to(this.target, {
           x: 0,
           y: this.startY,
