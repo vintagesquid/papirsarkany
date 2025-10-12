@@ -16,7 +16,7 @@ export const env = createEnv({
     FOXPOST_API_USERNAME: z.string(),
     FOXPOST_API_PASSWORD: z.string(),
     FOXPOST_API_KEY: z.string(),
-    
+
     GOOGLE_CLOUD_API_KEY: z.string(),
 
     // vercel system envs
