@@ -3,6 +3,8 @@ import { z } from "zod";
 
 export const env = createEnv({
   server: {
+    SITE_URL: z.string().url(),
+
     DATABASE_URL: z.string().url(),
     DATABASE_URL_UNPOOLED: z.string().url(),
 
@@ -14,7 +16,7 @@ export const env = createEnv({
     FOXPOST_API_USERNAME: z.string(),
     FOXPOST_API_PASSWORD: z.string(),
     FOXPOST_API_KEY: z.string(),
-
+    
     GOOGLE_CLOUD_API_KEY: z.string(),
 
     // vercel system envs
@@ -22,7 +24,6 @@ export const env = createEnv({
       .enum(["preview", "production", "development", "stage"])
       .optional(),
     VERCEL_GIT_PULL_REQUEST_ID: z.string().optional(),
-    VERCEL_URL: z.string().optional(),
   },
   client: {
     NEXT_PUBLIC_SANITY_PROJECT_ID: z.string(),
@@ -30,6 +31,8 @@ export const env = createEnv({
     NEXT_PUBLIC_SANITY_API_VERSION: z.string().optional(),
   },
   runtimeEnv: {
+    SITE_URL: process.env.SITE_URL,
+
     DATABASE_URL: process.env.DATABASE_URL,
     DATABASE_URL_UNPOOLED: process.env.DATABASE_URL_UNPOOLED,
 
@@ -51,7 +54,6 @@ export const env = createEnv({
 
     VERCEL_ENV: process.env.VERCEL_ENV,
     VERCEL_GIT_PULL_REQUEST_ID: process.env.VERCEL_GIT_PULL_REQUEST_ID,
-    VERCEL_URL: process.env.VERCEL_URL,
   },
   skipValidation: Boolean(process.env.CI),
 });
