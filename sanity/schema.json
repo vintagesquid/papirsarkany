@@ -1,5 +1,114 @@
 [
   {
+    "name": "contact",
+    "type": "document",
+    "attributes": {
+      "_id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string",
+          "value": "contact"
+        }
+      },
+      "_createdAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_updatedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_rev": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "name": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": false
+      },
+      "email": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": false
+      },
+      "phoneNumber": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": false
+      },
+      "address": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "object",
+          "attributes": {
+            "postCode": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": false
+            },
+            "city": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": false
+            },
+            "street": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": false
+            },
+            "streetNo": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": false
+            }
+          }
+        },
+        "optional": false
+      },
+      "taxId": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": false
+      },
+      "bankAccountNumber": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": false
+      }
+    }
+  },
+  {
     "name": "news",
     "type": "document",
     "attributes": {
@@ -39,7 +148,7 @@
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "link": {
         "type": "objectAttribute",
@@ -63,21 +172,21 @@
             "value": {
               "type": "number"
             },
-            "optional": true
+            "optional": false
           },
           "pricePerMeter": {
             "type": "objectAttribute",
             "value": {
               "type": "number"
             },
-            "optional": true
+            "optional": false
           },
           "tensileStrength": {
             "type": "objectAttribute",
             "value": {
               "type": "number"
             },
-            "optional": true
+            "optional": false
           }
         },
         "rest": {
@@ -134,7 +243,7 @@
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "image": {
         "type": "objectAttribute",
@@ -215,32 +324,32 @@
               "value": {
                 "type": "number"
               },
-              "optional": true
+              "optional": false
             },
             "y": {
               "type": "objectAttribute",
               "value": {
                 "type": "number"
               },
-              "optional": true
+              "optional": false
             },
             "z": {
               "type": "objectAttribute",
               "value": {
                 "type": "number"
               },
-              "optional": true
+              "optional": false
             },
             "weight": {
               "type": "objectAttribute",
               "value": {
                 "type": "number"
               },
-              "optional": true
+              "optional": false
             }
           }
         },
-        "optional": true
+        "optional": false
       },
       "diameters": {
         "type": "objectAttribute",
@@ -248,7 +357,7 @@
           "type": "inline",
           "name": "twineDiameters"
         },
-        "optional": true
+        "optional": false
       }
     }
   },
@@ -292,7 +401,7 @@
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "image": {
         "type": "objectAttribute",
@@ -373,39 +482,39 @@
               "value": {
                 "type": "number"
               },
-              "optional": true
+              "optional": false
             },
             "y": {
               "type": "objectAttribute",
               "value": {
                 "type": "number"
               },
-              "optional": true
+              "optional": false
             },
             "z": {
               "type": "objectAttribute",
               "value": {
                 "type": "number"
               },
-              "optional": true
+              "optional": false
             },
             "weight": {
               "type": "objectAttribute",
               "value": {
                 "type": "number"
               },
-              "optional": true
+              "optional": false
             }
           }
         },
-        "optional": true
+        "optional": false
       },
       "price": {
         "type": "objectAttribute",
         "value": {
           "type": "number"
         },
-        "optional": true
+        "optional": false
       }
     }
   },
@@ -432,14 +541,14 @@
             "value": {
               "type": "string"
             },
-            "optional": true
+            "optional": false
           },
           "pricePerMeter": {
             "type": "objectAttribute",
             "value": {
               "type": "number"
             },
-            "optional": true
+            "optional": false
           },
           "lengths": {
             "type": "objectAttribute",
@@ -447,7 +556,7 @@
               "type": "inline",
               "name": "lengths"
             },
-            "optional": true
+            "optional": false
           }
         },
         "rest": {
@@ -504,7 +613,7 @@
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "image": {
         "type": "objectAttribute",
@@ -585,32 +694,32 @@
               "value": {
                 "type": "number"
               },
-              "optional": true
+              "optional": false
             },
             "y": {
               "type": "objectAttribute",
               "value": {
                 "type": "number"
               },
-              "optional": true
+              "optional": false
             },
             "z": {
               "type": "objectAttribute",
               "value": {
                 "type": "number"
               },
-              "optional": true
+              "optional": false
             },
             "weight": {
               "type": "objectAttribute",
               "value": {
                 "type": "number"
               },
-              "optional": true
+              "optional": false
             }
           }
         },
-        "optional": true
+        "optional": false
       },
       "diameters": {
         "type": "objectAttribute",
@@ -618,7 +727,7 @@
           "type": "inline",
           "name": "rodDiameters"
         },
-        "optional": true
+        "optional": false
       }
     }
   },
@@ -698,7 +807,7 @@
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "image": {
         "type": "objectAttribute",
@@ -779,32 +888,32 @@
               "value": {
                 "type": "number"
               },
-              "optional": true
+              "optional": false
             },
             "y": {
               "type": "objectAttribute",
               "value": {
                 "type": "number"
               },
-              "optional": true
+              "optional": false
             },
             "z": {
               "type": "objectAttribute",
               "value": {
                 "type": "number"
               },
-              "optional": true
+              "optional": false
             },
             "weight": {
               "type": "objectAttribute",
               "value": {
                 "type": "number"
               },
-              "optional": true
+              "optional": false
             }
           }
         },
-        "optional": true
+        "optional": false
       },
       "slug": {
         "type": "objectAttribute",
@@ -812,14 +921,14 @@
           "type": "inline",
           "name": "slug"
         },
-        "optional": true
+        "optional": false
       },
       "price": {
         "type": "objectAttribute",
         "value": {
           "type": "number"
         },
-        "optional": true
+        "optional": false
       },
       "size": {
         "type": "objectAttribute",
@@ -862,7 +971,7 @@
         "value": {
           "type": "boolean"
         },
-        "optional": true
+        "optional": false
       },
       "description": {
         "type": "objectAttribute",
@@ -1052,21 +1161,21 @@
           "value": {
             "type": "number"
           },
-          "optional": true
+          "optional": false
         },
         "width": {
           "type": "objectAttribute",
           "value": {
             "type": "number"
           },
-          "optional": true
+          "optional": false
         },
         "aspectRatio": {
           "type": "objectAttribute",
           "value": {
             "type": "number"
           },
-          "optional": true
+          "optional": false
         }
       }
     }
@@ -1089,28 +1198,28 @@
           "value": {
             "type": "number"
           },
-          "optional": true
+          "optional": false
         },
         "y": {
           "type": "objectAttribute",
           "value": {
             "type": "number"
           },
-          "optional": true
+          "optional": false
         },
         "height": {
           "type": "objectAttribute",
           "value": {
             "type": "number"
           },
-          "optional": true
+          "optional": false
         },
         "width": {
           "type": "objectAttribute",
           "value": {
             "type": "number"
           },
-          "optional": true
+          "optional": false
         }
       }
     }
@@ -1133,28 +1242,28 @@
           "value": {
             "type": "number"
           },
-          "optional": true
+          "optional": false
         },
         "bottom": {
           "type": "objectAttribute",
           "value": {
             "type": "number"
           },
-          "optional": true
+          "optional": false
         },
         "left": {
           "type": "objectAttribute",
           "value": {
             "type": "number"
           },
-          "optional": true
+          "optional": false
         },
         "right": {
           "type": "objectAttribute",
           "value": {
             "type": "number"
           },
-          "optional": true
+          "optional": false
         }
       }
     }
@@ -1562,7 +1671,7 @@
           "value": {
             "type": "string"
           },
-          "optional": true
+          "optional": false
         },
         "source": {
           "type": "objectAttribute",
