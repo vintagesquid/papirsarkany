@@ -50,17 +50,19 @@ export async function POST(request: Request) {
         products: await Promise.all(
           cart.map(async (cartItem) => {
             const product = await getProductById(cartItem._id);
-
-            const productURL = product
-              ? `${env.VERCEL_URL}/${CONTENT_TYPE_PATH_DIRECTORY_MAP[product._type]}/${product.slug ?? ""}`
-              : null;
+            const productURL = new URL(
+              product
+                ? `${CONTENT_TYPE_PATH_DIRECTORY_MAP[product._type]}/${product.slug ?? ""}`
+                : "",
+              env.SITE_URL,
+            );
 
             return {
               name: cartItem.name,
               price: currencyFormatter(cartItem.price),
               quantity: cartItem.quantity.toString(),
               imageUrl: cartItem.image?.asset?.url ?? null,
-              url: productURL,
+              url: productURL.href,
             };
           }),
         ),
