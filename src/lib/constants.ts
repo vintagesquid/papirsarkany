@@ -1,4 +1,3 @@
-// import { GetProductByIdQueryResult } from '@sanity/lib/sanity.types';
 import type { Route } from "next";
 import type { RemovePrefix } from "type-fest";
 import type {
