@@ -22,7 +22,7 @@ export const env = createEnv({
       .enum(["preview", "production", "development", "stage"])
       .optional(),
     VERCEL_GIT_PULL_REQUEST_ID: z.string().optional(),
-    VERCEL_URL: z.string().url().optional(),
+    VERCEL_URL: z.string().optional(),
   },
   client: {
     NEXT_PUBLIC_SANITY_PROJECT_ID: z.string(),
