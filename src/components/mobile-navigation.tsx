@@ -33,10 +33,10 @@ const MobileNavigation: FC<MobileNavigationProps> = ({ navigationItems }) => {
   });
 
   useEffect(() => {
-    if (!isNavigationOpen) {
-      gsapTimelineRef.current.reverse();
-    } else {
+    if (isNavigationOpen) {
       gsapTimelineRef.current.play();
+    } else {
+      gsapTimelineRef.current.reverse();
     }
   }, [isNavigationOpen]);
 
