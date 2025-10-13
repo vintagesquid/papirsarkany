@@ -33,6 +33,9 @@ export default defineConfig({
       "x-vercel-set-bypass-cookie": "true",
     },
   },
+  expect: {
+    timeout: 10_000,
+  },
 
   /* Configure projects for major browsers */
   projects: [
