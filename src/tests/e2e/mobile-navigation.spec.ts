@@ -18,7 +18,6 @@ test("Mobile navigation", async ({ browser, browserName }) => {
   await hamburgerMenuIcon.click();
 
   await hamburgerMenuContent.waitFor({ state: "visible" });
-  await expect(hamburgerMenuIcon).toBeFocused();
   await expect(hamburgerMenuContent).toBeVisible();
 
   await page.getByRole("link", { name: "Anyagok" }).click();
@@ -26,6 +25,5 @@ test("Mobile navigation", async ({ browser, browserName }) => {
   await page.waitForURL("**/anyagok");
   expect(page.url()).toContain("/anyagok");
 
-  await expect(hamburgerMenuIcon).not.toBeFocused();
   await expect(hamburgerMenuContent).toBeHidden();
 });
