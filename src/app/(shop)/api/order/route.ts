@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { getContact, getProductById } from "~/lib/cms";
+import { CONTENT_TYPE_PATH_DIRECTORY_MAP } from "~/lib/constants";
 
 import { createOrder } from "~/lib/db";
 import { sendEmail, sendOrderEmails } from "~/lib/email";
@@ -23,7 +25,7 @@ export async function POST(request: Request) {
 
     if (isProdEnv() || isStageEnv()) {
       const orderEmailData: OrderMail = {
-        id: order.id,
+        orderId: order.id,
         contact: {
           email: normalizedFormData.email,
           firstName: normalizedFormData.firstName,
@@ -45,11 +47,25 @@ export async function POST(request: Request) {
           subaddress: normalizedFormData.billingSubaddress,
         },
         comment: normalizedFormData.comment,
-        products: cart.map((product) => ({
-          name: product.name,
-          price: currencyFormatter(product.price),
-          quantity: product.quantity.toString(),
-        })),
+        products: await Promise.all(
+          cart.map(async (cartItem) => {
+            const product = await getProductById(cartItem._id);
+            const productURL = new URL(
+              product
+                ? `${CONTENT_TYPE_PATH_DIRECTORY_MAP[product._type]}/${product.slug?.current ?? ""}`
+                : "",
+              env.SITE_URL,
+            );
+
+            return {
+              name: cartItem.name,
+              price: currencyFormatter(cartItem.price),
+              quantity: cartItem.quantity.toString(),
+              imageUrl: cartItem.image?.asset?.url ?? null,
+              url: productURL.href,
+            };
+          }),
+        ),
         shippingFee:
           typeof body.shippingFee === "number"
             ? currencyFormatter(body.shippingFee)
@@ -93,8 +109,10 @@ export async function POST(request: Request) {
     console.error(error);
 
     if (isProdEnv()) {
+      const contact = await getContact();
+
       await sendEmail({
-        from: env.VENDOR_EMAIL_ADDRESS,
+        from: contact.email,
         to: "balint.ducsai@gmail.com",
         subject: "error detected in papirsarkany.hu/api/order",
         text: `Error caught in url papirsarkany/api/order. \nreason: ${error}`,

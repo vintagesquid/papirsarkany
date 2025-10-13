@@ -11,6 +11,7 @@ import Navigation from "~/components/navigation";
 import ToastContainer from "~/components/toast-container";
 import TruendoScript from "~/components/truendo-script";
 import "./globals.css";
+import GSAPSetup from "~/components/gsap-setup";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,9 +33,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <TruendoScript />
         <AppVersionScript />
       </head>
-      <body className={`${inter.className} `}>
+      <body className={inter.className}>
         <div className="flex min-h-screen flex-col">
           <ToastContainer />
+          <GSAPSetup />
           <Navigation />
           <main className="grid min-h-[calc(100dvh-68px)] flex-1 overflow-x-hidden bg-sky-100 sm:min-h-[calc(100dvh-72px)] lg:min-h-[calc(100dvh-76px)]">
             {children}

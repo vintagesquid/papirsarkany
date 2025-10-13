@@ -1,5 +1,6 @@
 import { client } from "@sanity/lib/client";
 import type {
+  Contact,
   GetAllKitesQueryResult,
   GetAllNewsQueryResult,
   GetAllReelsQueryResult,
@@ -13,7 +14,9 @@ import {
   getAllReelsQuery,
   getAllRodsQuery,
   getAllTwinesQuery,
+  getContactQuery,
   getKiteBySlugQuery,
+  getProductByIdQuery,
 } from "./queries";
 
 export async function getAllKites(): Promise<GetAllKitesQueryResult> {
@@ -45,4 +48,18 @@ export async function getAllTwines(): Promise<GetAllTwinesQueryResult> {
 
 export async function getAllNews(): Promise<GetAllNewsQueryResult> {
   return await client.fetch(getAllNewsQuery);
+}
+
+export async function getProductById(id: string) {
+  return await client.fetch(getProductByIdQuery, { id });
+}
+
+export async function getContact(): Promise<Contact> {
+  const contact = await client.fetch(getContactQuery);
+
+  if (!contact) {
+    throw new Error("Missing contact infromation");
+  }
+
+  return contact;
 }

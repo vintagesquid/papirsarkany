@@ -19,6 +19,23 @@ test("Kite order flow", async ({ page, browserName, isMobile }) => {
     ).toHaveText("2");
   });
 
+  await test.step("Add a material to the cart", async () => {
+    await page.goto("/anyagok");
+
+    // add to cart
+    await page.getByText("Kosárba").first().click();
+
+    const cartItemIndicator = await page
+      .getByTestId("cart-menu-item")
+      .first()
+      .locator(".d-indicator");
+
+    await expect(
+      cartItemIndicator,
+      'Cart item quantity indicator should be equal to "3".',
+    ).toHaveText("3");
+  });
+
   await test.step('Navigate to "/kosar" (cart) page', async () => {
     // navigate to '/kosar' page
     await page.getByTestId("cart-menu-item").click();
@@ -42,8 +59,8 @@ test("Kite order flow", async ({ page, browserName, isMobile }) => {
 
     await expect(
       spinButtons,
-      "Number of unique kites should be equal to 1 in the cart.",
-    ).toHaveCount(1);
+      "Number of unique items should be equal to 2 in the cart.",
+    ).toHaveCount(2);
   });
 
   await test.step("Fill out the order form", async () => {
@@ -90,6 +107,15 @@ test("Kite order flow", async ({ page, browserName, isMobile }) => {
 
       await page.waitForURL("**/sikeres-rendeles");
       expect(page.url()).toContain("/sikeres-rendeles");
+
+      const cartItemIndicator = page
+        .getByTestId("cart-menu-item")
+        .first()
+        .locator(".d-indicator");
+      await expect(
+        cartItemIndicator,
+        'Cart item quantity indicator should be equal to "0".',
+      ).toHaveText("0");
     });
   }
 });

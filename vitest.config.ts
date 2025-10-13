@@ -18,7 +18,10 @@ export default defineConfig({
   ],
   test: {
     environment: "jsdom",
-    setupFiles: ["./src/tests/vitest-cleanup-after-each.ts"],
+    setupFiles: [
+      "./src/tests/vitest-cleanup-after-each.ts",
+      "./src/mocks/gsap.mock.ts",
+    ],
     dir: "./src/tests",
     exclude: ["e2e"],
     env: loadEnv("", process.cwd(), ""),

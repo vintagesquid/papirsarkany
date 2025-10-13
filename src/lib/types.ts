@@ -82,11 +82,13 @@ export type NewOrder = {
 };
 
 export type OrderMail = NewOrder & {
-  id: number;
+  orderId: number;
   products: {
     name: string;
     price: string;
     quantity: string;
+    url: string | null;
+    imageUrl: string | null;
   }[];
   shippingFee: string | null;
   billingFee: string | null;

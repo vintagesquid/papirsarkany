@@ -35,11 +35,6 @@ const NavigationMenuItem: FC<NavigationMenuItemProps> = (
     <li className="text-sm lg:text-base">
       <Link
         {...props}
-        onClick={() => {
-          if (document.activeElement instanceof HTMLElement) {
-            document.activeElement.blur();
-          }
-        }}
         className={
           isActive(props.href)
             ? "underline decoration-2 decoration-primary underline-offset-4"

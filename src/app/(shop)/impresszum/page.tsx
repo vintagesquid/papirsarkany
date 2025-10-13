@@ -2,23 +2,30 @@ import type { FC } from "react";
 
 import Card from "~/components/card";
 import Heading from "~/components/heading";
+import { getContact } from "~/lib/cms";
 
-const ImpressiumPage: FC = () => {
+const ImpressiumPage: FC = async () => {
+  const contact = await getContact();
+
   return (
     <div className="container">
-      <Card className="prose prose-slate lg:prose-lg mx-auto max-w-[100ch] p-8">
+      <Card className="prose prose-slate lg:prose-lg wrap-anywhere mx-auto max-w-[100ch] p-8">
         <Heading as="h1" className="text-center">
           Impresszum
         </Heading>
 
-        <Heading as={"h2"}>Cégnév: Ducsai Barnabás</Heading>
-        <Heading as={"h2"}>Adószám: 61090938-1-33</Heading>
-        <Heading as={"h2"}>
-          Székhely és levelezési cím: 2094 Nagykovácsi Kazal utca 6.
+        <Heading as={"h3"}>Cégnév: {contact.name}</Heading>
+        <Heading as={"h3"}>Adószám: {contact.taxId}</Heading>
+        <Heading as={"h3"}>
+          Székhely és levelezési cím: {contact.address.postCode}{" "}
+          {contact.address.city} {contact.address.street}{" "}
+          {contact.address.streetNo}.
         </Heading>
-        <Heading as={"h2"}>Telefonszám: 06-1-123-4567</Heading>
-        <Heading as={"h2"}>E-mail cím: mail.papirsarkany@gmail.com</Heading>
-        <Heading as={"h2"}>Bankszámlaszám: 11600006-00000000-76709302</Heading>
+        <Heading as={"h3"}>Telefonszám: {contact.phoneNumber}</Heading>
+        <Heading as={"h3"}>E-mail cím: {contact.email}</Heading>
+        <Heading as={"h3"}>
+          Bankszámlaszám: {contact?.bankAccountNumber}
+        </Heading>
       </Card>
     </div>
   );

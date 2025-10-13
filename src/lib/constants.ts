@@ -1,6 +1,9 @@
+import type { Route } from "next";
+import type { RemovePrefix } from "type-fest";
 import type {
   FoxpostPackageHandlingFees,
   FoxpostPackageInfoCategoryConstraints,
+  ProductTypes,
 } from "./types";
 
 export const MISSING_IMG_URL = "/missing-image.svg";
@@ -40,3 +43,13 @@ export const FOXPOST_PACKAGE_HANDLING_FEES = [
 ] as const satisfies FoxpostPackageHandlingFees;
 
 export const GOOGLE_MAPS_PLACE_ID = "ChIJgUbQc-92akcRLtRwSD_F784";
+
+export const CONTENT_TYPE_PATH_DIRECTORY_MAP: Record<
+  ProductTypes,
+  RemovePrefix<Route, "/">
+> = {
+  kite: "sarkanyok",
+  reel: "anyagok",
+  rod: "anyagok",
+  twine: "anyagok",
+} as const;

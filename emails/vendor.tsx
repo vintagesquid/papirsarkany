@@ -11,43 +11,11 @@ import {
 } from "@react-email/components";
 // biome-ignore lint/correctness/noUnusedImports: must import in react-email components
 import * as React from "react";
-import type { ShippingOptionValue } from "~/lib/types";
+import OrderSummarySection from "react-email/components/order-summary-section";
+import type { OrderMail } from "~/lib/types";
 import { kiteMock } from "~/mocks/product.mock";
 
-type VendorEmailProps = {
-  orderId: number | string;
-  contact: {
-    email: string;
-    firstName: string;
-    lastName: string;
-    phone: string;
-  };
-  shippingOption: ShippingOptionValue;
-  paymentOption: string;
-
-  shipping: {
-    postcode?: string;
-    city?: string;
-    address?: string;
-    subaddress?: string;
-  };
-  shippingFee: string | null;
-  billing: {
-    postcode: string;
-    city: string;
-    address: string;
-    subaddress?: string;
-  };
-  billingFee: string | null;
-  comment: string | undefined;
-
-  products: {
-    name: string;
-    price: string;
-    quantity: string;
-  }[];
-  total: string;
-};
+type VendorEmailProps = OrderMail;
 
 const VendorEmail = ({
   orderId,
@@ -65,7 +33,7 @@ const VendorEmail = ({
   return (
     <Html>
       <Head>
-        <title>Rendelés #{orderId} - papirsarkany.hu</title>
+        <title>{`Rendelés #${orderId} - papirsarkany.hu`}</title>
         <Font
           fontFamily="Inter"
           fallbackFontFamily="Verdana"
@@ -77,7 +45,7 @@ const VendorEmail = ({
           fontStyle="normal"
         />
       </Head>
-      <Container>
+      <Container style={{ padding: "0 12px" }}>
         <Heading style={{ textAlign: "center" }} as="h1">
           Rendelés #{orderId}
         </Heading>
@@ -117,41 +85,12 @@ const VendorEmail = ({
           </Text>
         )}
 
-        <ul>
-          {products.map((product) => (
-            <li key={product.name}>
-              <Text style={{ fontSize: "18px" }}>
-                <b>
-                  {product.name}: {product.price} - {product.quantity} db
-                </b>
-              </Text>
-            </li>
-          ))}
-
-          {shippingFee && (
-            <li>
-              <Text style={{ fontSize: "18px" }}>
-                <b>Szállítás díj: {shippingFee} Ft</b>
-              </Text>
-            </li>
-          )}
-
-          {billingFee && (
-            <li>
-              <Text style={{ fontSize: "18px" }}>
-                <b>Utánvét díj: {billingFee} Ft</b>
-              </Text>
-            </li>
-          )}
-        </ul>
-
-        <Hr />
-
-        <Text style={{ fontSize: "24px" }}>
-          <u>
-            <b>Összesen: {total}</b>
-          </u>
-        </Text>
+        <OrderSummarySection
+          products={products}
+          billingFee={billingFee}
+          shippingFee={shippingFee}
+          total={total}
+        />
 
         <Section style={{ textAlign: "center" }}>
           <Button
@@ -188,8 +127,8 @@ VendorEmail.PreviewProps = {
     address: "Felső Zöldmáli út 13",
     subaddress: "",
   },
-  shippingFee: "1 500 Ft",
-  paymentOption: "Előre utalás",
+  shippingFee: "",
+  paymentOption: "Előreutalással",
   billing: {
     postcode: "1025",
     city: "Budapest",

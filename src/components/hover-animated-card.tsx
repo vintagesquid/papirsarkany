@@ -1,12 +1,11 @@
 "use client";
 
-import { type HTMLMotionProps, m } from "motion/react";
-import type { FC, ReactNode } from "react";
-
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { type ComponentProps, type FC, type ReactNode, useRef } from "react";
 import Card from "./card";
-import LazyLoadFramerMotion from "./lazy-load-framer-motion";
 
-type HoverAnimatedCardProps = HTMLMotionProps<"div"> & {
+type HoverAnimatedCardProps = ComponentProps<"div"> & {
   children: ReactNode;
 };
 
@@ -15,24 +14,37 @@ const HoverAnimatedCard: FC<HoverAnimatedCardProps> = ({
   className,
   ...props
 }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const { contextSafe } = useGSAP();
+
+  const onMouseEnter = contextSafe(() => {
+    gsap.to(containerRef.current, {
+      scale: 1.05,
+      ease: "elastic.out(1,0.75)",
+      duration: 1,
+    });
+  });
+
+  const onMouseLeave = contextSafe(() => {
+    gsap.to(containerRef.current, {
+      scale: 1,
+      ease: "elastic.out(1,0.75)",
+      duration: 1,
+    });
+  });
+
   return (
-    <LazyLoadFramerMotion>
-      <m.div
-        whileHover={{
-          scale: 1.05,
-          transition: {
-            type: "spring",
-            velocity: 1.25,
-            bounce: 0.4,
-            duration: 0.8,
-          },
-        }}
-        {...props}
-        className="h-full w-full"
-      >
-        <Card className={className}>{children}</Card>
-      </m.div>
-    </LazyLoadFramerMotion>
+    <div
+      className="h-full w-full"
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      role="none"
+    >
+      <Card className={className} {...props}>
+        {children}
+      </Card>
+    </div>
   );
 };
 

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
 import AddToCartButton from "~/components/add-to-cart-button";
 import Available from "~/components/available";
 import Heading from "~/components/heading";
@@ -48,7 +48,7 @@ export default async function Kite(props: { params: Promise<Params> }) {
   const kite = await getKiteBySlug(params.slug);
 
   if (!kite) {
-    notFound();
+    redirect("/sarkanyok");
   }
 
   return (
@@ -88,7 +88,7 @@ export default async function Kite(props: { params: Promise<Params> }) {
         </div>
         <div className="space-y-2 text-center md:text-left">
           <div className="items-center gap-2 md:flex">
-            {kite.price && (
+            {Boolean(kite.price) && (
               <Heading as={"h2"} className="font-bold text-primary">
                 {currencyFormatter(kite.price)}
               </Heading>

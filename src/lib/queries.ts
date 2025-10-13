@@ -23,3 +23,9 @@ export const getAllTwinesQuery = defineQuery(
 export const getAllNewsQuery = defineQuery(
   `*[_type == 'news'] | order(_createdAt desc)`,
 );
+
+export const getProductByIdQuery = defineQuery(
+  `*[_type in ['kite','rod', 'reel', 'twine' ] && _id == $id] { _id, _type, slug}[0]`,
+);
+
+export const getContactQuery = defineQuery(`*[_type == 'contact'][0]`);

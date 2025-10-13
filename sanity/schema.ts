@@ -1,5 +1,5 @@
 import type { SchemaTypeDefinition } from "sanity";
-
+import contactSchemaTypes from "./schemas/contact/contact-schema-types";
 import kiteSchemaTypes from "./schemas/kite/kite-schema-types";
 import newsSchemaTypes from "./schemas/news/news-schema-types";
 import reelSchemaTypes from "./schemas/reel/reel-schema-types";
@@ -13,5 +13,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     ...reelSchemaTypes,
     ...twineSchemaTypes,
     ...newsSchemaTypes,
+    ...contactSchemaTypes,
   ],
 };
