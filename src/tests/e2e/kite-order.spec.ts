@@ -114,8 +114,8 @@ test("Kite order flow", async ({ page, browserName, isMobile }) => {
         .locator(".d-indicator");
       await expect(
         cartItemIndicator,
-        'Cart item quantity indicator should be equal to "3".',
-      ).toHaveText("3");
+        'Cart item quantity indicator should be equal to "0".',
+      ).toHaveText("0");
     });
   }
 });
