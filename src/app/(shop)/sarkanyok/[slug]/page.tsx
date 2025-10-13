@@ -88,7 +88,7 @@ export default async function Kite(props: { params: Promise<Params> }) {
         </div>
         <div className="space-y-2 text-center md:text-left">
           <div className="items-center gap-2 md:flex">
-            {kite.price && (
+            {Boolean(kite.price) && (
               <Heading as={"h2"} className="font-bold text-primary">
                 {currencyFormatter(kite.price)}
               </Heading>
