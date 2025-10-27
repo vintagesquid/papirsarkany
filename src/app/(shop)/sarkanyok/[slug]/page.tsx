@@ -115,7 +115,6 @@ export default async function Kite(props: { params: Promise<Params> }) {
                 {currencyFormatter(kite.price)}
               </Heading>
             )}
-            <Available />
           </div>
           <AddToCartButton product={kite} />
         </div>
