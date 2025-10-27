@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { redirect } from "next/navigation";
+import type { Product, WithContext } from "schema-dts";
+import serialize from "serialize-javascript";
 import AddToCartButton from "~/components/add-to-cart-button";
 import Available from "~/components/available";
 import Heading from "~/components/heading";
@@ -50,9 +52,29 @@ export default async function Kite(props: { params: Promise<Params> }) {
   if (!kite) {
     redirect("/sarkanyok");
   }
+  const jsonLd: WithContext<Product> = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: kite.name,
+    image: kite.image?.asset?.url || undefined,
+    offers: {
+      "@type": "Offer",
+      price: kite.price,
+      priceCurrency: "HUF",
+      availability: "InStock",
+      itemCondition: "NewCondition",
+    },
+  };
 
   return (
     <div className="h-full space-y-8 p-8 md:flex md:gap-4 md:space-y-0">
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: <valid according to nextjs docs>
+        dangerouslySetInnerHTML={{
+          __html: serialize(jsonLd),
+        }}
+      />
       <div className="md:flex-3">
         {kite.image && (
           <Image
