@@ -4,12 +4,11 @@ import { redirect } from "next/navigation";
 import type { Product, WithContext } from "schema-dts";
 import serialize from "serialize-javascript";
 import AddToCartButton from "~/components/add-to-cart-button";
-import Available from "~/components/available";
 import Heading from "~/components/heading";
 import { getAllKites, getKiteBySlug } from "~/lib/cms";
-import { MISSING_IMG_URL, NO_NAME } from "~/lib/constants";
+import { NO_NAME } from "~/lib/constants";
 import { currencyFormatter } from "~/lib/formatters";
-import { getPositionFromHotspot } from "~/lib/sanity-image";
+import { getPositionFromHotspot, urlFor } from "~/lib/sanity-image";
 
 type Params = {
   slug: string;
@@ -52,6 +51,7 @@ export default async function Kite(props: { params: Promise<Params> }) {
   if (!kite) {
     redirect("/sarkanyok");
   }
+
   const jsonLd: WithContext<Product> = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -82,7 +82,7 @@ export default async function Kite(props: { params: Promise<Params> }) {
             style={{
               objectPosition: getPositionFromHotspot(kite.image.hotspot),
             }}
-            src={kite.image.asset?.url || MISSING_IMG_URL}
+            src={urlFor(kite.image).url()}
             width={kite.image.asset?.metadata?.dimensions?.width}
             height={kite.image.asset?.metadata?.dimensions?.height}
             alt={kite.name || NO_NAME}
