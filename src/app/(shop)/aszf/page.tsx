@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { FC } from "react";
 import Card from "~/components/card";
+import Heading from '~/components/heading';
 
 export const metadata: Metadata = {
   title: "Adatvédelmi Nyilatkozat és Felhasználási Feltételek",
@@ -10,9 +11,9 @@ const TermsAndConditionsPage: FC = () => {
   return (
     <div className="container py-8 md:py-16">
       <Card className="prose prose-slate lg:prose-lg mx-auto max-w-[120ch] p-8">
-        <h2 className="text-center font-bold">
+        <Heading as='h1' size={3} className="text-center font-bold">
           Adatvédelmi Nyilatkozat és Felhasználási Feltételek
-        </h2>
+        </Heading>
         <h3>1. Általános rendelkezések</h3>
         <p>
           Jelen Adatvédelmi Nyilatkozat és Felhasználási Feltételek (a

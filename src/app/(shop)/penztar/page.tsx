@@ -14,6 +14,10 @@ export const metadata: Metadata = {
 const Checkout: FC = async () => {
   const contact = await getContact();
 
+  if (!contact) {
+    return null;
+  }
+
   return (
     <CheckoutFormStepper>
       <CheckoutShippingForm contact={contact} />

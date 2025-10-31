@@ -17,6 +17,10 @@ export async function sendEmail(mailData: CreateEmailOptions) {
 export async function sendOrderEmails(orderEmailData: OrderMail) {
   const contact = await getContact();
 
+    if(!contact) {
+    return null;
+  }
+
   const vendorMail: CreateEmailOptions = {
     from: "mail@papirsarkany.hu",
     replyTo: contact.email,
