@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 
 const ProductReturnPolicyPage: FC = async () => {
   const contact = await getContact();
-  
-  if(!contact) {
+
+  if (!contact) {
     return null;
   }
 
@@ -24,23 +24,19 @@ const ProductReturnPolicyPage: FC = async () => {
           {" "}
           Visszavásárlási (elállási) tájékoztató
         </Heading>
-        <h2>
-          Köszönjük, hogy a Papírsárkány webáruházat választotta! 
-          
-        </h2>
+        <h2>Köszönjük, hogy a Papírsárkány webáruházat választotta!</h2>
 
-        <h3>Az alábbi
-          tájékoztatóban talál minden tudnivalót a termékek visszaküldéséről,
-          elállási jogról, a visszatérítési folyamatról és a hibás teljesítés
-          eseteiről.</h3>
+        <h3>
+          Az alábbi tájékoztatóban talál minden tudnivalót a termékek
+          visszaküldéséről, elállási jogról, a visszatérítési folyamatról és a
+          hibás teljesítés eseteiről.
+        </h3>
 
         <h3>1. Székhely és elérhetőségek</h3>
 
         <ul>
           <li>Cég: {contact.name}</li>
-          <li>
-            Székhely: {contact.fullAddress}
-          </li>
+          <li>Székhely: {contact.fullAddress}</li>
           <li>
             {" "}
             E-mail: <a href={`mailto:${contact.email}`}>{contact.email}</a>
