@@ -1,11 +1,11 @@
 import { client } from "@sanity/lib/client";
 import type {
-  Contact,
   GetAllKitesQueryResult,
   GetAllNewsQueryResult,
   GetAllReelsQueryResult,
   GetAllRodsQueryResult,
   GetAllTwinesQueryResult,
+  GetContactQueryResult,
   GetKiteBySlugQueryResult,
 } from "@sanity/lib/sanity.types";
 import {
@@ -54,7 +54,7 @@ export async function getProductById(id: string) {
   return await client.fetch(getProductByIdQuery, { id });
 }
 
-export async function getContact(): Promise<Contact> {
+export async function getContact(): Promise<GetContactQueryResult> {
   const contact = await client.fetch(getContactQuery);
 
   if (!contact) {
