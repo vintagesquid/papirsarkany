@@ -44,7 +44,7 @@ const OrderSummarySection: FC<ProductListProps> = ({
               />
             )}
           </Column>
-          <Column style={{ paddingRight: "10px" }}>
+          <Column style={{ paddingRight: "10px", width: "25%" }}>
             <Text style={{ fontSize: "16px", verticalAlign: "middle" }}>
               <b>
                 {product.url ? (
@@ -55,12 +55,12 @@ const OrderSummarySection: FC<ProductListProps> = ({
               </b>
             </Text>
           </Column>
-          <Column style={{ paddingRight: "10px" }}>
-            <Text style={{ fontSize: "16px", whiteSpace: "nowrap" }}>
+          <Column style={{ paddingRight: "10px", width: "25%" }}>
+            <Text style={{ fontSize: "16px", whiteSpace: "nowrap", textAlign: "center" }}>
               <b>{product.price}</b>
             </Text>
           </Column>
-          <Column style={{ paddingRight: "10px" }}>
+          <Column style={{ paddingRight: "10px", width: "25%" }}>
             <Text style={{ fontSize: "16px", whiteSpace: "nowrap" }}>
               <b>{product.quantity}db</b>
             </Text>
