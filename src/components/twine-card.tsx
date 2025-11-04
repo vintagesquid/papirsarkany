@@ -81,7 +81,7 @@ const TwineCard: FC<TwineCardProps> = ({ twine }) => {
           <AddToCartButton
             product={{
               ...twine,
-              name: `${twine.name} (${selectedDiameter.diameter} - ${length}m)`,
+              name: `${twine.name} (${selectedDiameter.diameter} mm - ${length}m)`,
               price:
                 (selectedDiameter.pricePerMeter || Number.NaN) *
                 Math.ceil(length),
