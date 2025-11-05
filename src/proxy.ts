@@ -5,7 +5,7 @@ import { formatZodErrors } from "~/lib/formatters";
 import type { OrderRequestBody } from "~/lib/types";
 import { mergedFormSchemaObject } from "~/lib/validation-schemas";
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   try {
     const body = (await request.json()) as OrderRequestBody;
     const { formData } = body;
