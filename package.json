@@ -11,7 +11,7 @@
     "format": "biome format --write",
     "format:check": "biome format",
     "lint": "biome lint",
-    "sanity:publish": "pnpx tsx sanity/lib/actions/publish-all-modified.ts",
+    "sanity:publish": "pnpm dlx tsx sanity/lib/actions/publish-all-modified.ts",
     "sanity:typegen": "rimraf ./sanity/schema.json && pnpm dlx sanity schema extract --path sanity/schema.json --enforce-required-fields && pnpm dlx sanity typegen generate",
     "start": "next start",
     "test": "vitest run && playwright test",
