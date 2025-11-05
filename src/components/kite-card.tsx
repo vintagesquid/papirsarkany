@@ -2,7 +2,6 @@ import type { Kite } from "@sanity/lib/sanity.types";
 import Image from "next/image";
 import Link from "next/link";
 import type { FC } from "react";
-import { NO_NAME } from "~/lib/constants";
 import { currencyFormatter } from "~/lib/formatters";
 import { getPositionFromHotspot, urlFor } from "~/lib/sanity-image";
 import type { WithImageAsset } from "~/lib/types";
@@ -45,7 +44,7 @@ const KiteCard: FC<KiteCardProps> = ({ kite }) => {
                 style={{
                   objectPosition: getPositionFromHotspot(kite.image.hotspot),
                 }}
-                alt={kite.name || NO_NAME}
+                alt={kite.name}
                 width={600}
                 height={600}
                 placeholder="blur"

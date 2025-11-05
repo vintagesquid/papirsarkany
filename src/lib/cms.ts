@@ -7,6 +7,7 @@ import type {
   GetAllTwinesQueryResult,
   GetContactQueryResult,
   GetKiteBySlugQueryResult,
+  GetProductByIdQueryResult,
 } from "@sanity/lib/sanity.types";
 import {
   getAllKitesQuery,
@@ -50,7 +51,7 @@ export async function getAllNews(): Promise<GetAllNewsQueryResult> {
   return await client.fetch(getAllNewsQuery);
 }
 
-export async function getProductById(id: string) {
+export async function getProductById(id: string): Promise<GetProductByIdQueryResult> {
   return await client.fetch(getProductByIdQuery, { id });
 }
 

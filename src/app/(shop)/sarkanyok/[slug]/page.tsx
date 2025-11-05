@@ -6,7 +6,6 @@ import serialize from "serialize-javascript";
 import AddToCartButton from "~/components/add-to-cart-button";
 import Heading from "~/components/heading";
 import { getAllKites, getKiteBySlug } from "~/lib/cms";
-import { NO_NAME } from "~/lib/constants";
 import { currencyFormatter } from "~/lib/formatters";
 import { getPositionFromHotspot, urlFor } from "~/lib/sanity-image";
 
@@ -85,7 +84,7 @@ export default async function Kite(props: { params: Promise<Params> }) {
             src={urlFor(kite.image).url()}
             width={kite.image.asset?.metadata?.dimensions?.width}
             height={kite.image.asset?.metadata?.dimensions?.height}
-            alt={kite.name || NO_NAME}
+            alt={kite.name}
             placeholder="blur"
             blurDataURL={kite.image.asset?.metadata?.lqip}
             fetchPriority="high"

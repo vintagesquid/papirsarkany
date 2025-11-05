@@ -4,13 +4,13 @@ import Image from "next/image";
 import { type FC, Fragment } from "react";
 import TrashCanIcon from "~/assets/trash-can.svg";
 import useCart from "~/hooks/use-cart";
-import { MISSING_IMG_URL, NO_NAME } from "~/lib/constants";
 import { currencyFormatter, formatShippingFee } from "~/lib/formatters";
 import type { CartItem } from "~/lib/validation-schemas";
 import { useCartStore } from "~/store/use-cart-store";
 import Card from "./card";
 import Heading from "./heading";
 import ProductinCartCounter from "./product-in-cart-counter";
+import { urlFor } from '~/lib/sanity-image';
 
 type OrderSummaryCardProps = {
   layout?: "full" | "definitive";
@@ -48,8 +48,8 @@ const OrderSummaryCard: FC<OrderSummaryCardProps> = ({ layout = "full" }) => {
                 <div className="hidden shrink-0 min-[390px]:block">
                   {item.image && (
                     <Image
-                      src={item.image.asset?.url || MISSING_IMG_URL}
-                      alt={item.name || NO_NAME}
+                      src={urlFor(item.image).size(128, 128).url()}
+                      alt={item.name}
                       width={128}
                       height={128}
                       placeholder="blur"
@@ -117,11 +117,11 @@ const OrderSummaryCard: FC<OrderSummaryCardProps> = ({ layout = "full" }) => {
       {cart.map((item) => (
         <Fragment key={item._id}>
           <div className="flex items-center justify-between gap-2">
-            <div className="flex gap-2">
+            <div className="flex items-center gap-2">
               {item.image && (
                 <Image
-                  src={item.image.asset?.url || MISSING_IMG_URL}
-                  alt={item.name || NO_NAME}
+                  src={urlFor(item.image).size(128, 128).url()}
+                  alt={item.name}
                   width={128}
                   height={128}
                   placeholder="blur"
