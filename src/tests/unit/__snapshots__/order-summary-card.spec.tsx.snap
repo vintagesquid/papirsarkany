@@ -21,8 +21,8 @@ exports[`should render "definitive" layout when provided 1`] = `
             decoding="async"
             height="128"
             loading="lazy"
-            src="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs2hk1b39%2Fdevelop%2F4b50a973dfec0f88256fc60bc60c8a546e33dea5-800x604.webp&w=256&q=75"
-            srcset="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs2hk1b39%2Fdevelop%2F4b50a973dfec0f88256fc60bc60c8a546e33dea5-800x604.webp&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs2hk1b39%2Fdevelop%2F4b50a973dfec0f88256fc60bc60c8a546e33dea5-800x604.webp&w=256&q=75 2x"
+            src="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs2hk1b39%2Fdevelop%2F4b50a973dfec0f88256fc60bc60c8a546e33dea5-800x604.webp%3Frect%3D34%2C0%2C604%2C604%26w%3D128%26h%3D128&w=256&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs2hk1b39%2Fdevelop%2F4b50a973dfec0f88256fc60bc60c8a546e33dea5-800x604.webp%3Frect%3D34%2C0%2C604%2C604%26w%3D128%26h%3D128&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs2hk1b39%2Fdevelop%2F4b50a973dfec0f88256fc60bc60c8a546e33dea5-800x604.webp%3Frect%3D34%2C0%2C604%2C604%26w%3D128%26h%3D128&w=256&q=75 2x"
             style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
             width="128"
           />
@@ -88,7 +88,7 @@ exports[`should render "full" layout by default 1`] = `
       class="flex items-center justify-between gap-2"
     >
       <div
-        class="flex gap-2"
+        class="flex items-center gap-2"
       >
         <img
           alt="Forgó szélzsák"
@@ -97,8 +97,8 @@ exports[`should render "full" layout by default 1`] = `
           decoding="async"
           height="128"
           loading="lazy"
-          src="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs2hk1b39%2Fdevelop%2F4b50a973dfec0f88256fc60bc60c8a546e33dea5-800x604.webp&w=256&q=75"
-          srcset="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs2hk1b39%2Fdevelop%2F4b50a973dfec0f88256fc60bc60c8a546e33dea5-800x604.webp&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs2hk1b39%2Fdevelop%2F4b50a973dfec0f88256fc60bc60c8a546e33dea5-800x604.webp&w=256&q=75 2x"
+          src="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs2hk1b39%2Fdevelop%2F4b50a973dfec0f88256fc60bc60c8a546e33dea5-800x604.webp%3Frect%3D34%2C0%2C604%2C604%26w%3D128%26h%3D128&w=256&q=75"
+          srcset="/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs2hk1b39%2Fdevelop%2F4b50a973dfec0f88256fc60bc60c8a546e33dea5-800x604.webp%3Frect%3D34%2C0%2C604%2C604%26w%3D128%26h%3D128&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fs2hk1b39%2Fdevelop%2F4b50a973dfec0f88256fc60bc60c8a546e33dea5-800x604.webp%3Frect%3D34%2C0%2C604%2C604%26w%3D128%26h%3D128&w=256&q=75 2x"
           style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
           width="128"
         />
