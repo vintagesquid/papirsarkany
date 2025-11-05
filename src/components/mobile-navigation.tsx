@@ -91,7 +91,7 @@ const MobileNavigation: FC<MobileNavigationProps> = ({ navigationItems }) => {
             {navigationItem.children}
           </NavigationMenuItem>
         ))}
-        <li className='d-divider m-0' />
+        <li className="d-divider m-0" />
         {navigationItems.leftItems.map((navigationItem) => (
           <NavigationMenuItem
             key={navigationItem.href.toString()}

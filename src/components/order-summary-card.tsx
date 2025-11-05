@@ -5,12 +5,12 @@ import { type FC, Fragment } from "react";
 import TrashCanIcon from "~/assets/trash-can.svg";
 import useCart from "~/hooks/use-cart";
 import { currencyFormatter, formatShippingFee } from "~/lib/formatters";
+import { urlFor } from "~/lib/sanity-image";
 import type { CartItem } from "~/lib/validation-schemas";
 import { useCartStore } from "~/store/use-cart-store";
 import Card from "./card";
 import Heading from "./heading";
 import ProductinCartCounter from "./product-in-cart-counter";
-import { urlFor } from '~/lib/sanity-image';
 
 type OrderSummaryCardProps = {
   layout?: "full" | "definitive";

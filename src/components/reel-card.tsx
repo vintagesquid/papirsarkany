@@ -2,11 +2,11 @@ import type { Reel } from "@sanity/lib/sanity.types";
 import Image from "next/image";
 import type { FC } from "react";
 import { currencyFormatter } from "~/lib/formatters";
+import { urlFor } from "~/lib/sanity-image";
 import type { WithImageAsset } from "~/lib/types";
 import AddToCartButton from "./add-to-cart-button";
 import Card from "./card";
 import Heading from "./heading";
-import { urlFor } from '~/lib/sanity-image';
 
 type ReelCardProps = {
   reel: WithImageAsset<Reel>;

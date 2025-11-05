@@ -56,7 +56,13 @@ const OrderSummarySection: FC<ProductListProps> = ({
             </Text>
           </Column>
           <Column style={{ paddingRight: "10px", width: "25%" }}>
-            <Text style={{ fontSize: "16px", whiteSpace: "nowrap", textAlign: "center" }}>
+            <Text
+              style={{
+                fontSize: "16px",
+                whiteSpace: "nowrap",
+                textAlign: "center",
+              }}
+            >
               <b>{product.price}</b>
             </Text>
           </Column>

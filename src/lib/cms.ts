@@ -51,7 +51,9 @@ export async function getAllNews(): Promise<GetAllNewsQueryResult> {
   return await client.fetch(getAllNewsQuery);
 }
 
-export async function getProductById(id: string): Promise<GetProductByIdQueryResult> {
+export async function getProductById(
+  id: string,
+): Promise<GetProductByIdQueryResult> {
   return await client.fetch(getProductByIdQuery, { id });
 }
 
