@@ -39,27 +39,22 @@ const AddToCartButton: FC<AddToCartProps> = ({ product }) => {
         href: "/kosar",
       });
     } catch (error) {
-      switch (true) {
-        case error instanceof ZodError:
-          {
-            console.log(error.errors);
+      if (error instanceof ZodError) {
+        console.log(error.errors);
+        toast({
+          id: product._id,
+          type: "error",
+          message: formatZodErrors(error),
+        });
 
-            toast({
-              id: product._id,
-              type: "error",
-              message: formatZodErrors(error),
-            });
-          }
-          break;
-
-        default:
-          toast({
-            id: product._id,
-            type: "error",
-            message: `Hiba történt a kosár hozzáadása közben. ${error instanceof Error && error.message}`,
-          });
-          break;
+        return;
       }
+
+      toast({
+        id: product._id,
+        type: "error",
+        message: `Hiba történt a kosár hozzáadása közben. ${error instanceof Error && error.message}`,
+      });
     }
   };
 
