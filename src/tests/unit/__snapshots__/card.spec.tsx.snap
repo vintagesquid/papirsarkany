@@ -3,7 +3,7 @@
 exports[`should match snapshot 1`] = `
 <div>
   <div
-    class="rounded-lg border-4 border-black bg-white undefined"
+    class="rounded-lg border-4 border-black bg-white"
   >
     Card children
   </div>

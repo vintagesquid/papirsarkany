@@ -674,7 +674,7 @@ export type GetProductByIdQueryResult = {
   slug: null;
 } | null;
 // Variable: getContactQuery
-// Query: *[_type == 'contact' ][0]
+// Query: *[_type == 'contact']{..., "fullAddress": address.postCode + " " + address.city + " " + address.street + " " + address.streetNo }[0]
 export type GetContactQueryResult = {
   _id: string;
   _type: "contact";
@@ -692,6 +692,7 @@ export type GetContactQueryResult = {
   };
   taxId: string;
   bankAccountNumber: string;
+  fullAddress: string;
 } | null;
 
 // Query TypeMap
@@ -706,6 +707,6 @@ declare module "@sanity/client" {
     "*[_type == 'twine'] { ..., image { ..., asset-> { url, metadata } } } | order(name asc)": GetAllTwinesQueryResult;
     "*[_type == 'news'] | order(_createdAt desc)": GetAllNewsQueryResult;
     "*[_type in ['kite','rod', 'reel', 'twine' ] && _id == $id] { _id, _type, slug}[0]": GetProductByIdQueryResult;
-    "*[_type == 'contact' ][0]": GetContactQueryResult;
+    "*[_type == 'contact']{..., \"fullAddress\": address.postCode + \" \" + address.city + \" \" + address.street + \" \" + address.streetNo }[0]": GetContactQueryResult;
   }
 }

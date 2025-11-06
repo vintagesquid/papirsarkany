@@ -28,4 +28,6 @@ export const getProductByIdQuery = defineQuery(
   `*[_type in ['kite','rod', 'reel', 'twine' ] && _id == $id] { _id, _type, slug}[0]`,
 );
 
-export const getContactQuery = defineQuery(`*[_type == 'contact'][0]`);
+export const getContactQuery = defineQuery(
+  `*[_type == 'contact']{..., "fullAddress": address.postCode + " " + address.city + " " + address.street + " " + address.streetNo }[0]`,
+);

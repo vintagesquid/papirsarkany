@@ -1,8 +1,8 @@
 import type { Reel } from "@sanity/lib/sanity.types";
 import Image from "next/image";
 import type { FC } from "react";
-import { MISSING_IMG_URL, NO_NAME } from "~/lib/constants";
 import { currencyFormatter } from "~/lib/formatters";
+import { urlFor } from "~/lib/sanity-image";
 import type { WithImageAsset } from "~/lib/types";
 import AddToCartButton from "./add-to-cart-button";
 import Card from "./card";
@@ -23,8 +23,8 @@ const ReelCard: FC<ReelCardProps> = ({ reel }) => {
 
       {reel.image && (
         <Image
-          src={reel.image.asset?.url || MISSING_IMG_URL}
-          alt={reel.name || NO_NAME}
+          src={urlFor(reel.image).url()}
+          alt={reel.name}
           width={reel.image.asset?.metadata?.dimensions?.width}
           height={reel.image.asset?.metadata?.dimensions?.height}
           placeholder="blur"

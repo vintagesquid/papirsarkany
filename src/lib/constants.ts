@@ -6,10 +6,6 @@ import type {
   ProductTypes,
 } from "./types";
 
-export const MISSING_IMG_URL = "/missing-image.svg";
-
-export const NO_NAME = "hiányzó név";
-
 export const LOCAL_PICKUP_ADDRESS = {
   shippingPostcode: "2094",
   shippingCity: "Nagykovácsi",

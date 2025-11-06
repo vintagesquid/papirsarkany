@@ -263,7 +263,7 @@ exports[`should render mobile navigation on screens smaller then md breakpoint 1
             Anyagok
           </a>
         </li>
-        <div
+        <li
           class="d-divider m-0"
         />
         <li
