@@ -4,12 +4,12 @@ import { z } from "zod";
 export const env = createEnv({
   server: {
     SITE_URL: z.string().url(),
-    
+
     DATABASE_URL: z.string().url(),
     DATABASE_URL_UNPOOLED: z.string().url(),
-    
+
     EMAIL_SERVICE_API_KEY: z.string(),
-    SENDER_EMAIL: z.string().email(), 
+    SENDER_EMAIL: z.string().email(),
 
     SANITY_API_TOKEN: z.string().optional(),
 
