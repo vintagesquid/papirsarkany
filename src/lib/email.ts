@@ -22,7 +22,7 @@ export async function sendOrderEmails(orderEmailData: OrderMail) {
   }
 
   const vendorMail: CreateEmailOptions = {
-    from: "mail@papirsarkany.hu",
+    from: env.SENDER_EMAIL,
     replyTo: contact.email,
     to: contact.email,
     subject: `Rendelés #${orderEmailData.orderId}`,
@@ -42,7 +42,7 @@ export async function sendOrderEmails(orderEmailData: OrderMail) {
   };
 
   const customerMail: CreateEmailOptions = {
-    from: "mail@papirsarkany.hu",
+    from: env.SENDER_EMAIL,
     replyTo: contact.email,
     to: orderEmailData.contact.email,
     subject: "Köszönöm rendelését - papirsarkany.hu",
