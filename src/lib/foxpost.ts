@@ -19,7 +19,9 @@ export function createParcel(body: FoxpostCreateParcelRequestBody) {
     FOXPOST_API_URL,
   } = env;
 
-  const foxpostAuthToken = btoa(`${FOXPOST_API_USERNAME}:${FOXPOST_API_PASSWORD}`)
+  const foxpostAuthToken = btoa(
+    `${FOXPOST_API_USERNAME}:${FOXPOST_API_PASSWORD}`,
+  );
 
   const foxpostHeaders = new Headers({
     Authorization: `Basic ${foxpostAuthToken}`,
