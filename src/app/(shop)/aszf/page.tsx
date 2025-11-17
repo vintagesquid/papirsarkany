@@ -5,6 +5,7 @@ import Heading from "~/components/heading";
 
 export const metadata: Metadata = {
   title: "Adatvédelmi Nyilatkozat és Felhasználási Feltételek",
+  description: "papirsarkany.hu adatvédelmi nyilatkozata és felhasználási feltételei.",
 };
 
 const TermsAndConditionsPage: FC = () => {
