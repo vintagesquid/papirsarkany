@@ -13,6 +13,7 @@ const Splash = async () => {
         <div>
           <Link
             href="https://www.google.com/search?sa=X&sca_esv=0e45d3c299f99f39&sca_upv=1&hl=hu&gl=HU&tbm=lcl&sxsrf=ADLYWIJVzQwn0x4-EL1c9BaWy9jmaiGLjw:1726527988481&q=www.papirsarkany.hu+V%C3%A9lem%C3%A9nyek&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNLE0NDQ2NTY3M7MwNrU0MzcwMtrAyPiKUaG8vFyvILEgs6g4sSg7Ma9SL6NUIezwypzU3MMr8ypTsxexElQCAH5O8rJhAAAA&rldimm=14911353766835967022&ved=2ahUKEwj408r7yciIAxUl_rsIHQsOGLoQ9fQKegQIVxAF&biw=1708&bih=1059&dpr=2#lkt=LocalPoiReviews"
+            rel="noopener noreferrer"
             target="_blank"
             title={`${userRatingCount} vélemény`}
           >
