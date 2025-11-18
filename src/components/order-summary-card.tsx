@@ -33,7 +33,9 @@ const OrderSummaryCard: FC<OrderSummaryCardProps> = ({ layout = "full" }) => {
   if (cart.length < 1) {
     return (
       <div className="text-center">
-        <Heading as="h2" size={1}>Üres a kosarad.</Heading>
+        <Heading as="h2" size={1}>
+          Üres a kosarad.
+        </Heading>
       </div>
     );
   }

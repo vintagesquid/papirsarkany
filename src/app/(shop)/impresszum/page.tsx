@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 import type { FC } from "react";
 
 import Card from "~/components/card";
@@ -7,8 +7,7 @@ import { getContact } from "~/lib/cms";
 
 export const metadata: Metadata = {
   title: "Impresszum",
-  description:
-    "papirsarkany.hu impresszum oldal. Elérhetőségek, cégadatok.",
+  description: "papirsarkany.hu impresszum oldal. Elérhetőségek, cégadatok.",
 };
 
 const ImpressiumPage: FC = async () => {
