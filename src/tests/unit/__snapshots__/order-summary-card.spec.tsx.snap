@@ -305,11 +305,11 @@ exports[`should render "Üres a kosarad" when cart is empty 1`] = `
   <div
     class="text-center"
   >
-    <h1
+    <h2
       class="text-3xl md:text-4xl lg:text-5xl"
     >
       Üres a kosarad.
-    </h1>
+    </h2>
   </div>
 </div>
 `;
