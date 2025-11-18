@@ -1,18 +1,18 @@
 name: Run E2E tests
 permissions:
   contents: read
-
 on:
-  deployment_status:
-
+  repository_dispatch:
+    types:
+      - "vercel.deployment.success"
 jobs:
   playwright-e2e-test:
-    if: ${{ github.event.deployment_status.state == 'success' }}
+    if: github.event_name == 'repository_dispatch'
+    runs-on: ubuntu-latest
     timeout-minutes: 60
     env:
       GOOGLE_CLOUD_API_KEY: ${{ secrets.GOOGLE_CLOUD_API_KEY }}
       VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET}}
-    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -23,8 +23,8 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version-file: '.node-version'
-          cache: 'pnpm'
+          node-version-file: ".node-version"
+          cache: "pnpm"
 
       - name: Install dependencies
         run: pnpm install
@@ -35,4 +35,4 @@ jobs:
       - name: Run tests
         run: pnpm run test:e2e
         env:
-          PLAYWRIGHT_TEST_BASE_URL: ${{ github.event.deployment_status.target_url }}
+          PLAYWRIGHT_TEST_BASE_URL: ${{ github.event.client_payload.url  }}
