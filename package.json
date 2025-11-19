@@ -7,6 +7,7 @@
     "build": "next build",
     "postbuild": "next-sitemap",
     "build:analyze": "ANALYZE=true pnpm run build",
+    "prisma:generate": "prisma generate",
     "dev": "next dev",
     "format": "biome format --write",
     "format:check": "biome format",
