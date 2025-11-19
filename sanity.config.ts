@@ -47,7 +47,10 @@ export default defineConfig({
 
             S.divider(),
 
-            ...S.documentTypeListItems().filter((d) => d.getId() !== "contact"),
+            ...S.documentTypeListItems().filter((listItemBuilder) => {
+              const id = listItemBuilder.getId();
+              return id !== "contact" && id !== "media.tag";
+            }),
           ]),
     }),
     huHULocale(),
