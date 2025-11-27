@@ -15,6 +15,7 @@ const nextConfig = {
       "*.svg": {
         loaders: ["@svgr/webpack"],
         as: "*.js",
+        condition: {not: {path: "**/public/**/*.svg"} },
       },
     },
   },

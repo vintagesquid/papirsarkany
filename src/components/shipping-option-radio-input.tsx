@@ -1,5 +1,5 @@
 import Image, { type ImageProps } from "next/image";
-import type { MouseEventHandler, ReactNode } from "react";
+import type { FC, MouseEventHandler, ReactNode } from "react";
 import { useFormContext } from "react-hook-form";
 
 import { formatShippingFee } from "~/lib/formatters";
@@ -17,7 +17,7 @@ type ShippingOptionRadioInputProps = {
   onClick?: MouseEventHandler<HTMLInputElement>;
 };
 
-export default function ShippingOptionRadioInput({
+const ShippingOptionRadioInput: FC<ShippingOptionRadioInputProps> = ({
   isDisabled,
   onClick,
   shippingFee,
@@ -25,7 +25,7 @@ export default function ShippingOptionRadioInput({
   value,
   icon,
   missingShippingInfoErrorMessage = "Hiányzó szállítási cím információk.",
-}: ShippingOptionRadioInputProps) {
+}) => {
   const {
     register,
     watch,
@@ -88,3 +88,5 @@ export default function ShippingOptionRadioInput({
     </fieldset>
   );
 }
+
+export default ShippingOptionRadioInput;
