@@ -16,7 +16,9 @@ export const cartItemValidationSchema = z.object({
         .number()
         .positive("Hiányzó vagy érvénytelen csomag információk"),
     },
-    { message: "Hiányzó vagy érvénytelen csomag információk" },
+    {
+        error: "Hiányzó vagy érvénytelen csomag információk"
+    },
   ),
   quantity: z.number().positive("Érvénytelen mennyiség"),
 });
@@ -26,7 +28,7 @@ export type CartItem = WithImageAsset<z.infer<typeof cartItemValidationSchema>>;
 export const orderFormSchema = [
   z
     .object({
-      email: z.string().min(1, "Kötelező mező").email("Érvénytelen email cím"),
+      email: z.email("Érvénytelen email cím").min(1, "Kötelező mező"),
       firstName: z.string().min(1, "Kötelező mező"),
       lastName: z.string().min(1, "Kötelező mező"),
       phoneNumber: z
@@ -43,7 +45,9 @@ export const orderFormSchema = [
         ),
       shippingOption: z.enum(
         ["Személyes átvétel", "Postai szállítás", "Foxpost automatába"],
-        { message: "Kérlek válassz egy szállítási módot!" },
+        {
+            error: "Kérlek válassz egy szállítási módot!"
+        },
       ),
 
       shippingPostcode: z.string().optional(), // validation handled in superRefine
@@ -51,27 +55,30 @@ export const orderFormSchema = [
       shippingAddress: z.string().optional(),
       shippingSubaddress: z.string().optional(),
     })
-    .superRefine((val, ctx) => {
+    .superRefine((val, ctx, ) => {
       if (
         val.shippingOption === "Foxpost automatába" &&
         (!val.shippingPostcode || !val.shippingCity || !val.shippingAddress)
       ) {
         ctx.addIssue({
-          code: z.ZodIssueCode.too_small,
+          code: "too_small",
           path: ["shippingCity"],
+          origin: 'string',
           minimum: 1,
           message: "Kérlek válassz egy automatát",
           inclusive: false,
           type: "string",
+          
         });
       }
 
       if (val.shippingOption === "Postai szállítás") {
         if (!val.shippingPostcode) {
           ctx.addIssue({
-            code: z.ZodIssueCode.too_small,
+            code: "too_small",
             path: ["shippingPostcode"],
             minimum: 1,
+            origin: 'string',
             message: "Kötelező mező",
             inclusive: false,
             type: "string",
@@ -80,8 +87,9 @@ export const orderFormSchema = [
 
         if (!val.shippingCity) {
           ctx.addIssue({
-            code: z.ZodIssueCode.too_small,
+            code: "too_small",
             path: ["shippingCity"],
+            origin: 'string',
             minimum: 1,
             message: "Kötelező mező",
             inclusive: false,
@@ -91,23 +99,26 @@ export const orderFormSchema = [
 
         if (!val.shippingAddress) {
           ctx.addIssue({
-            code: z.ZodIssueCode.too_small,
+            code: "too_small",
             path: ["shippingAddress"],
             minimum: 1,
+            origin: 'string',
             message: "Kötelező mező",
             inclusive: false,
             type: "string",
           });
         }
 
-        return false;
+
       }
-      return true;
+
     }),
   z.object({
     paymentOption: z.enum(
       ["Előreutalással", "Átvételkor készpénzel", "Átvételkor bankártyával"],
-      { message: "Kérlek válassz egy fizetési módot!" },
+      {
+          error: "Kérlek válassz egy fizetési módot!"
+    },
     ),
 
     isSameAdressAsShipping: z.boolean(),

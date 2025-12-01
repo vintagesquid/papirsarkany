@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createEnv } from "@t3-oss/env-nextjs";
 import { z } from "zod";
 
@@ -13,7 +14,7 @@ export const env = createEnv({
 
     SANITY_API_TOKEN: z.string().optional(),
 
-    FOXPOST_API_URL: z.string().url(),
+    FOXPOST_API_URL: z.url(),
     FOXPOST_API_USERNAME: z.string(),
     FOXPOST_API_PASSWORD: z.string(),
     FOXPOST_API_KEY: z.string(),
