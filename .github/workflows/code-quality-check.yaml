@@ -5,8 +5,6 @@ permissions:
 on:
   push:
 
-
-
 jobs:
   lint-and-format:
     runs-on: ubuntu-latest
@@ -27,7 +25,7 @@ jobs:
         run: pnpm install
 
       - name: Generate Prisma Client
-        run: pnpx prisma generate
+        run: pnpm prisma:generate
 
       - name: Run lint and format
         run: pnpm run check
