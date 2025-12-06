@@ -64,7 +64,7 @@ export default async function Kite(props: { params: Promise<Params> }) {
       itemCondition: "NewCondition",
       hasMerchantReturnPolicy: {
         "@type": "MerchantReturnPolicy",
-        returnPolicyCountry: 'HU',
+        returnPolicyCountry: "HU",
         merchantReturnDays: 14,
       },
       shippingDetails: {
@@ -73,7 +73,7 @@ export default async function Kite(props: { params: Promise<Params> }) {
           "@type": "MonetaryAmount",
           value: 1590,
           currency: "HUF",
-        }
+        },
       },
       description: kite.description,
     },

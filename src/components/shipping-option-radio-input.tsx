@@ -87,6 +87,6 @@ const ShippingOptionRadioInput: FC<ShippingOptionRadioInputProps> = ({
       )}
     </fieldset>
   );
-}
+};
 
 export default ShippingOptionRadioInput;

@@ -1,7 +1,7 @@
-import fs from "node:fs"
+import fs from "node:fs";
 
 try {
-  fs.rmSync('./sanity/schema.json')
+  fs.rmSync("./sanity/schema.json");
 } catch (error) {
-  console.log(error)
+  console.log(error);
 }
