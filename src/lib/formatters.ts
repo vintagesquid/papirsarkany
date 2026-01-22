@@ -1,13 +1,6 @@
-import type { $Enums } from "@prisma/client";
-
 import type { MaskOptions } from "@react-input/mask";
 import type { ZodError } from "zod";
-import type {
-  BillingOptionValue,
-  ProductTypes,
-  ShippingFee,
-  ShippingOptionValue,
-} from "./types";
+import type { ProductTypes, ShippingFee } from "./types";
 
 export function currencyFormatter(value: number): string {
   const formatter = Intl.NumberFormat("hu", {
@@ -53,24 +46,6 @@ export const sanityProductCategoryTitleMap: Record<ProductTypes, string> = {
   reel: "Zsinórtartók",
   rod: "Pálcák, rudak és csövek",
   twine: "Zsinórok",
-};
-
-export const shippingModePrismaMap: Record<
-  ShippingOptionValue,
-  $Enums.ShippingMode
-> = {
-  "Személyes átvétel": "PersonalPickup",
-  "Postai szállítás": "Post",
-  "Foxpost automatába": "Foxpost",
-};
-
-export const paymentModePrismaMap: Record<
-  BillingOptionValue,
-  $Enums.PaymentMode
-> = {
-  "Átvételkor készpénzel": "Cash",
-  Előreutalással: "Transfer",
-  "Átvételkor bankártyával": "Card",
 };
 
 export const maskOptions: MaskOptions = {

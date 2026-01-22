@@ -1,5 +1,9 @@
-import type { Order, Prisma } from "@prisma/client";
-import { paymentModePrismaMap, shippingModePrismaMap } from "./formatters";
+import type {
+  Order,
+  PaymentMode,
+  Prisma,
+  ShippingMode,
+} from "../../prisma/generated/client";
 import prisma from "./prisma";
 import type { CartItem, OrderForm } from "./validation-schemas";
 
@@ -39,8 +43,8 @@ export async function createOrder(
       data: {
         customerId: user.id,
         status: "Pending",
-        shippingMode: shippingModePrismaMap[orderForm.shippingOption],
-        paymentMode: paymentModePrismaMap[orderForm.paymentOption],
+        shippingMode: orderForm.shippingOption as ShippingMode,
+        paymentMode: orderForm.paymentOption as PaymentMode,
         comment: orderForm.comment,
 
         shippingPostcode: orderForm.shippingPostcode,
