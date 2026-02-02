@@ -6,13 +6,11 @@ import { useFormContext } from "react-hook-form";
 import {
   FOXPOST_PACKAGE_MAX_LIMIT,
   FOXPOST_SHIPPING_FEE,
-  LOCAL_PICKUP_ADDRESS,
 } from "~/lib/constants";
 import { getTotalPackageInfo, isFitInMaxLimit } from "~/lib/foxpost";
 import type { OrderForm } from "~/lib/validation-schemas";
 import { useCartStore } from "~/store/use-cart-store";
 import FoxpostLogo from "../../public/foxpost_logo.webp";
-import LocalPickUpIcon from "../../public/local-pick-up.svg";
 import ShippingWithPost from "../../public/shipping-with-post-logo.svg";
 import FormattedPhoneNumberInput from "./formatted-phone-number-input";
 import FoxpostMap from "./foxpost-map";
@@ -28,7 +26,6 @@ const CheckoutShippingForm: FC<CheckoutShippingFormProps> = ({ contact }) => {
     register,
     watch,
     setValue,
-    trigger,
     getValues,
     formState: { errors },
   } = useFormContext<OrderForm>();
@@ -41,18 +38,6 @@ const CheckoutShippingForm: FC<CheckoutShippingFormProps> = ({ contact }) => {
   const totalPackageSize = useMemo(() => getTotalPackageInfo(cart), [cart]);
 
   const isFitInFoxpostLimit = isFitInMaxLimit(totalPackageSize);
-
-  const onPersonalPickupOptionClick = () => {
-    if (getValues("shippingOption") === "Személyes átvétel") {
-      return;
-    }
-
-    setValue("shippingPostcode", LOCAL_PICKUP_ADDRESS.shippingPostcode);
-    setValue("shippingCity", LOCAL_PICKUP_ADDRESS.shippingCity);
-    setValue("shippingAddress", LOCAL_PICKUP_ADDRESS.shippingAddress);
-
-    trigger(["shippingPostcode", "shippingCity", "shippingAddress"]);
-  };
 
   const onFoxpostOptionClick = () => {
     if (getValues("shippingOption") === "Foxpost automatába") {
@@ -151,12 +136,6 @@ const CheckoutShippingForm: FC<CheckoutShippingFormProps> = ({ contact }) => {
           <Heading as="h2" className="underline underline-offset-8">
             Szállítás
           </Heading>
-          <ShippingOptionRadioInput
-            label={"Személyes átvétel"}
-            onClick={onPersonalPickupOptionClick}
-            value="Személyes átvétel"
-            icon={LocalPickUpIcon}
-          />
           <ShippingOptionRadioInput
             label={
               <>

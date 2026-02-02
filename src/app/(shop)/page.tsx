@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import AboutBusinessIcon from "~/assets/about-business.svg";
 import ContactIcon from "~/assets/contact.svg";
 import CraftingIcon from "~/assets/crafting.svg";
@@ -38,16 +36,6 @@ export default async function HomePage() {
               <EmphasizedText>postai utánvétellel</EmphasizedText> szállítok,
               melynek költsége a megrendelőt terheli.
               <br />
-              <EmphasizedText>
-                Személyesen{" "}
-                <Link
-                  className="underline underline-offset-4"
-                  href="#elerhetoseg"
-                >
-                  Nagykovácsiban
-                </Link>
-              </EmphasizedText>{" "}
-              (63-as BKV busszal megközelíthető) is vásárolhat
             </Heading>
 
             <Heading as={"h4"} size={2}>
@@ -59,7 +47,6 @@ export default async function HomePage() {
               Minden érdeklődőnek telefonos időpont egyeztetés után{" "}
               <EmphasizedText>egy óra ingyenes oktatás</EmphasizedText> sárkány
               biztosításával &mdash; vásárlási kötelezettség nélkül &mdash;{" "}
-              <EmphasizedText>Nagykovácsiban</EmphasizedText>.
               <br />
               <EmphasizedText>
                 Mindenkinek kellemes sárkányeresztést kívánok!
