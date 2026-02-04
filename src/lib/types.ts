@@ -8,6 +8,7 @@ import type {
   Twine,
 } from "@sanity/lib/sanity.types";
 import type Link from "next/link";
+import type { PaymentMode, ShippingMode } from "prisma/generated/enums";
 import type { ComponentProps } from "react";
 import type { NavigationMenuItemProps } from "~/components/navigation-menu-item";
 import type { CartItem, OrderForm } from "./validation-schemas";
@@ -61,8 +62,8 @@ export type NewOrder = {
     phone: string;
   };
 
-  shippingOption: ShippingOptionValue;
-  paymentOption: BillingOptionValue;
+  shippingOption: ShippingMode;
+  paymentOption: PaymentMode;
 
   shipping: {
     postcode?: string;

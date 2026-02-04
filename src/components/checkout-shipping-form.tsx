@@ -40,7 +40,7 @@ const CheckoutShippingForm: FC<CheckoutShippingFormProps> = ({ contact }) => {
   const isFitInFoxpostLimit = isFitInMaxLimit(totalPackageSize);
 
   const onFoxpostOptionClick = () => {
-    if (getValues("shippingOption") === "Foxpost automatába") {
+    if (getValues("shippingOption") === "Foxpost") {
       return;
     }
 
@@ -52,7 +52,7 @@ const CheckoutShippingForm: FC<CheckoutShippingFormProps> = ({ contact }) => {
   };
 
   const onPostOptionClick = () => {
-    if (getValues("shippingOption") === "Postai szállítás") {
+    if (getValues("shippingOption") === "Post") {
       return;
     }
 
@@ -151,32 +151,31 @@ const CheckoutShippingForm: FC<CheckoutShippingFormProps> = ({ contact }) => {
             }
             shippingFee={FOXPOST_SHIPPING_FEE}
             onClick={onFoxpostOptionClick}
-            value="Foxpost automatába"
+            value="Foxpost"
             icon={FoxpostLogo}
             isDisabled={!isFitInFoxpostLimit}
           />
         </div>
-        {watch("shippingOption") === "Foxpost automatába" &&
-          isShowFoxpostMap && (
-            <div>
-              {errors.shippingCity && (
-                <div className="text-error" ref={register("shippingCity").ref}>
-                  {errors.shippingCity?.message}
-                </div>
-              )}
-              <FoxpostMap hideMap={() => setIsShowFoxpostMap(false)} />
-            </div>
-          )}
+        {watch("shippingOption") === "Foxpost" && isShowFoxpostMap && (
+          <div>
+            {errors.shippingCity && (
+              <div className="text-error" ref={register("shippingCity").ref}>
+                {errors.shippingCity?.message}
+              </div>
+            )}
+            <FoxpostMap hideMap={() => setIsShowFoxpostMap(false)} />
+          </div>
+        )}
         <div className="mx-auto mt-2 max-w-(--breakpoint-sm) space-y-2">
           <ShippingOptionRadioInput
             label="Postai szállítás"
-            value="Postai szállítás"
+            value="Post"
             onClick={onPostOptionClick}
             shippingFee={"szállítási költség"}
             icon={ShippingWithPost}
           />
           <span className="text-error">{errors.shippingOption?.message}</span>
-          {watch("shippingOption") === "Postai szállítás" && (
+          {watch("shippingOption") === "Post" && (
             <>
               <fieldset className="d-fieldset">
                 <label

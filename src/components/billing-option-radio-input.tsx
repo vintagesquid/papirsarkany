@@ -1,3 +1,4 @@
+import type { PaymentMode } from "prisma/generated/enums";
 import type { FC } from "react";
 import { useFormContext } from "react-hook-form";
 import { currencyFormatter } from "~/lib/formatters";
@@ -7,13 +8,15 @@ import { useCartStore } from "~/store/use-cart-store";
 
 type BillingOptionRadioInputProps = {
   isDisabled?: boolean;
-  value: BillingOptionValue;
+  value: PaymentMode;
+  label: BillingOptionValue;
   billingFee?: BillingFee;
 };
 
 const BillingOptionRadioInput: FC<BillingOptionRadioInputProps> = ({
   isDisabled,
   value,
+  label,
   billingFee,
 }) => {
   const { register } = useFormContext<OrderForm>();
@@ -35,7 +38,7 @@ const BillingOptionRadioInput: FC<BillingOptionRadioInputProps> = ({
           onClick={() => onInputClick(billingFee)}
           disabled={isDisabled}
         />
-        <span className="font-bold text-lg">{value}</span>
+        <span className="font-bold text-lg">{label}</span>
         {billingFee && (
           <span className="flex-1 text-right font-bold text-lg">
             +{currencyFormatter(billingFee)}

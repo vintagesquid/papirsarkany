@@ -1,5 +1,5 @@
+import { PaymentMode, ShippingMode } from "prisma/generated/enums";
 import { z } from "zod";
-
 import { unformatPhoneNumber } from "./formatters";
 import type { WithImageAsset } from "./types";
 
@@ -41,10 +41,9 @@ export const orderFormSchema = [
               "Érvényes magyar telefonszámnak kell lennie +36 formátumban pl.: +36 20 123 4567",
             ),
         ),
-      shippingOption: z.enum(
-        ["Személyes átvétel", "Postai szállítás", "Foxpost automatába"],
-        { message: "Kérlek válassz egy szállítási módot!" },
-      ),
+      shippingOption: z.nativeEnum(ShippingMode, {
+        message: "Kérlek válassz egy szállítási módot!",
+      }),
 
       shippingPostcode: z.string().optional(), // validation handled in superRefine
       shippingCity: z.string().optional(),
@@ -53,7 +52,7 @@ export const orderFormSchema = [
     })
     .superRefine((val, ctx) => {
       if (
-        val.shippingOption === "Foxpost automatába" &&
+        val.shippingOption === "Foxpost" &&
         (!val.shippingPostcode || !val.shippingCity || !val.shippingAddress)
       ) {
         ctx.addIssue({
@@ -66,7 +65,7 @@ export const orderFormSchema = [
         });
       }
 
-      if (val.shippingOption === "Postai szállítás") {
+      if (val.shippingOption === "Post") {
         if (!val.shippingPostcode) {
           ctx.addIssue({
             code: z.ZodIssueCode.too_small,
@@ -105,10 +104,9 @@ export const orderFormSchema = [
       return true;
     }),
   z.object({
-    paymentOption: z.enum(
-      ["Előreutalással", "Átvételkor készpénzel", "Átvételkor bankártyával"],
-      { message: "Kérlek válassz egy fizetési módot!" },
-    ),
+    paymentOption: z.nativeEnum(PaymentMode, {
+      message: "Kérlek válassz egy fizetési módot!",
+    }),
 
     isSameAdressAsShipping: z.boolean(),
 

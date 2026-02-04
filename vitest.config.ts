@@ -34,6 +34,7 @@ export default defineConfig({
     alias: {
       "~": path.resolve(__dirname, "src"),
       "@sanity/lib": path.resolve(__dirname, "sanity/lib"),
+      "prisma/generated": path.resolve(__dirname, "prisma/generated"),
     },
   },
 });

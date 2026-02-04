@@ -31,7 +31,7 @@ test('should render isSameAdressAsShipping checkbox connected to the form if "Po
   } = renderHook(() =>
     useForm<OrderForm>({
       defaultValues: {
-        shippingOption: "Postai szállítás",
+        shippingOption: "Post",
         isSameAdressAsShipping: true,
       },
     }),
@@ -65,7 +65,7 @@ test("should  rendered billing information inputs", () => {
   } = renderHook(() =>
     useForm<OrderForm>({
       defaultValues: {
-        shippingOption: "Személyes átvétel",
+        shippingOption: "PersonalPickup",
       },
     }),
   );
