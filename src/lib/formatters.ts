@@ -1,4 +1,5 @@
 import type { MaskOptions } from "@react-input/mask";
+import type { PaymentMode, ShippingMode } from "prisma/generated/enums";
 import type { ZodError } from "zod";
 import type {
   BillingOptionValue,
@@ -6,7 +7,6 @@ import type {
   ShippingFee,
   ShippingOptionValue,
 } from "./types";
-import { PaymentMode, ShippingMode } from "prisma/generated/enums";
 
 export function currencyFormatter(value: number): string {
   const formatter = Intl.NumberFormat("hu", {
@@ -55,11 +55,11 @@ export const sanityProductCategoryTitleMap: Record<ProductTypes, string> = {
 };
 
 export const shippingOptionValueMap: Record<ShippingMode, ShippingOptionValue> =
-{
-  PersonalPickup: "Személyes átvétel",
-  Foxpost: "Foxpost automatába",
-  Post: "Postai szállítás",
-};
+  {
+    PersonalPickup: "Személyes átvétel",
+    Foxpost: "Foxpost automatába",
+    Post: "Postai szállítás",
+  };
 
 export const paymentOptionValueMap: Record<PaymentMode, BillingOptionValue> = {
   Transfer: "Előreutalással",
