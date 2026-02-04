@@ -1,4 +1,5 @@
 import Image, { type ImageProps } from "next/image";
+import type { ShippingMode } from "prisma/generated/enums";
 import type { FC, MouseEventHandler, ReactNode } from "react";
 import { useFormContext } from "react-hook-form";
 
@@ -10,7 +11,7 @@ import { useCartStore } from "~/store/use-cart-store";
 type ShippingOptionRadioInputProps = {
   label: Exclude<ReactNode, string> | ShippingOptionValue;
   shippingFee?: ShippingFee;
-  value: ShippingOptionValue;
+  value: ShippingMode;
   isDisabled?: boolean;
   missingShippingInfoErrorMessage?: string;
   icon: ImageProps["src"];
@@ -80,7 +81,7 @@ const ShippingOptionRadioInput: FC<ShippingOptionRadioInputProps> = ({
             {hasShippingSchemaRequiredError && missingShippingInfoErrorMessage}
           </span>
           <span className="select-text text-lg">
-            {getValues("shippingOption") !== "Postai szállítás" &&
+            {getValues("shippingOption") !== "Post" &&
               `${getValues("shippingPostcode")} ${getValues("shippingCity")} ${getValues("shippingAddress")}`}
           </span>
         </div>

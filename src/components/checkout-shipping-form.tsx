@@ -6,13 +6,11 @@ import { useFormContext } from "react-hook-form";
 import {
   FOXPOST_PACKAGE_MAX_LIMIT,
   FOXPOST_SHIPPING_FEE,
-  LOCAL_PICKUP_ADDRESS,
 } from "~/lib/constants";
 import { getTotalPackageInfo, isFitInMaxLimit } from "~/lib/foxpost";
 import type { OrderForm } from "~/lib/validation-schemas";
 import { useCartStore } from "~/store/use-cart-store";
 import FoxpostLogo from "../../public/foxpost_logo.webp";
-import LocalPickUpIcon from "../../public/local-pick-up.svg";
 import ShippingWithPost from "../../public/shipping-with-post-logo.svg";
 import FormattedPhoneNumberInput from "./formatted-phone-number-input";
 import FoxpostMap from "./foxpost-map";
@@ -28,7 +26,6 @@ const CheckoutShippingForm: FC<CheckoutShippingFormProps> = ({ contact }) => {
     register,
     watch,
     setValue,
-    trigger,
     getValues,
     formState: { errors },
   } = useFormContext<OrderForm>();
@@ -42,20 +39,8 @@ const CheckoutShippingForm: FC<CheckoutShippingFormProps> = ({ contact }) => {
 
   const isFitInFoxpostLimit = isFitInMaxLimit(totalPackageSize);
 
-  const onPersonalPickupOptionClick = () => {
-    if (getValues("shippingOption") === "Személyes átvétel") {
-      return;
-    }
-
-    setValue("shippingPostcode", LOCAL_PICKUP_ADDRESS.shippingPostcode);
-    setValue("shippingCity", LOCAL_PICKUP_ADDRESS.shippingCity);
-    setValue("shippingAddress", LOCAL_PICKUP_ADDRESS.shippingAddress);
-
-    trigger(["shippingPostcode", "shippingCity", "shippingAddress"]);
-  };
-
   const onFoxpostOptionClick = () => {
-    if (getValues("shippingOption") === "Foxpost automatába") {
+    if (getValues("shippingOption") === "Foxpost") {
       return;
     }
 
@@ -67,7 +52,7 @@ const CheckoutShippingForm: FC<CheckoutShippingFormProps> = ({ contact }) => {
   };
 
   const onPostOptionClick = () => {
-    if (getValues("shippingOption") === "Postai szállítás") {
+    if (getValues("shippingOption") === "Post") {
       return;
     }
 
@@ -152,12 +137,6 @@ const CheckoutShippingForm: FC<CheckoutShippingFormProps> = ({ contact }) => {
             Szállítás
           </Heading>
           <ShippingOptionRadioInput
-            label={"Személyes átvétel"}
-            onClick={onPersonalPickupOptionClick}
-            value="Személyes átvétel"
-            icon={LocalPickUpIcon}
-          />
-          <ShippingOptionRadioInput
             label={
               <>
                 <div className="text-foxpost-red">
@@ -172,32 +151,31 @@ const CheckoutShippingForm: FC<CheckoutShippingFormProps> = ({ contact }) => {
             }
             shippingFee={FOXPOST_SHIPPING_FEE}
             onClick={onFoxpostOptionClick}
-            value="Foxpost automatába"
+            value="Foxpost"
             icon={FoxpostLogo}
             isDisabled={!isFitInFoxpostLimit}
           />
         </div>
-        {watch("shippingOption") === "Foxpost automatába" &&
-          isShowFoxpostMap && (
-            <div>
-              {errors.shippingCity && (
-                <div className="text-error" ref={register("shippingCity").ref}>
-                  {errors.shippingCity?.message}
-                </div>
-              )}
-              <FoxpostMap hideMap={() => setIsShowFoxpostMap(false)} />
-            </div>
-          )}
+        {watch("shippingOption") === "Foxpost" && isShowFoxpostMap && (
+          <div>
+            {errors.shippingCity && (
+              <div className="text-error" ref={register("shippingCity").ref}>
+                {errors.shippingCity?.message}
+              </div>
+            )}
+            <FoxpostMap hideMap={() => setIsShowFoxpostMap(false)} />
+          </div>
+        )}
         <div className="mx-auto mt-2 max-w-(--breakpoint-sm) space-y-2">
           <ShippingOptionRadioInput
             label="Postai szállítás"
-            value="Postai szállítás"
+            value="Post"
             onClick={onPostOptionClick}
             shippingFee={"szállítási költség"}
             icon={ShippingWithPost}
           />
           <span className="text-error">{errors.shippingOption?.message}</span>
-          {watch("shippingOption") === "Postai szállítás" && (
+          {watch("shippingOption") === "Post" && (
             <>
               <fieldset className="d-fieldset">
                 <label

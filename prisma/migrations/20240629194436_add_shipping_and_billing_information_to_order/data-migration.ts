@@ -1,6 +1,10 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaNeon } from "@prisma/adapter-neon";
+import { PrismaClient } from "../../generated/client";
 
-const prisma = new PrismaClient();
+const adapter = new PrismaNeon({
+  connectionString: process.env.DATABASE_URL_UNPOOLED,
+});
+const prisma = new PrismaClient({ adapter });
 
 async function main() {
   await prisma.$transaction(async (tx) => {

@@ -83,7 +83,7 @@ export default async function Kite(props: { params: Promise<Params> }) {
     <div className="h-full space-y-8 p-8 md:flex md:gap-4 md:space-y-0">
       <script
         type="application/ld+json"
-        // biome-ignore lint/security/noDangerouslySetInnerHtml: <valid according to nextjs docs>
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: valid according to nextjs docs (it must be serialized)
         dangerouslySetInnerHTML={{
           __html: serialize(jsonLd),
         }}

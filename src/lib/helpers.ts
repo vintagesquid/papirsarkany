@@ -25,7 +25,7 @@ export function isStageEnv(): boolean {
 export function normalizeOrderForm(data: OrderForm) {
   const { shippingOption, ...restData } = data;
 
-  if (shippingOption === "Személyes átvétel") {
+  if (shippingOption === "PersonalPickup") {
     return {
       ...restData,
       shippingOption,

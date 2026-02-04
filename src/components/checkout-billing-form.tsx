@@ -1,13 +1,9 @@
 "use client";
 
+import type { PaymentMode, ShippingMode } from "prisma/generated/enums";
 import { type ChangeEvent, type FC, useId } from "react";
 import { useFormContext } from "react-hook-form";
-
-import type {
-  BillingFee,
-  BillingOptionValue,
-  ShippingOptionValue,
-} from "~/lib/types";
+import type { BillingFee, BillingOptionValue } from "~/lib/types";
 import type { OrderForm } from "~/lib/validation-schemas";
 import { useCheckoutFormStore } from "~/store/use-checkout-form-store";
 import BillingOptionRadioInput from "./billing-option-radio-input";
@@ -26,26 +22,45 @@ const CheckoutBillingForm: FC = () => {
   const prevStep = useCheckoutFormStore((state) => state.prevStep);
 
   const shippingBillingMap: Record<
-    ShippingOptionValue,
-    { billingOptionValue: BillingOptionValue; billingFee?: BillingFee }[]
+    ShippingMode,
+    {
+      billingOptionValue: BillingOptionValue;
+      paymentMode: PaymentMode;
+      billingFee?: BillingFee;
+    }[]
   > = {
-    "Személyes átvétel": [
-      { billingOptionValue: "Előreutalással", billingFee: undefined },
-      { billingOptionValue: "Átvételkor készpénzel", billingFee: undefined },
-    ],
-    "Foxpost automatába": [
-      { billingOptionValue: "Előreutalással", billingFee: undefined },
+    PersonalPickup: [
       {
-        billingOptionValue: "Átvételkor bankártyával",
-        billingFee: undefined,
-      },
-    ],
-    "Postai szállítás": [
-      {
+        paymentMode: "Transfer",
         billingOptionValue: "Előreutalással",
         billingFee: undefined,
       },
       {
+        paymentMode: "Cash",
+        billingOptionValue: "Átvételkor készpénzel",
+        billingFee: undefined,
+      },
+    ],
+    Foxpost: [
+      {
+        paymentMode: "Transfer",
+        billingOptionValue: "Előreutalással",
+        billingFee: undefined,
+      },
+      {
+        paymentMode: "Card",
+        billingOptionValue: "Átvételkor bankártyával",
+        billingFee: undefined,
+      },
+    ],
+    Post: [
+      {
+        paymentMode: "Transfer",
+        billingOptionValue: "Előreutalással",
+        billingFee: undefined,
+      },
+      {
+        paymentMode: "Cash",
         billingOptionValue: "Átvételkor készpénzel",
         billingFee: undefined,
       },
@@ -75,7 +90,7 @@ const CheckoutBillingForm: FC = () => {
 
   const syncShippingAndBilling = () => {
     if (
-      selectedShippingOption === "Postai szállítás" &&
+      selectedShippingOption === "Post" &&
       getValues("isSameAdressAsShipping")
     ) {
       setValue("billingPostcode", getValues("shippingPostcode") || "");
@@ -91,10 +106,11 @@ const CheckoutBillingForm: FC = () => {
       </Heading>
 
       {shippingBillingMap[selectedShippingOption].map(
-        ({ billingOptionValue, billingFee }) => (
+        ({ paymentMode, billingOptionValue, billingFee }) => (
           <BillingOptionRadioInput
-            key={billingOptionValue}
-            value={billingOptionValue}
+            key={paymentMode}
+            value={paymentMode}
+            label={billingOptionValue}
             billingFee={billingFee}
             isDisabled={billingFee === null}
           />
@@ -107,9 +123,9 @@ const CheckoutBillingForm: FC = () => {
         Számlázási cím
       </Heading>
 
-      {selectedShippingOption === "Postai szállítás" && (
+      {selectedShippingOption === "Post" && (
         <fieldset className="d-fieldset pt-4">
-          <label className="d-label cursor-pointer justify-start gap-x-2">
+          <label className="d-label cuisor-pointer justify-start gap-x-2">
             <input
               {...register("isSameAdressAsShipping")}
               onChange={(e) => onIsSameAdressAsShippingChange(e)}
@@ -123,7 +139,7 @@ const CheckoutBillingForm: FC = () => {
         </fieldset>
       )}
 
-      {(selectedShippingOption !== "Postai szállítás" ||
+      {(selectedShippingOption !== "Post" ||
         !getValues("isSameAdressAsShipping")) && (
         <>
           <fieldset className="d-fieldset">

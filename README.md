@@ -1,11 +1,11 @@
 # papirsarkany
 
-This is official the repositoy for the [papisarkany.hu](https://papirsarkany.hu) webshop.
+This is official the repository for the [papisarkany.hu](https://papirsarkany.hu) webshop.
 
-# Prerequisites
+## Prerequisites
 
 - node 22
-- pnpm 9
+- pnpm 10
 
 ## Getting Started
 

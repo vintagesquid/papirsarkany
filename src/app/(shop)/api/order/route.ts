@@ -78,15 +78,12 @@ export async function POST(request: Request) {
     }
 
     if (
-      normalizedFormData.shippingOption === "Foxpost automatába" &&
+      normalizedFormData.shippingOption === "Foxpost" &&
       foxpostOperatorId &&
       isProdEnv()
     ) {
       const foxpostResponse = await createParcel({
-        cod:
-          normalizedFormData.paymentOption === "Átvételkor bankártyával"
-            ? totalPrice
-            : 0,
+        cod: normalizedFormData.paymentOption === "Card" ? totalPrice : 0,
         destination: foxpostOperatorId,
         recipientEmail: normalizedFormData.email,
         recipientName: `${normalizedFormData.lastName} ${normalizedFormData.firstName}`,

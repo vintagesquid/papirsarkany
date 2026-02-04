@@ -11,7 +11,7 @@
     "expand": "auto"
   },
   "files": {
-    "includes": ["**", "!**/sanity.types.ts"]
+    "includes": ["**", "!**/sanity.types.ts", "!prisma/generated/**/*"]
   },
   "linter": {
     "enabled": true,

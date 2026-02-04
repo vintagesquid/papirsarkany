@@ -12,6 +12,10 @@ import {
 // biome-ignore lint/correctness/noUnusedImports: must import in react-email components
 import * as React from "react";
 import OrderSummarySection from "react-email/components/order-summary-section";
+import {
+  paymentOptionValueMap,
+  shippingOptionValueMap,
+} from "~/lib/formatters";
 import type { OrderMail } from "~/lib/types";
 import { kiteMock } from "~/mocks/product.mock";
 
@@ -61,16 +65,16 @@ const VendorEmail = ({
         </Text>
 
         <Text>
-          <b>Szállítási mód:</b> {shippingOption}
+          <b>Szállítási mód:</b> {shippingOptionValueMap[shippingOption]}
           <br />
-          <b>Fizetési mód:</b> {paymentOption}
+          <b>Fizetési mód:</b> {paymentOptionValueMap[paymentOption]}
           <br />
         </Text>
 
         <Text>
           <b>Számlázási cím:</b> {billing.postcode} {billing.city}{" "}
           {billing.address} {billing.subaddress}
-          {shippingOption !== "Személyes átvétel" && (
+          {shippingOption !== "PersonalPickup" && (
             <>
               <br />
               <b>Szállítási cím</b> {shipping.postcode} {shipping.city}{" "}
@@ -120,7 +124,7 @@ VendorEmail.PreviewProps = {
     lastName: "Kulka",
     phone: "+36201234567",
   },
-  shippingOption: "Postai szállítás",
+  shippingOption: "Post",
   shipping: {
     postcode: "1025",
     city: "Budapest",
@@ -128,7 +132,7 @@ VendorEmail.PreviewProps = {
     subaddress: "",
   },
   shippingFee: "",
-  paymentOption: "Előreutalással",
+  paymentOption: "Transfer",
   billing: {
     postcode: "1025",
     city: "Budapest",
