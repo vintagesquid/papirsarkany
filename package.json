@@ -12,6 +12,8 @@
     "format": "biome format --write",
     "format:check": "biome format",
     "lint": "biome lint",
+    "check": "biome check",
+    "check:write": "biome check --fix --unsafe",
     "sanity:publish": "pnpm dlx tsx sanity/lib/actions/publish-all-modified.ts",
     "sanity:typegen": "node remove-sanity-schema.js && pnpm dlx sanity schema extract --path sanity/schema.json --enforce-required-fields && pnpm dlx sanity typegen generate",
     "start": "next start",
@@ -19,8 +21,6 @@
     "test:unit": "vitest",
     "coverage": "vitest --coverage",
     "test:e2e": "playwright test",
-    "check": "biome check",
-    "check:write": "biome check --fix --unsafe",
     "dev:email": "email dev"
   },
   "dependencies": {
