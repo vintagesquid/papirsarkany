@@ -9,6 +9,7 @@ const nextConfig = {
   experimental: {
     globalNotFound: true,
   },
+  allowedDevOrigins: ["127.0.0.1"],
   typedRoutes: true,
   turbopack: {
     rules: {
