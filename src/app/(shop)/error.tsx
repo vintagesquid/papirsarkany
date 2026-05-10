@@ -5,13 +5,12 @@ import RestartIcon from "~/assets/restart.svg";
 import Heading from "~/components/heading";
 import { useToastStore } from "~/store/use-toast-store";
 
-export default function ErrorPage({
-  error,
-  reset,
-}: {
+type ErrorPageProps = {
   error: Error & { digest?: string };
   reset: () => void;
-}) {
+};
+
+export default function ErrorPage({ error, reset }: ErrorPageProps) {
   const toast = useToastStore((state) => state.toast);
 
   useEffect(() => {
