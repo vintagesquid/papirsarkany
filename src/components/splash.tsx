@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { getGoogleMapsRating } from "~/lib/google-cloud";
 import GoogleMapsRating from "./google-maps-rating";
@@ -22,8 +21,8 @@ const Splash = async () => {
               <GoogleMapsRating rating={rating} />
             </Link>
           </div>
-
         </div>
+
         <div className="space-y-4 sm:space-y-12">
           <div className="space-y-2">
             <Heading as="h1" className="font-bold max-[369px]:text-2xl">
