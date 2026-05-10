@@ -22,13 +22,7 @@ const Splash = async () => {
               <GoogleMapsRating rating={rating} />
             </Link>
           </div>
-          <Image
-            src={"/pakozd.webp"}
-            alt="Pákozdi Sárkányeresztő Fesztivál"
-            width={300}
-            height={600}
-            className=""
-          />
+
         </div>
         <div className="space-y-4 sm:space-y-12">
           <div className="space-y-2">
