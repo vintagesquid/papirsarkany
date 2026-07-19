@@ -1,12 +1,4 @@
-import {
-  Column,
-  Hr,
-  Img,
-  Link,
-  Row,
-  Section,
-  Text,
-} from "@react-email/components";
+import { Column, Hr, Img, Link, Row, Section, Text } from "react-email";
 import type { FC } from "react";
 import type { OrderMail } from "~/lib/types";
 
@@ -36,23 +28,12 @@ const OrderSummarySection: FC<ProductListProps> = ({
             }}
           >
             {product.imageUrl && (
-              <Img
-                src={product.imageUrl}
-                alt={product.name}
-                width="100"
-                height="100"
-              />
+              <Img src={product.imageUrl} alt={product.name} width="100" height="100" />
             )}
           </Column>
           <Column style={{ paddingRight: "10px", width: "25%" }}>
             <Text style={{ fontSize: "16px", verticalAlign: "middle" }}>
-              <b>
-                {product.url ? (
-                  <Link href={product.url}>{product.name}</Link>
-                ) : (
-                  product.name
-                )}
-              </b>
+              <b>{product.url ? <Link href={product.url}>{product.name}</Link> : product.name}</b>
             </Text>
           </Column>
           <Column style={{ paddingRight: "10px", width: "25%" }}>

@@ -21,14 +21,14 @@
     "test:unit": "vitest",
     "coverage": "vitest --coverage",
     "test:e2e": "playwright test",
-    "dev:email": "email dev"
+    "email:dev": "email dev"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
     "@hookform/resolvers": "~4.0.0",
-    "@react-email/components": "^1.0.11",
     "@prisma/adapter-neon": "^7.8.0",
     "@prisma/client": "^7.8.0",
+    "@react-email/ui": "^6.9.0",
     "@react-input/mask": "^2.0.4",
     "@sanity/client": "^7.23.2",
     "@sanity/image-url": "^2.1.1",
@@ -50,7 +50,7 @@
     "postcss": "^8.5.3",
     "react": "19.2.6",
     "react-dom": "19.2.6",
-    "react-email": "^5.2.10",
+    "react-email": "^6.9.0",
     "react-hook-form": "^7.53.1",
     "resend": "^6.1.2",
     "sanity": "^6.5.0",
@@ -70,7 +70,6 @@
     "@biomejs/biome": "2.2.4",
     "@next/bundle-analyzer": "^16.2.10",
     "@playwright/test": "^1.56.1",
-    "@react-email/preview-server": "5.2.10",
     "@testing-library/react": "^16.3.2",
     "@types/node": "22.13.5",
     "@types/react": "19.2.14",
