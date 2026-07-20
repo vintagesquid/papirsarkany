@@ -28,6 +28,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html
       lang="hu"
       className="scroll-pt-[68px] scroll-smooth sm:scroll-pt-[72px]"
+      data-scroll-behavior="smooth"
     >
       <head>
         <TruendoScript />
