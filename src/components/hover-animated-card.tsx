@@ -16,7 +16,7 @@ const HoverAnimatedCard: FC<HoverAnimatedCardProps> = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const { contextSafe } = useGSAP();
+  const { contextSafe } = useGSAP({ scope: containerRef });
 
   const onMouseEnter = contextSafe(() => {
     gsap.to(containerRef.current, {
@@ -36,6 +36,7 @@ const HoverAnimatedCard: FC<HoverAnimatedCardProps> = ({
 
   return (
     <div
+      ref={containerRef}
       className="h-full w-full"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
