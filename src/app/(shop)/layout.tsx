@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import type { ReactNode } from "react";
 
-import AppVersionScript from "~/components/app-version-script";
 import CartStoreRehydrate from "~/components/cart-store-rehydrate";
 import Footer from "~/components/footer";
 import Navigation from "~/components/navigation";
@@ -32,7 +31,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     >
       <head>
         <TruendoScript />
-        <AppVersionScript />
       </head>
       <body className={inter.className}>
         <div className="flex min-h-screen flex-col">

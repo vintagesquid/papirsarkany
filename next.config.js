@@ -1,4 +1,5 @@
 import NextBundleAnalyzer from "@next/bundle-analyzer";
+import packageJSON from "./package.json" with { type: "json" };
 
 const withBundleAnalyzer = NextBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
@@ -28,6 +29,26 @@ const nextConfig = {
         port: "",
       },
     ],
+  },
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "header",
+            key: "sec-fetch-dest",
+            value: "document",
+          },
+        ],
+        headers: [
+          {
+            key: "App-Version",
+            value: packageJSON.version,
+          },
+        ],
+      },
+    ];
   },
 };
 
