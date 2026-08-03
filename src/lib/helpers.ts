@@ -22,6 +22,10 @@ export function isStageEnv(): boolean {
   );
 }
 
+export function isDevEnv(): boolean {
+  return process.env.NODE_ENV === "development";
+}
+
 export function normalizeOrderForm(data: OrderForm) {
   const { shippingOption, ...restData } = data;
 
