@@ -35,7 +35,6 @@ export async function proxy(request: NextRequest) {
     }
   }
 
-
   // CSP headers
   const nonce =
     !isDevEnv() && isNonceProtectedPath(pathname)
