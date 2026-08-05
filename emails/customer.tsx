@@ -1,8 +1,20 @@
 // biome-ignore lint/correctness/noUnusedImports: must import in react-email components
 import * as React from "react";
-import { Container, Font, Head, Heading, Hr, Html, Link, Text } from "react-email";
+import {
+  Container,
+  Font,
+  Head,
+  Heading,
+  Hr,
+  Html,
+  Link,
+  Text,
+} from "react-email";
 import OrderSummarySection from "react-email/components/order-summary-section";
-import { paymentOptionValueMap, shippingOptionValueMap } from "~/lib/formatters";
+import {
+  paymentOptionValueMap,
+  shippingOptionValueMap,
+} from "~/lib/formatters";
 import type { OrderMail } from "~/lib/types";
 import { kiteMock } from "~/mocks/product.mock";
 
@@ -45,23 +57,25 @@ const CustomerEmail = ({
           Tisztelt {contact.lastName} {contact.firstName}!
           <br />
           <br />
-          Köszönöm a <Link href="https://www.papirsarkany.hu/">papirsarkany.hu</Link>-n leadott
-          rendelését. Hamarosan felveszem önnel a kapcsolatot.
+          Köszönöm a{" "}
+          <Link href="https://www.papirsarkany.hu/">papirsarkany.hu</Link>-n
+          leadott rendelését. Hamarosan felveszem önnel a kapcsolatot.
           <br />
           <br />
           Rendelés szám: <b>{orderId}</b>
           <br />
           <br />
           <b>
-            Ha elküldött rendelésére nem küldök valaszt, kérem rendelését továbbítsa a
-            papirsarkany@fazekas.hu címre, vagy hívjon a +36&nbsp;30&nbsp;9754&nbsp;786
-            telefonszámon!
+            Ha elküldött rendelésére nem küldök valaszt, kérem rendelését
+            továbbítsa a papirsarkany@fazekas.hu címre, vagy hívjon a
+            +36&nbsp;30&nbsp;9754&nbsp;786 telefonszámon!
           </b>
         </Text>
 
         {paymentOption === "Transfer" && (
           <Text>
-            <b>Számlaszámom</b>: Ducsai Barnabás Erste Bank 11600006-00000000-76709302
+            <b>Számlaszámom</b>: Ducsai Barnabás Erste Bank
+            11600006-00000000-76709302
           </Text>
         )}
 
@@ -83,13 +97,13 @@ const CustomerEmail = ({
         </Text>
 
         <Text>
-          <b>Számlázási cím:</b> {billing.postcode} {billing.city} {billing.address}{" "}
-          {billing.subaddress}
+          <b>Számlázási cím:</b> {billing.postcode} {billing.city}{" "}
+          {billing.address} {billing.subaddress}
           {shippingOption !== "PersonalPickup" && (
             <>
               <br />
-              <b>Szállítási cím</b> {shipping.postcode} {shipping.city} {shipping.address}{" "}
-              {shipping.subaddress}
+              <b>Szállítási cím</b> {shipping.postcode} {shipping.city}{" "}
+              {shipping.address} {shipping.subaddress}
             </>
           )}
         </Text>

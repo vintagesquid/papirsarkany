@@ -1,8 +1,21 @@
 // biome-ignore lint/correctness/noUnusedImports: must import in react-email components
 import * as React from "react";
-import { Button, Container, Font, Head, Heading, Hr, Html, Section, Text } from "react-email";
+import {
+  Button,
+  Container,
+  Font,
+  Head,
+  Heading,
+  Hr,
+  Html,
+  Section,
+  Text,
+} from "react-email";
 import OrderSummarySection from "react-email/components/order-summary-section";
-import { paymentOptionValueMap, shippingOptionValueMap } from "~/lib/formatters";
+import {
+  paymentOptionValueMap,
+  shippingOptionValueMap,
+} from "~/lib/formatters";
 import type { OrderMail } from "~/lib/types";
 import { kiteMock } from "~/mocks/product.mock";
 
@@ -59,13 +72,13 @@ const VendorEmail = ({
         </Text>
 
         <Text>
-          <b>Számlázási cím:</b> {billing.postcode} {billing.city} {billing.address}{" "}
-          {billing.subaddress}
+          <b>Számlázási cím:</b> {billing.postcode} {billing.city}{" "}
+          {billing.address} {billing.subaddress}
           {shippingOption !== "PersonalPickup" && (
             <>
               <br />
-              <b>Szállítási cím</b> {shipping.postcode} {shipping.city} {shipping.address}{" "}
-              {shipping.subaddress}
+              <b>Szállítási cím</b> {shipping.postcode} {shipping.city}{" "}
+              {shipping.address} {shipping.subaddress}
             </>
           )}
         </Text>
