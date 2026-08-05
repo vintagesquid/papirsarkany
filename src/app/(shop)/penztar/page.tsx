@@ -6,6 +6,8 @@ import CheckoutShippingForm from "~/components/checkout-shipping-form";
 import CheckoutSummaryForm from "~/components/checkout-summary-form";
 import { getContact } from "~/lib/cms";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Pénztár",
   description: "Pénztár.",
