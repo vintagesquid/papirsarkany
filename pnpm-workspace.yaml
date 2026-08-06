@@ -4,4 +4,5 @@ allowBuilds:
   esbuild: false
   prisma: true
   sharp: false
-
+minimumReleaseAgeExclude:
+  - sanity-plugin-media@6.1.1
