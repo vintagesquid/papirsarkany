@@ -72,7 +72,7 @@
     "@next/bundle-analyzer": "^16.3.0",
     "@playwright/test": "^1.56.1",
     "@testing-library/react": "^16.3.2",
-    "@types/node": "22.13.5",
+    "@types/node": "24.13.3",
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.4",
     "@types/serialize-javascript": "^5.0.4",

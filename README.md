@@ -4,8 +4,8 @@ This is official the repository for the [papisarkany.hu](https://papirsarkany.hu
 
 ## Prerequisites
 
-- node 22
-- pnpm 10
+- node 24
+- pnpm 11
 
 ## Tech Overview
 
