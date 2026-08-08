@@ -11,6 +11,7 @@ import {
   Text,
 } from "react-email";
 import OrderSummarySection from "react-email/components/order-summary-section";
+import { env } from "src/lib/env";
 import {
   paymentOptionValueMap,
   shippingOptionValueMap,
@@ -67,7 +68,7 @@ const CustomerEmail = ({
           <br />
           <b>
             Ha elküldött rendelésére nem küldök valaszt, kérem rendelését
-            továbbítsa a papirsarkany@fazekas.hu címre, vagy hívjon a
+            továbbítsa a {env.SENDER_EMAIL} címre, vagy hívjon a
             +36&nbsp;30&nbsp;9754&nbsp;786 telefonszámon!
           </b>
         </Text>
