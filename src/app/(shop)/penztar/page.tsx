@@ -13,8 +13,16 @@ export const metadata: Metadata = {
   description: "Pénztár.",
 };
 
+// as this page dynamic getContact would fetch on each render we save it's result in-memory
+let cachedContact: Awaited<ReturnType<typeof getContact>> | null = null;
+
 const Checkout: FC = async () => {
-  const contact = await getContact();
+  let contact = cachedContact;
+
+  if (!contact) {
+    contact = await getContact();
+    cachedContact = contact;
+  }
 
   if (!contact) {
     return null;
