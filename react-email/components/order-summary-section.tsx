@@ -1,13 +1,5 @@
-import {
-  Column,
-  Hr,
-  Img,
-  Link,
-  Row,
-  Section,
-  Text,
-} from "@react-email/components";
 import type { FC } from "react";
+import { Column, Hr, Img, Link, Row, Section, Text } from "react-email";
 import type { OrderMail } from "~/lib/types";
 
 type ProductListProps = {

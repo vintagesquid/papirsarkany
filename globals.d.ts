@@ -5,6 +5,5 @@ declare global {
     Truendo?: {
       acceptAllCookies: () => void;
     };
-    appVersion?: string;
   }
 }

@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import type { ReactNode } from "react";
 
-import AppVersionScript from "~/components/app-version-script";
 import CartStoreRehydrate from "~/components/cart-store-rehydrate";
 import Footer from "~/components/footer";
 import Navigation from "~/components/navigation";
@@ -28,10 +27,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html
       lang="hu"
       className="scroll-pt-[68px] scroll-smooth sm:scroll-pt-[72px]"
+      data-scroll-behavior="smooth"
     >
       <head>
         <TruendoScript />
-        <AppVersionScript />
       </head>
       <body className={inter.className}>
         <div className="flex min-h-screen flex-col">

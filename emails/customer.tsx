@@ -1,3 +1,5 @@
+// biome-ignore lint/correctness/noUnusedImports: must import in react-email components
+import * as React from "react";
 import {
   Container,
   Font,
@@ -7,10 +9,9 @@ import {
   Html,
   Link,
   Text,
-} from "@react-email/components";
-// biome-ignore lint/correctness/noUnusedImports: must import in react-email components
-import * as React from "react";
+} from "react-email";
 import OrderSummarySection from "react-email/components/order-summary-section";
+import { getContact } from "~/lib/cms";
 import {
   paymentOptionValueMap,
   shippingOptionValueMap,
@@ -20,7 +21,7 @@ import { kiteMock } from "~/mocks/product.mock";
 
 type CustomerEmailProps = OrderMail;
 
-const CustomerEmail = ({
+const CustomerEmail = async ({
   orderId,
   contact,
   billing,
@@ -33,6 +34,12 @@ const CustomerEmail = ({
   products,
   total,
 }: CustomerEmailProps) => {
+  const contactInfo = await getContact();
+
+  if (!contactInfo) {
+    throw new Error("Missing contact information");
+  }
+
   return (
     <Html>
       <Head>
@@ -67,7 +74,7 @@ const CustomerEmail = ({
           <br />
           <b>
             Ha elküldött rendelésére nem küldök valaszt, kérem rendelését
-            továbbítsa a papirsarkany@fazekas.hu címre, vagy hívjon a
+            továbbítsa a {contactInfo.email} címre, vagy hívjon a
             +36&nbsp;30&nbsp;9754&nbsp;786 telefonszámon!
           </b>
         </Text>

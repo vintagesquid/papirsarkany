@@ -1,5 +1,6 @@
 import { PrismaNeon } from "@prisma/adapter-neon";
 import { PrismaClient } from "../../prisma/generated/client";
+import { isDevEnv } from "./helpers";
 
 declare global {
   var prisma: PrismaClient; // This must be a `var` and not a `let / const`
@@ -14,7 +15,7 @@ const prisma =
     },
   });
 
-if (process.env.NODE_ENV === "development") {
+if (isDevEnv()) {
   globalThis.prisma = prisma;
 }
 

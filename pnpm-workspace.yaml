@@ -1,7 +1,8 @@
-onlyBuiltDependencies:
-  - '@prisma/client'
-  - '@prisma/engines'
-  - '@vercel/speed-insights'
-  - esbuild
-  - prisma
-  - sharp
+allowBuilds:
+  '@prisma/engines': true
+  '@vercel/speed-insights': false
+  esbuild: false
+  prisma: true
+  sharp: false
+minimumReleaseAgeExclude:
+  - sanity-plugin-media@6.1.1

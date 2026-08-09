@@ -1,3 +1,5 @@
+// biome-ignore lint/correctness/noUnusedImports: must import in react-email components
+import * as React from "react";
 import {
   Button,
   Container,
@@ -8,9 +10,7 @@ import {
   Html,
   Section,
   Text,
-} from "@react-email/components";
-// biome-ignore lint/correctness/noUnusedImports: must import in react-email components
-import * as React from "react";
+} from "react-email";
 import OrderSummarySection from "react-email/components/order-summary-section";
 import {
   paymentOptionValueMap,

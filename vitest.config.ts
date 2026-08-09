@@ -32,9 +32,9 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "~": path.resolve(__dirname, "src"),
-      "@sanity/lib": path.resolve(__dirname, "sanity/lib"),
-      "prisma/generated": path.resolve(__dirname, "prisma/generated"),
+      "~": path.resolve(import.meta.dirname, "src"),
+      "@sanity/lib": path.resolve(import.meta.dirname, "sanity/lib"),
+      "prisma/generated": path.resolve(import.meta.dirname, "prisma/generated"),
     },
   },
 });

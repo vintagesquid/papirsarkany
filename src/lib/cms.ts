@@ -57,12 +57,19 @@ export async function getProductById(
   return await client.fetch(getProductByIdQuery, { id });
 }
 
+let cachedContact: GetContactQueryResult | null = null;
 export async function getContact(): Promise<GetContactQueryResult> {
+  if (cachedContact) {
+    return cachedContact;
+  }
+
   const contact = await client.fetch(getContactQuery);
 
   if (!contact) {
     throw new Error("Missing contact infromation");
   }
+
+  cachedContact = contact;
 
   return contact;
 }

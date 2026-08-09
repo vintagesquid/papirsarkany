@@ -20,6 +20,8 @@ export const env = createEnv({
 
     GOOGLE_CLOUD_API_KEY: z.string(),
 
+    CSP_MODE: z.enum(["enforce", "report-only"]).default("report-only"),
+
     // vercel system envs
     VERCEL_ENV: z
       .enum(["preview", "production", "development", "stage"])
@@ -54,6 +56,7 @@ export const env = createEnv({
 
     GOOGLE_CLOUD_API_KEY: process.env.GOOGLE_CLOUD_API_KEY,
 
+    CSP_MODE: process.env.CSP_MODE,
     VERCEL_ENV: process.env.VERCEL_ENV,
     VERCEL_GIT_PULL_REQUEST_ID: process.env.VERCEL_GIT_PULL_REQUEST_ID,
   },
