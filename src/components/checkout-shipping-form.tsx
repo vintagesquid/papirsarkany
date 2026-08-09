@@ -43,7 +43,7 @@ const CheckoutShippingForm: FC<CheckoutShippingFormProps> = ({ contact }) => {
   const isFitInFoxpostLimit = isFitInMaxLimit(totalPackageSize);
 
   const onPersonalPickupOptionClick = () => {
-    if (getValues("shippingOption") === "Személyes átvétel") {
+    if (getValues("shippingOption") === "PersonalPickup") {
       return;
     }
 
@@ -154,7 +154,7 @@ const CheckoutShippingForm: FC<CheckoutShippingFormProps> = ({ contact }) => {
           <ShippingOptionRadioInput
             label={"Személyes átvétel"}
             onClick={onPersonalPickupOptionClick}
-            value="Személyes átvétel"
+            value="PersonalPickup"
             icon={LocalPickUpIcon}
           />
           <ShippingOptionRadioInput
