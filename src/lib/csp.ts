@@ -14,9 +14,7 @@ export const CSP_POLICIES = {
 } as const satisfies Record<string, readonly string[]>;
 
 export const NONCE_PROTECTED_PATHS: readonly string[] = [
-  "/kosar",
   "/penztar",
-  "/sikeres-rendeles",
 ];
 
 const DIRECTIVE_ORDER: readonly string[] = [
