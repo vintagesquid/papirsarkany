@@ -13,9 +13,7 @@ export const CSP_POLICIES = {
   FRAME_SRC: ["'self'", "https://cdn.foxpost.hu"],
 } as const satisfies Record<string, readonly string[]>;
 
-export const NONCE_PROTECTED_PATHS: readonly string[] = [
-  "/penztar",
-];
+export const NONCE_PROTECTED_PATHS: readonly string[] = ["/penztar"];
 
 const DIRECTIVE_ORDER: readonly string[] = [
   "default-src",
