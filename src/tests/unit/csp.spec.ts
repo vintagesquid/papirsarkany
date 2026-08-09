@@ -69,9 +69,7 @@ describe("buildShopPolicy", () => {
 });
 
 describe("CSP_PROTECTED_PATHS", () => {
-  test("covers checkout and cart flows", () => {
-    expect(NONCE_PROTECTED_PATHS).toContain("/kosar");
-    expect(NONCE_PROTECTED_PATHS).toContain("/penztar");
-    expect(NONCE_PROTECTED_PATHS).toContain("/sikeres-rendeles");
+  test("covers only the checkout flow", () => {
+    expect(NONCE_PROTECTED_PATHS).toEqual(["/penztar"]);
   });
 });
