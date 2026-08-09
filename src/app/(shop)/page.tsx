@@ -1,5 +1,5 @@
-import GoogleMapIframe from "src/components/google-map-iframe";
 import Link from "next/link";
+import GoogleMapIframe from "src/components/google-map-iframe";
 import AboutBusinessIcon from "~/assets/about-business.svg";
 import ContactIcon from "~/assets/contact.svg";
 import CraftingIcon from "~/assets/crafting.svg";
