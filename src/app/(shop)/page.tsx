@@ -1,3 +1,4 @@
+import GoogleMapIframe from "src/components/google-map-iframe";
 import AboutBusinessIcon from "~/assets/about-business.svg";
 import ContactIcon from "~/assets/contact.svg";
 import CraftingIcon from "~/assets/crafting.svg";
@@ -117,6 +118,8 @@ export default async function HomePage() {
               <Heading as={"h4"}>{contact.email}</Heading>
               <Heading as={"h4"}>{contact.phoneNumber}</Heading>
             </div>
+
+            <GoogleMapIframe />
           </HomeSection.Content>
         </HomeSection>
       </div>
